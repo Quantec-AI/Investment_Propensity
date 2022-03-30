@@ -57,6 +57,8 @@ function Q6(props) {
         <div>
             <p>Peroid: {Period}</p>
             <p>Purpose: {Purpose}</p>
+            <p>Tolerance: {Tolerance}</p>
+            <p>Literacy: {Literacy}</p>
 
             <h3>{ QnA_6.page }</h3> 
             <h1>{ QnA_6.Question }</h1>

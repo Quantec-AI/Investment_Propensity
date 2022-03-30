@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NextButton from '../component/NextButton';
 
-let QnA_5 = {
+const QnA_5 = {
     page: 5,
     Question: "아는 투자 단어들을 모두 골라주세요!", 
     Answers: [
@@ -100,26 +100,30 @@ let QnA_5 = {
 }
 
 function Q5(props) {
+
+    const [ClassName, setClassName] = useState('sel-button')
+    // const [OnClick, setOnClick] = useState(null)
     const Period = props.location.state.Period.Period;
     const Purpose = props.location.state.Purpose.Purpose;
     const Tolerance = props.location.state.Tolerance.Tolerance;
+
     function SelButton({ answer, value, state }) {
         const onClick = () => {
-          if(state === false) {
-              console.log('선택');
-              state = true;
-              getLiteracy(Literacy + value);
-          }
-          else {
-              console.log('해제');
-              state = false;
-              getLiteracy(Literacy - value);
-          }
+        //   if(state === false) {
+        //       console.log('선택');
+        //       state = true;
+        //       getLiteracy(Literacy + value);
+        //   }
+          setClassName('disa-button');
+        //   setOnClick(null);
+          getLiteracy(Literacy + value);
           console.log(QnA_5.Answers);
         }
+
         return (
             <div>
-                <button className={'sel-button'} value={value} onClick={ onClick }>{answer}</button>
+                {/* {setOnClick(onClick)} */}
+                <button className={ ClassName } value={ value } onClick={ onClick }>{answer}</button>
             </div>
         );
     }
