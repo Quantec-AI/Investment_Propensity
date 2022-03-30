@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-function SelButton(props) {
+function SelButton({ answer, value }) {
     // const [tab, setTab] = useState('sel-button'); //버튼 스타일
     const onClick = () => {
-        props.getTextValue({value});
+        console.log({ value })
     }
     return (
         <div>
-            <button className={'sel-button'} value={props.value}>{props.answer}</button>
+            <button className={'sel-button'} value={value}>{answer}</button>
         </div>
     );
 }

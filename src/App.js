@@ -9,21 +9,19 @@ import Q5 from './pages/Q5';
 import Q6 from './pages/Q6';
 import Start from "./pages/Start";
 import Result from "./pages/Result";
+// import Test from "./pages/Test"
 
 function App() {
-  const [Period, getPeriod] = useState('');
-  const [Purpose, getPurpose] = useState(0);
-  const [Tolerance, getTolerance] = useState(0);
-  const [Literacy, getLiteracy] = useState(0);
-  const [Experience, getExperience] = useState(0);
+  // const [Period, getPeriod] = useState('');
+  // const [Purpose, getPurpose] = useState(0);
+  // const [Tolerance, getTolerance] = useState(0);
+  // const [Literacy, getLiteracy] = useState(0);
+  // const [Experience, getExperience] = useState(0);
 
   return (
     <div className="App">
       <div className="header-nav">
         <div>투자 성향 테스트</div>
-      </div>
-      <div className='score-board'>
-        <p></p>
       </div>
       <Router>
         <Switch>
@@ -35,6 +33,7 @@ function App() {
 	        <Route exact path="/q5" component={Q5} />
 	        <Route exact path="/q6" component={Q6} />
           <Route exact path="/result" component={Result} />
+          {/* <Route exact path="/" component={Test} /> */}
         </Switch>
       </Router>
     </div>

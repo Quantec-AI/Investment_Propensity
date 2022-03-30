@@ -1,5 +1,7 @@
-const qna = {
-    page1: {
+const QnA = [
+    {
+        id:1, 
+        page: 1,
         Question: "투자를 시작한 이유가 궁금해요!", 
         Answers: [
             {
@@ -24,7 +26,9 @@ const qna = {
             }
         ]
     },
-    page2: {
+    {
+        id:2, 
+        page: 2,
         Question: "1억을 투자, 1년동안 이정도는 땡겨야지!", 
         Answers: [
             {
@@ -49,7 +53,9 @@ const qna = {
             }
         ]
     },
-    page3: {
+    {
+        id:3, 
+        page: 3,
         Question: "투자할 때 '손실'에 대한 나의 의견은?", 
         Answers: [
             {
@@ -70,7 +76,9 @@ const qna = {
             }
         ]
     },
-    page4: {
+    {
+        id:4, 
+        page:4,
         Question: "내 자산 10억으로 투자할 상품을 골라주세요!", 
         Answers: [
             {
@@ -100,7 +108,9 @@ const qna = {
             }
         ]
     },
-    page5: {
+    {
+        id:5,
+        page: 5,
         Question: "아는 투자 단어들을 모두 골라주세요!", 
         Answers: [
             {
@@ -165,7 +175,9 @@ const qna = {
             }
         ]
     },
-    page6: {
+    {
+        id:6,
+        page: 6,
         Question: "내가 주식을 시작한지 어언...", 
         Answers: [
             {
@@ -190,4 +202,4 @@ const qna = {
             }
         ]
     }
-};
+];

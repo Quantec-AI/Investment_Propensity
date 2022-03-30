@@ -25,6 +25,12 @@
   margin: 45px;
 }
 
+.small-text {
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: gray;
+}
+
 .sel-button {
   background-color: #eee;
   border: 0 solid #e2e8f0;
