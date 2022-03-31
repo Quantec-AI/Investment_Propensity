@@ -99,6 +99,19 @@ const QnA_5 = {
     ]
 }
 
+function MulSelection({ answer, value, state }) {
+    const onClick = ({value}) => {
+      console.log(value);
+    }
+
+    return (
+        <div>
+            {/* {setOnClick(onClick)} */}
+            <li className={'ell-comp'} value={value} onClick={onClick}>{answer}</li>
+        </div>
+    );
+}
+
 function Q5(props) {
 
     const [ClassName, setClassName] = useState('sel-button')
@@ -106,41 +119,8 @@ function Q5(props) {
     const Period = props.location.state.Period.Period;
     const Purpose = props.location.state.Purpose.Purpose;
     const Tolerance = props.location.state.Tolerance.Tolerance;
-
-    function SelButton({ answer, value, state }) {
-        const onClick = () => {
-        //   if(state === false) {
-        //       console.log('선택');
-        //       state = true;
-        //       getLiteracy(Literacy + value);
-        //   }
-          setClassName('disa-button');
-        //   setOnClick(null);
-          getLiteracy(Literacy + value);
-          console.log(QnA_5.Answers);
-        }
-
-        return (
-            <div>
-                {/* {setOnClick(onClick)} */}
-                <button className={ ClassName } value={ value } onClick={ onClick }>{answer}</button>
-            </div>
-        );
-    }
-    
-    function CalLiteracy({ value, state }) {
-        // Lit_temp = Literacy
-        if(state === true) {
-            // Lit_temp = Lit_temp + value;
-            getLiteracy(Literacy + value);
-            return 0;
-        }
-        else{
-            return 0;
-        }
-    }
     const [Literacy, getLiteracy] = useState(0);
-    let Lit_temp = 0;
+    console.log(QnA_5);
 
     return (
         <div>
@@ -150,12 +130,11 @@ function Q5(props) {
 
             <h3>{ QnA_5.page }</h3> 
             <h1>{ QnA_5.Question }</h1>
-            {QnA_5.Answers.map(answer => (
-                <SelButton key= {answer.id} answer= {answer.Answer} value= {answer.Value} state={answer.State}/>
-            ))}
-            {/* {QnA_5.Answers.map(answer => (
-                <CalLiteracy key= {answer.id} value= {answer.Value} state={answer.State}/>
-            ))} */}
+            <div className={'ell-body'}>
+                {QnA_5.Answers.map(answer => (
+                    <MulSelection key= {answer.id} answer= {answer.Answer} value={answer.Value} />
+                ))}
+            </div>
             <h4>Answer: { Literacy }</h4>
 
             <Link to={{

@@ -43,10 +43,13 @@ function Q4(props) {
     const Period = props.location.state.Period.Period;
     const Purpose = props.location.state.Purpose.Purpose;
     const Tol = props.location.state.Tolerance.Tolerance;
+    const [Tolerance, getTolerance] = useState(Tol);
+    const [Value, getValue] = useState(0);
     function SelButton({ answer, explain, value }) {
         const onClick = () => {
           console.log(value)
-          getTolerance(Tol + value)
+          getTolerance((Tol + value)/2)
+          getValue(value)
         }
         return (
             <div>
@@ -55,7 +58,6 @@ function Q4(props) {
         );
     }
     
-    const [Tolerance, getTolerance] = useState(Tol);
     return (
         <div>
         <p>Peroid: {Period}</p>
@@ -67,7 +69,7 @@ function Q4(props) {
         {QnA_4.Answers.map(answer => (
             <SelButton key= {answer.id} answer= {answer.Answer} explain= {answer.Explain} value= {answer.Value}/>
         ))}
-        <h4>Answer: { Tolerance }</h4>
+        <h4>Answer: { Value }</h4>
 
         <Link to={{
             pathname: "/q5",

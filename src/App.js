@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Q1 from './pages/Q1';
 import Q2 from './pages/Q2';
-import Q3 from './pages/Q3.js';
-import Q4 from './pages/Q4.js';
+import Q3 from './pages/Q3';
+import Q4 from './pages/Q4';
 import Q5 from './pages/Q5';
 import Q6 from './pages/Q6';
 import Start from "./pages/Start";
 import Result from "./pages/Result";
-// import Test from "./pages/Test"
+import Test from "./pages/Test"
 
 function App() {
   // const [Period, getPeriod] = useState('');
@@ -33,7 +33,7 @@ function App() {
 	        <Route exact path="/q5" component={Q5} />
 	        <Route exact path="/q6" component={Q6} />
           <Route exact path="/result" component={Result} />
-          {/* <Route exact path="/" component={Test} /> */}
+          <Route exact path="/test" component={Test} />
         </Switch>
       </Router>
     </div>
