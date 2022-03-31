@@ -99,19 +99,6 @@ const QnA_5 = {
     ]
 }
 
-function MulSelection({ answer, value, state }) {
-    const onClick = ({value}) => {
-      console.log(value);
-    }
-
-    return (
-        <div>
-            {/* {setOnClick(onClick)} */}
-            <li className={'ell-comp'} value={value} onClick={onClick}>{answer}</li>
-        </div>
-    );
-}
-
 function Q5(props) {
 
     const [ClassName, setClassName] = useState('sel-button')
@@ -120,10 +107,52 @@ function Q5(props) {
     const Purpose = props.location.state.Purpose.Purpose;
     const Tolerance = props.location.state.Tolerance.Tolerance;
     const [Literacy, getLiteracy] = useState(0);
-    console.log(QnA_5);
+    const [State, setState] = useState([
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+    ]);
+    // const [Color, setColor] = useState([
+    //     'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp'
+    // ]);
+
+    function MulSelection({ answer, value, id }) {
+        // const [BackC, setBackC] = useState('ell-comp');
+        const onClick = (e) => {
+            if(State[id-1]===false){
+              console.log(answer, 'Value: ',value, 'Toggle State: ',State[id-1], id);
+              getLiteracy( Literacy + value );
+              console.log('Literacy: ' ,Literacy);
+              var newState = [...State];
+              newState[id-1] = true;
+              setState( newState );
+            //   var newColor = [...Color];
+            //   newColor[id-1] = 'ell-sel';
+            //   setColor( newColor );
+            // setBackC('ell-sel');
+              return ;
+            }
+            else{
+              console.log(answer, 'Value: ',value, 'Toggle State: ',State[id-1]);
+              getLiteracy( Literacy - value );
+              var newState = [...State];
+              newState[id-1] = false;
+              setState( newState );
+            //   var newColor = [...Color];
+            //   newColor[id-1] = 'ell-comp';
+            //   setColor( newColor );
+              return ;
+            }
+        };
+    
+        return (
+            <div>
+                <li className={'ell-comp'} value={value} onClick={onClick}>{answer}</li>
+            </div>
+        );
+    }
 
     return (
         <div>
+            {console.log(State)}
             <p>Peroid: {Period}</p>
             <p>Purpose: {Purpose}</p>
             <p>Tolerance: {Tolerance}</p>
@@ -132,7 +161,7 @@ function Q5(props) {
             <h1>{ QnA_5.Question }</h1>
             <div className={'ell-body'}>
                 {QnA_5.Answers.map(answer => (
-                    <MulSelection key= {answer.id} answer= {answer.Answer} value={answer.Value} />
+                    <MulSelection key= {answer.id} id={answer.id} answer= {answer.Answer} value={answer.Value} />
                 ))}
             </div>
             <h4>Answer: { Literacy }</h4>

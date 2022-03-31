@@ -37,21 +37,28 @@ const QnA_2 = {
 function Test(props) {
 
     const [Purpose, getPurpose] = useState(0);
+    const [State, setState] = useState([
+        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+    ]);
     // const Period = props.location.state.Period.Period;
-    function SelButton({ answer, value }) {
-        const [State, setState] = useState(false);
+    function SelButton({ id, answer, value }) {
+        // const [State, setState] = useState(false);
         const onClick = (e) => {
           
-          if(State===false){
+          if(State[id-1]===false){
             getPurpose( Purpose + e.target.value );
             console.log(e.target.value);
-            setState(true);
+            var newState = [...State];
+            newState[id-1] = true;
+            setState( newState );
             console.log(answer, value, State);
-            return ; 
+            return ;
           }
           else{
             getPurpose( Purpose - e.target.value );
-            setState(false);
+            var newState = [...State];
+            newState[id-1] = false;
+            setState( newState );
             console.log(answer, value, State);
             return ;
           }
@@ -70,7 +77,7 @@ function Test(props) {
             <h3>{ QnA_2.page }</h3> 
             <h1> { QnA_2.Question }</h1>
             {QnA_2.Answers.map(answer => (
-                <SelButton key= {answer.id} answer= {answer.Answer} value= {answer.Value}/>
+                <SelButton key= {answer.id} id={answer.id} answer= {answer.Answer} value= {answer.Value}/>
             ))}
             <h4>Answer: { Purpose }</h4>
 
