@@ -1,96 +1,151 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import NextButton from '../component/NextButton';
+import { Link } from 'react-router-dom';
+import NextButton from '../component/NextButton';
 
-const QnA_2 = {
-    page: 2,
-    Question: "1억을 투자, 1년동안 이정도는 땡겨야지!", 
+const QnA_5 = {
+    page: 5,
+    Question: "아는 투자 단어들을 모두 골라주세요!", 
     Answers: [
         {
-            id:1,
-            Answer: "200만원(수익률 2%, 100%확률)", 
-            Value: 0
+            id:1, 
+            Answer: "PER", 
+            Value: 1,
+            State: false
         },
         {
-            id:2,
-            Answer: "500만원(수익률 5%, 80%확률)", 
-            Value: 10
+            id:2, 
+            Answer: "KPI", 
+            Value: -1,
+            State: false
         },
         {
-            id:3,
-            Answer: "1000만원(수익률 10%, 50%확률)", 
-            Value: 20
+            id:3, 
+            Answer: "유상증자", 
+            Value: 1,
+            State: false
         },
         {
-            id:4,
-            Answer: "5000만원(수익률 50%, 20%확률)", 
-            Value: 30
+            id:4, 
+            Answer: "ETF", 
+            Value: 1,
+            State: false
         },
         {
-            id:5,
-            Answer: "1억(수익률 100%, 8%확률)", 
-            Value: 40
+            id:5, 
+            Answer: "세액공제", 
+            Value: -1,
+            State: false
+        },
+        {
+            id:6, 
+            Answer: "공매도", 
+            Value: 1,
+            State: false
+        },
+        {
+            id:7, 
+            Answer: "ROA", 
+            Value: 1,
+            State: false
+        },
+        {
+            id:8, 
+            Answer: "FPS", 
+            Value: -1,
+            State: false
+        },
+        {
+            id:9, 
+            Answer: "인덱스", 
+            Value: 1,
+            State: false
+        },
+        {
+            id:10, 
+            Answer: "MTS", 
+            Value: 1,
+            State: false
+        },
+        {
+            id:11,
+            Answer: "BTS", 
+            Value: -1,
+            State: false
+        },
+        {
+            id:12,
+            Answer: "증거금", 
+            Value: 1,
+            State: false
+        },
+        {
+            id:13,
+            Answer: "코스피", 
+            Value: 1,
+            State: false
+        },
+        {
+            id:14, 
+            Answer: "반모", 
+            Value: -1,
+            State: false
+        },
+        {
+            id:15,
+            Answer: "IPO", 
+            Value: 1,
+            State: false
         }
     ]
 }
 
 function Test(props) {
+    const [Literacy, getLiteracy] = useState(0);
 
-    const [Purpose, getPurpose] = useState(0);
-    const [State, setState] = useState([
-        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-    ]);
-    // const Period = props.location.state.Period.Period;
-    function SelButton({ id, answer, value }) {
-        // const [State, setState] = useState(false);
-        const onClick = (e) => {
-          
-          if(State[id-1]===false){
-            getPurpose( Purpose + e.target.value );
-            console.log(e.target.value);
-            var newState = [...State];
-            newState[id-1] = true;
-            setState( newState );
-            console.log(answer, value, State);
-            return ;
-          }
-          else{
-            getPurpose( Purpose - e.target.value );
-            var newState = [...State];
-            newState[id-1] = false;
-            setState( newState );
-            console.log(answer, value, State);
-            return ;
-          }
-        }
+    function MulSelection({ Answer }) {
+        const value = Answer.Value;
+        const answer = Answer.Answer;
+        const [isPressed, setIsPressed] = useState(false);
+
+        const onClick = () => {
+            Answer.State = !Answer.State;
+            // const state = Answer.State;
+            Answer.State === false ? getLiteracy( Literacy - value ):getLiteracy( Literacy + value ); 
+            // setIsPressed(!isPressed);
+        };
+    
         return (
             <div>
-                <li className={'sel-button'} value={value} onClick={ onClick }>{answer}</li>
+                <li className={'ell-comp'} value={value} onClick={onClick} style={{backgroundColor: Answer.State ? '#a6cee3':'#eee'}}>{answer}</li>
             </div>
         );
     }
 
     return (
         <div>
-            {/* <p>Peroid: {Period}</p> */}
 
-            <h3>{ QnA_2.page }</h3> 
-            <h1> { QnA_2.Question }</h1>
-            {QnA_2.Answers.map(answer => (
-                <SelButton key= {answer.id} id={answer.id} answer= {answer.Answer} value= {answer.Value}/>
-            ))}
-            <h4>Answer: { Purpose }</h4>
+            <h3>{ QnA_5.page }</h3> 
+            <h1>{ QnA_5.Question }</h1>
+            <div className={'ell-body'}>
+                {QnA_5.Answers.map(answer => (
+                    <MulSelection key= {answer.id} Answer={answer} />
+                ))}
+            </div>
+            <h4>Answer: { Literacy }</h4>
 
             {/* <Link to={{
-                pathname: "/q3",
+                pathname: "/q6",
                 state: {
                     Period: {Period},
                     Purpose: {Purpose},
-                    Tolerance: 0,
-                    Literacy: 0,
+                    Tolerance: {Tolerance},
+                    Literacy: {Literacy},
                     Experience: 0
                 }
-            }}><NextButton/></Link> */}
+            }}>
+                <NextButton/>
+            </Link>    */}
+            
         </div>
     );
 }

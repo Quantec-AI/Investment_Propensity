@@ -9,27 +9,32 @@ const QnA_6 = {
         {
             id:1, 
             Answer: "6개월 이하", 
-            Value: 0
+            Value: 0,
+            State: false
         },
         {
             id:2, 
             Answer: "7개월 ~ 1년", 
-            Value: 10
+            Value: 10,
+            State: false
         },
         {
             id:3,
             Answer: "1년 ~ 5년", 
-            Value: 20
+            Value: 20,
+            State: false
         },
         {
             id:4,
             Answer: "5년 ~ 10년", 
-            Value: 30
+            Value: 30,
+            State: false
         },
         {
             id:5,
             Answer: "10년 이상", 
-            Value: 40
+            Value: 40,
+            State: false
         }
     ]
 }
@@ -39,23 +44,32 @@ function Q6(props) {
     const Purpose = props.location.state.Purpose.Purpose;
     const Tolerance = props.location.state.Tolerance.Tolerance;
     const Literacy = props.location.state.Literacy.Literacy;
-    function SelButton({ answer, value }) {
+
+    const [Experience, getExperience] = useState('Not Selected!');
+
+    function SelButton({ Answer }) {
+
+        const value = Answer.Value;
+        const answer = Answer.Answer;
+
         const onClick = () => {
-          console.log(value);
-          getExperience(value);
+            {QnA_6.Answers.map(answer => (
+                answer.State = false
+            ))}
+            Answer.State = !Answer.State;
+            console.log(value);
+            getExperience(value);
         }
         return (
             <div>
-                <button className={'sel-button'} value={value} onClick={ onClick }>{answer}</button>
+                <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#a6cee3':'#eee'}}>{answer}</button>
             </div>
         );
     }
-    
-    const [Experience, getExperience] = useState(0);
 
     return (
         <div>
-            <p>Peroid: {Period}</p>
+            <p>Period: {Period}</p>
             <p>Purpose: {Purpose}</p>
             <p>Tolerance: {Tolerance}</p>
             <p>Literacy: {Literacy}</p>
@@ -63,9 +77,9 @@ function Q6(props) {
             <h3>{ QnA_6.page }</h3> 
             <h1>{ QnA_6.Question }</h1>
             {QnA_6.Answers.map(answer => (
-                <SelButton key= {answer.id} answer= {answer.Answer} value= {answer.Value}/>
+                <SelButton key= {answer.id} Answer= {answer}/>
             ))}
-            <h4>Answer: { Tolerance }</h4>
+            <h4>Answer: { Experience }</h4>
 
             <Link to={{
                 pathname: "/result",

@@ -7,7 +7,6 @@ function Start() {
   return (
     <div className="App">
       <Link to="/q1"><NextButton/></Link>
-      
     </div>
   );
 }

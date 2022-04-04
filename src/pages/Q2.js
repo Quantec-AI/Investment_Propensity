@@ -9,55 +9,70 @@ const QnA_2 = {
         {
             id:1,
             Answer: "200만원(수익률 2%, 100%확률)", 
-            Value: 0
+            Value: 0,
+            State: false
         },
         {
             id:2,
             Answer: "500만원(수익률 5%, 80%확률)", 
-            Value: 10
+            Value: 10,
+            State: false
         },
         {
             id:3,
             Answer: "1000만원(수익률 10%, 50%확률)", 
-            Value: 20
+            Value: 20,
+            State: false
         },
         {
             id:4,
             Answer: "5000만원(수익률 50%, 20%확률)", 
-            Value: 30
+            Value: 30,
+            State: false
         },
         {
             id:5,
             Answer: "1억(수익률 100%, 8%확률)", 
-            Value: 40
+            Value: 40,
+            State: false
         }
     ]
 }
 
 function Q2(props) {
     const Period = props.location.state.Period.Period;
-    function SelButton({ answer, value }) {
+
+    const [Purpose, getPurpose] = useState('Not Selected!');
+
+    function SelButton({ Answer }) {
+
+        const value = Answer.Value;
+        const answer = Answer.Answer;
+
         const onClick = () => {
-          console.log(value)
-          getPurpose(value)
+            {QnA_2.Answers.map(answer => (
+                answer.State = false
+            ))}
+            Answer.State = !Answer.State;
+            console.log(value);
+            getPurpose(value);
         }
         return (
             <div>
-                <button className={'sel-button'} value={value} onClick={ onClick }>{answer}</button>
+                <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#a6cee3':'#eee'}}>{answer}</button>
             </div>
         );
     }
     
-    const [Purpose, getPurpose] = useState(0);
 
     return (
         <div>
-            <p>Peroid: {Period}</p>
+            <p>Period: {Period}</p>
 
             <h3>{ QnA_2.page }</h3> 
             <h1> { QnA_2.Question }</h1>
             {QnA_2.Answers.map(answer => (
-                <SelButton key= {answer.id} answer= {answer.Answer} value= {answer.Value}/>
+                <SelButton key= {answer.id} Answer= {answer}/>
             ))}
             <h4>Answer: { Purpose }</h4>
 

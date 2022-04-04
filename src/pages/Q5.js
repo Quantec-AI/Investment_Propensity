@@ -15,7 +15,7 @@ const QnA_5 = {
         {
             id:2, 
             Answer: "KPI", 
-            Value: -1,
+            Value: -2,
             State: false
         },
         {
@@ -33,7 +33,7 @@ const QnA_5 = {
         {
             id:5, 
             Answer: "세액공제", 
-            Value: -1,
+            Value: -2,
             State: false
         },
         {
@@ -51,7 +51,7 @@ const QnA_5 = {
         {
             id:8, 
             Answer: "FPS", 
-            Value: -1,
+            Value: -2,
             State: false
         },
         {
@@ -69,7 +69,7 @@ const QnA_5 = {
         {
             id:11,
             Answer: "BTS", 
-            Value: -1,
+            Value: -2,
             State: false
         },
         {
@@ -87,7 +87,7 @@ const QnA_5 = {
         {
             id:14, 
             Answer: "반모", 
-            Value: -1,
+            Value: -2,
             State: false
         },
         {
@@ -101,59 +101,33 @@ const QnA_5 = {
 
 function Q5(props) {
 
-    const [ClassName, setClassName] = useState('sel-button')
-    // const [OnClick, setOnClick] = useState(null)
     const Period = props.location.state.Period.Period;
     const Purpose = props.location.state.Purpose.Purpose;
     const Tolerance = props.location.state.Tolerance.Tolerance;
     const [Literacy, getLiteracy] = useState(0);
-    const [State, setState] = useState([
-        false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-    ]);
-    // const [Color, setColor] = useState([
-    //     'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp', 'ell-comp'
-    // ]);
 
-    function MulSelection({ answer, value, id }) {
-        // const [BackC, setBackC] = useState('ell-comp');
-        const onClick = (e) => {
-            if(State[id-1]===false){
-              console.log(answer, 'Value: ',value, 'Toggle State: ',State[id-1], id);
-              getLiteracy( Literacy + value );
-              console.log('Literacy: ' ,Literacy);
-              var newState = [...State];
-              newState[id-1] = true;
-              setState( newState );
-            //   var newColor = [...Color];
-            //   newColor[id-1] = 'ell-sel';
-            //   setColor( newColor );
-            // setBackC('ell-sel');
-              return ;
-            }
-            else{
-              console.log(answer, 'Value: ',value, 'Toggle State: ',State[id-1]);
-              getLiteracy( Literacy - value );
-              var newState = [...State];
-              newState[id-1] = false;
-              setState( newState );
-            //   var newColor = [...Color];
-            //   newColor[id-1] = 'ell-comp';
-            //   setColor( newColor );
-              return ;
-            }
+    function MulSelection({ Answer }) {
+        const value = Answer.Value;
+        const answer = Answer.Answer;
+
+        const onClick = () => {
+            Answer.State = !Answer.State;
+            // const state = Answer.State;
+            Answer.State === false ? getLiteracy( Literacy - value ):getLiteracy( Literacy + value ); 
+            console.log(value);
         };
     
         return (
             <div>
-                <li className={'ell-comp'} value={value} onClick={onClick}>{answer}</li>
+                <li className={'ell-comp'} value={value} onClick={onClick} style={{backgroundColor: Answer.State ? '#a6cee3':'#eee'}}>{answer}</li>
             </div>
         );
     }
 
     return (
         <div>
-            {console.log(State)}
-            <p>Peroid: {Period}</p>
+            {/* {console.log(State)} */}
+            <p>Period: {Period}</p>
             <p>Purpose: {Purpose}</p>
             <p>Tolerance: {Tolerance}</p>
 
@@ -161,7 +135,7 @@ function Q5(props) {
             <h1>{ QnA_5.Question }</h1>
             <div className={'ell-body'}>
                 {QnA_5.Answers.map(answer => (
-                    <MulSelection key= {answer.id} id={answer.id} answer= {answer.Answer} value={answer.Value} />
+                    <MulSelection key= {answer.id} Answer={answer} />
                 ))}
             </div>
             <h4>Answer: { Literacy }</h4>
