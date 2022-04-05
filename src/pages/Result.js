@@ -136,35 +136,35 @@ const Result_1 = {
 }
 
 function Result(props) {
-  const [RPeriod, getRPeriod] = useState({
-    id: 0,
-    Quest: "Nothing",
-    Value: 0
-  });
-  const [RPurpose, getRPurpose] = useState({
-      id: 0,
-      Grade: "0등급",
-      Name: "Nothing",
-      Value: 0
-    });
-  const [RTolerance, getRTolerance] = useState({
-    id: 0,
-    Grade: '0등급', 
-    Name: 'Notiong',
-    Value: 0
-  });
-  const [RLiteracy, getRLiteracy] = useState({
-    id: 0,
-    Grade: '0등급', 
-    Name: 'Notiong',
-    Value: 0
-  });
-  const [RExperience, getRExperience] = useState({
-    id: 0,
-    Grade: '0등급', 
-    Name: 'Notiong',
-    Value: 0
-  });
+  // const [RPeriod, getRPeriod] = useState({
+  //   id: 0,
+  //   Quest: "Nothing",
+  //   Value: 0
+  // });
+  // const [RPurpose, getRPurpose] = useState({
+  //     id: 0,
+  //     Grade: "0등급",
+  //     Name: "Nothing",
+  //     Value: 0
+  //   });
+  // const [RTolerance, getRTolerance] = useState({
+  //   id: 0,
+  //   Grade: '0등급', 
+  //   Name: 'Notiong',
+  //   Value: 0
+  // });
+  // const [RLiteracy, getRLiteracy] = useState({
+  //   id: 0,
+  //   Grade: '0등급', 
+  //   Name: 'Notiong',
+  //   Value: 0
+  // });
+  // const [RExperience, getRExperience] = useState({
+  //   id: 0,
+  //   Grade: '0등급', 
+  //   Name: 'Notiong',
+  //   Value: 0
+  // });
 
   const Period = props.location.state.Period.Period;
   const Purpose = props.location.state.Purpose.Purpose;
@@ -172,72 +172,99 @@ function Result(props) {
   const Literacy = props.location.state.Literacy.Literacy;
   const Experience = props.location.state.Experience.Experience;
 
-  // console.log(Period);
-  // function GetGrade({per, pur, tol, lit, exp}) {
-  //   //투자기간
-    
-  //   // 투자목적
-  //   // if(pur>25) {
-  //   //   return getRPurpose(Result_1.투자목적[0]);
-  //   // }
-  //   //위험감내수준
+  const Quest = '퀘스트';
+  const Weapon = {weapon: '', power: 0};
+  const Shield = {shield: '', power: 0};
+  const Score = 0;
 
-  //   //금융이해도
+  // const [Quest, setQuest] = useState('퀘스트');
+  // const [Weapon, setWeapon] = useState({weapon: '', power: false});
+  // const [Shield, setShield] = useState({shield: '', power: false});
+  // const [Score, getScore] = useState(0);
 
-  //   //투자경험
-
+  // function SetPeriod({ P }) {
+  //   if(P === '장기') {
+  //     setQuest(Result_1.투자기간[0].Quest);
+  //     getScore(Score + Result_1.투자기간[0].Value);
+  //     console.log('Quest is ', Quest);
+  //     console.log('Score is ', Score);
+  //   } else if (P === '중장기') { 
+  //     setQuest(Result_1.투자기간[1].Quest);
+  //     getScore(Score + Result_1.투자기간[1].Value);
+  //     console.log('Quest is ', Quest);
+  //     console.log('Score is ', Score);
+  //   } else if (P === '중기_결혼') {
+  //     setQuest(Result_1.투자기간[2].Quest);
+  //     getScore(Score + Result_1.투자기간[2].Value);
+  //     console.log('Quest is ', Quest);
+  //     console.log('Score is ', Score);
+  //   } else if (P === '중기_집_차') {
+  //     setQuest(Result_1.투자기간[3].Quest);
+  //     getScore(Score + Result_1.투자기간[3].Value);
+  //     console.log('Quest is ', Quest);
+  //     console.log('Score is ', Score);
+  //   } else if (P === '단기') {
+  //     setQuest(Result_1.투자기간[4].Quest);
+  //     getScore(Score + Result_1.투자기간[4].Value);
+  //     console.log('Quest is ', Quest);
+  //     console.log('Score is ', Score);
+  //   } else {
+  //     console.log('No result');
+  //   }
   //   return (
   //     <div>
-  //       <p>{RPeriod}</p>
+  //       <h2>Quest</h2>
+  //       <div>{Quest}</div>
   //     </div>
   //   );
   // }
 
-  // switch(Period) {
-  //   case '장기' :
-  //     return getRPeriod((prevState) => {
-  //       return {...prevState, id: Result_1.투자기간[0].id, Quest: Result_1.투자기간[0].Quest, Value: Result_1.투자기간[0].Value }
-  //     });
-  //   case '중장기' :
-  //     return getRPeriod((prevState) => {
-  //       return{...prevState, id: Result_1.투자기간[1].id, Quest: Result_1.투자기간[1].Quest, Value: Result_1.투자기간[1].Value }
-  //     });
-  //   case '중기_결혼':
-  //     return getRPeriod((prevState) => {
-  //       return{...prevState, id: Result_1.투자기간[2].id, Quest: Result_1.투자기간[2].Quest, Value: Result_1.투자기간[2].Value }
-  //     });
-  //   case '중기_집_차':
-  //     return getRPeriod((prevState) => {
-  //       return{...prevState, id: Result_1.투자기간[3].id, Quest: Result_1.투자기간[3].Quest, Value: Result_1.투자기간[3].Value }
-  //     });
-  //   case '단기':
-  //     return getRPeriod((prevState) => {
-  //       return{...prevState, id: Result_1.투자기간[4].id, Quest: Result_1.투자기간[4].Quest, Value: Result_1.투자기간[4].Value }
-  //     });
+  // function SetPeriod({ P }) {
+  //   switch(P) {
+  //     case '장기':
+  //       setQuest(Result_1.투자기간[0].Quest);
+  //       getScore(Score + Result_1.투자기간[0].Value);
+  //       console.log('Quest is ', Quest);
+  //       console.log('Score is ', Score);
+  //     break;
+  //     case '중장기':
+  //       setQuest(Result_1.투자기간[1].Quest);
+  //       getScore(Score + Result_1.투자기간[1].Value);
+  //       console.log('Quest is ', Quest);
+  //       console.log('Score is ', Score);
+  //     break;
+  //     case '중기_결혼':
+  //       setQuest(Result_1.투자기간[2].Quest);
+  //       getScore(Score + Result_1.투자기간[2].Value);
+  //       console.log('Quest is ', Quest);
+  //       console.log('Score is ', Score);
+  //     break;
+  //     case '중기_집_차':
+  //       setQuest(Result_1.투자기간[3].Quest);
+  //       getScore(Score + Result_1.투자기간[3].Value);
+  //       console.log('Quest is ', Quest);
+  //       console.log('Score is ', Score);
+  //     break;
+  //     case '단기':
+  //       setQuest(Result_1.투자기간[4].Quest);
+  //       getScore(Score + Result_1.투자기간[4].Value);
+  //       console.log('Quest is ', Quest);
+  //       console.log('Score is ', Score);
+  //     break;
+  //     default:
+  //       console.log('No result');
+  //   }
+  //   return null;
   // }
-
-  if(Period === '장기') {
-    console.log(Period);
-    return getRPeriod((prevState) => {
-      return {...prevState, id: Result_1.투자기간[0].id, Quest: Result_1.투자기간[0].Quest, Value: Result_1.투자기간[0].Value }
-    });
-  }
-
-  console.log(Period);
 
   return (
     <div className="App">
+
       <ul>{Period}</ul>
       <ul>{Purpose}</ul>
       <ul>{Tolerance}</ul>
       <ul>{Literacy}</ul>
       <ul>{Experience}</ul>
-      {/* <GetGrade per={Period} pur={Purpose}/> */}
-      <p>{RPeriod}</p>
-      <p>{RPurpose}</p>
-      <p>{RTolerance}</p>
-      <p>{RLiteracy}</p>
-      <p>{RExperience}</p>
     </div>
   );
 }
