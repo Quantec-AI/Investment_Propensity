@@ -172,90 +172,69 @@ function Result(props) {
   const Literacy = props.location.state.Literacy.Literacy;
   const Experience = props.location.state.Experience.Experience;
 
-  const Quest = '퀘스트';
-  const Weapon = {weapon: '', power: 0};
-  const Shield = {shield: '', power: 0};
-  const Score = 0;
+  const idx_array = [-1, -1, -1, -1, -1]; //투자기간, 투자목적, 위험감내도, 금융이해도, 투자경험
 
-  // const [Quest, setQuest] = useState('퀘스트');
-  // const [Weapon, setWeapon] = useState({weapon: '', power: false});
-  // const [Shield, setShield] = useState({shield: '', power: false});
-  // const [Score, getScore] = useState(0);
+  let Quest = '퀘스트';
+  let Weapon = {weapon: '', power: 0};
+  let Shield = {shield: '', power: 0};
+  let Score = 0;
 
-  // function SetPeriod({ P }) {
-  //   if(P === '장기') {
-  //     setQuest(Result_1.투자기간[0].Quest);
-  //     getScore(Score + Result_1.투자기간[0].Value);
-  //     console.log('Quest is ', Quest);
-  //     console.log('Score is ', Score);
-  //   } else if (P === '중장기') { 
-  //     setQuest(Result_1.투자기간[1].Quest);
-  //     getScore(Score + Result_1.투자기간[1].Value);
-  //     console.log('Quest is ', Quest);
-  //     console.log('Score is ', Score);
-  //   } else if (P === '중기_결혼') {
-  //     setQuest(Result_1.투자기간[2].Quest);
-  //     getScore(Score + Result_1.투자기간[2].Value);
-  //     console.log('Quest is ', Quest);
-  //     console.log('Score is ', Score);
-  //   } else if (P === '중기_집_차') {
-  //     setQuest(Result_1.투자기간[3].Quest);
-  //     getScore(Score + Result_1.투자기간[3].Value);
-  //     console.log('Quest is ', Quest);
-  //     console.log('Score is ', Score);
-  //   } else if (P === '단기') {
-  //     setQuest(Result_1.투자기간[4].Quest);
-  //     getScore(Score + Result_1.투자기간[4].Value);
-  //     console.log('Quest is ', Quest);
-  //     console.log('Score is ', Score);
-  //   } else {
-  //     console.log('No result');
-  //   }
-  //   return (
-  //     <div>
-  //       <h2>Quest</h2>
-  //       <div>{Quest}</div>
-  //     </div>
-  //   );
-  // }
+  function SetPeriod() { //투자 기간 Index 세팅
+    let idx = -1;
+    console.log('투자 기간 응답: ', Period);
+    if(Period === '장기') {
+      idx = 0;
+      console.log('Period Index: ', idx);
+    } else if (Period === '중장기') { 
+      idx = 1;
+      console.log('Period Index: ', idx);
+    } else if (Period === '중기_결혼') {
+      idx = 2;
+      console.log('Period Index: ', idx);
+    } else if (Period === '중기_집_차') {
+      idx = 3;
+      console.log('Period Index: ', idx);
+    } else if (Period === '단기') {
+      idx = 4;
+      console.log('Period Index: ', idx);
+    } else {
+      console.log('No result');
+    }
 
-  // function SetPeriod({ P }) {
-  //   switch(P) {
-  //     case '장기':
-  //       setQuest(Result_1.투자기간[0].Quest);
-  //       getScore(Score + Result_1.투자기간[0].Value);
-  //       console.log('Quest is ', Quest);
-  //       console.log('Score is ', Score);
-  //     break;
-  //     case '중장기':
-  //       setQuest(Result_1.투자기간[1].Quest);
-  //       getScore(Score + Result_1.투자기간[1].Value);
-  //       console.log('Quest is ', Quest);
-  //       console.log('Score is ', Score);
-  //     break;
-  //     case '중기_결혼':
-  //       setQuest(Result_1.투자기간[2].Quest);
-  //       getScore(Score + Result_1.투자기간[2].Value);
-  //       console.log('Quest is ', Quest);
-  //       console.log('Score is ', Score);
-  //     break;
-  //     case '중기_집_차':
-  //       setQuest(Result_1.투자기간[3].Quest);
-  //       getScore(Score + Result_1.투자기간[3].Value);
-  //       console.log('Quest is ', Quest);
-  //       console.log('Score is ', Score);
-  //     break;
-  //     case '단기':
-  //       setQuest(Result_1.투자기간[4].Quest);
-  //       getScore(Score + Result_1.투자기간[4].Value);
-  //       console.log('Quest is ', Quest);
-  //       console.log('Score is ', Score);
-  //     break;
-  //     default:
-  //       console.log('No result');
-  //   }
-  //   return null;
-  // }
+    // Quest = Result_1.투자기간[idx].Quest;
+    // Score = Score + Result_1.투자기간[idx].Value;
+    // console.log('Quest is ', Quest);
+    // console.log('Score is ', Score);
+
+    return idx;
+  }
+  function SetPurpose() { //투자 목적 Index 세팅
+    let idx = -1;
+    console.log('투자 목적 응답: ', Purpose);
+    if(Purpose >= 26) {
+      idx = 0;
+      console.log('Purpose Index: ', idx);
+    } else if (Purpose > 16 && Purpose < 26) { 
+      idx = 1;
+      console.log('Purpose Index: ', idx);
+    } else if (Purpose > 6 && Purpose < 16) {
+      idx = 2;
+      console.log('Purpose Index: ', idx);
+    } else if (Purpose <= 6) {
+      idx = 3;
+      console.log('Purpose Index: ', idx);
+    } else {
+      console.log('No result');
+    }
+
+    // Quest = Result_1.투자기간[idx].Quest;
+    // Score = Score + Result_1.투자기간[idx].Value;
+    // console.log('Quest is ', Quest);
+    // console.log('Score is ', Score);
+
+    return idx;
+  }
+
 
   return (
     <div className="App">
@@ -265,6 +244,15 @@ function Result(props) {
       <ul>{Tolerance}</ul>
       <ul>{Literacy}</ul>
       <ul>{Experience}</ul>
+      {idx_array[0] = <SetPeriod/>}
+      {idx_array[1] = <SetPurpose/>}
+      <div>Period: {idx_array[0]}</div>
+      <div>Purpose: {idx_array[1]}</div>
+      <div>Tolerance: {idx_array[2]}</div>
+      <div>Literacy: {idx_array[3]}</div>
+      <div>Experience: {idx_array[4]}</div>
+      <ul>Quest: {Quest} </ul>
+      <ul>Score: {Score} </ul>
     </div>
   );
 }
