@@ -184,8 +184,6 @@ function First_Result(props) {
           </h3>
         </div>
       </div>
-      {/* <h1>당신의 캐릭터는 아마도...</h1> */}
-
     </div>
   );
 }
