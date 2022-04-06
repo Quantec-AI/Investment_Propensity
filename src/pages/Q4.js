@@ -1,55 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NextButton from '../component/NextButton';
+import QNA from '../content/QNA'
 
-const QnA_4 = {
-    page:4,
-    Question: "내 자산 10억으로 투자할 상품을 골라주세요!", 
-    Answers: [
-        {
-            id:1,
-            Answer: "초저위험 상품", 
-            Explain: "(최선의 경우 100만원 이익, 최악의 경우 0원 손실)",
-            Value: 0,
-            State: false
-        },
-        {
-            id:2,
-            Answer: "저위험 상품", 
-            Explain: "(최선의 경우 300만원 이익, 최악의 경우 100만원 손실)",
-            Value: 8,
-            State: false
-        },
-        {
-            id:3,
-            Answer: "중위험 상품", 
-            Explain: "(최선의 경우 천만원 이익, 최악의 경우 300만원 손실)",
-            Value: 16,
-            State: false
-        },
-        {
-            id:4,
-            Answer: "고위험 상품",
-            Explain: "(최선의 경우 3천만원 이익, 최악의 경우 천만원 손실)",
-            Value: 24,
-            State: false
-        },
-        {
-            id:5,
-            Answer: "초고위험 상품", 
-            Explain: "(최선의 경우 5천만원 이익, 최악의 경우 2천만원 손실)",
-            Value: 30,
-            State: false
-        }
-    ]
-}
+const QnA_4 = QNA[3];
 
 function Q4(props) {
     const Period = props.location.state.Period.Period;
     const Purpose = props.location.state.Purpose.Purpose;
     const Tol = props.location.state.Tolerance.Tolerance;
     const [Tolerance, getTolerance] = useState(Tol);
-    const [Value, getValue] = useState('Not Selected!');
     function SelButton({ Answer }) {
 
         const value = Answer.Value;
@@ -57,20 +17,19 @@ function Q4(props) {
         const explain = Answer.Explain;
 
         const onClick = () => {
-            {QnA_4.Answers.map(answer => (
+            QnA_4.Answers.map(answer => (
                 answer.State = false
-            ))}
+            ));
             Answer.State = !Answer.State;
             getTolerance((Tol + value)/2);
-            console.log(value);
-            getValue(value);
+            console.log(answer);
         }
         return (
             <div>
-                <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#a6cee3':'#eee'}}>
+                <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>
                     {answer}
                     <br/>
-                    <span className={'small-text'}>
+                    <span className={'small-text'} style={{color: Answer.State && '#F2F2F2'}}>
                         {explain}
                     </span>
                 </button>
@@ -79,17 +38,16 @@ function Q4(props) {
     }
     
     return (
-        <div>
-        <p>Period: {Period}</p>
+        <div className="App">
+        {/* <p>Period: {Period}</p>
         <p>Purpose: {Purpose}</p>
-        <p>Tolerance: {Tol}</p>
+        <p>Tolerance: {Tol}</p> */}
 
-        <h3>{ QnA_4.page }</h3> 
-        <h1>{ QnA_4.Question }</h1>
+        <h3 className='page'>{ QnA_4.page }</h3> 
+        <h1 className='question'>{ QnA_4.Question }</h1>
         {QnA_4.Answers.map(answer => (
             <SelButton key= {answer.id} Answer= {answer}/>
         ))}
-        <h4>Answer: { Value }</h4>
 
         <Link to={{
             pathname: "/q5",

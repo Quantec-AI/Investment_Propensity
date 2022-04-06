@@ -1,103 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NextButton from '../component/NextButton';
+import QNA from '../content/QNA'
 
-const QnA_5 = {
-    page: 5,
-    Question: "아는 투자 단어들을 모두 골라주세요!", 
-    Answers: [
-        {
-            id:1, 
-            Answer: "PER", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:2, 
-            Answer: "KPI", 
-            Value: -2,
-            State: false
-        },
-        {
-            id:3, 
-            Answer: "유상증자", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:4, 
-            Answer: "ETF", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:5, 
-            Answer: "세액공제", 
-            Value: -2,
-            State: false
-        },
-        {
-            id:6, 
-            Answer: "공매도", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:7, 
-            Answer: "ROA", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:8, 
-            Answer: "FPS", 
-            Value: -2,
-            State: false
-        },
-        {
-            id:9, 
-            Answer: "인덱스", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:10, 
-            Answer: "MTS", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:11,
-            Answer: "BTS", 
-            Value: -2,
-            State: false
-        },
-        {
-            id:12,
-            Answer: "증거금", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:13,
-            Answer: "코스피", 
-            Value: 1,
-            State: false
-        },
-        {
-            id:14, 
-            Answer: "반모", 
-            Value: -2,
-            State: false
-        },
-        {
-            id:15,
-            Answer: "IPO", 
-            Value: 1,
-            State: false
-        }
-    ]
-}
+const QnA_5 = QNA[4];
 
 function Q5(props) {
 
@@ -114,31 +20,32 @@ function Q5(props) {
             Answer.State = !Answer.State;
             // const state = Answer.State;
             Answer.State === false ? getLiteracy( Literacy - value ):getLiteracy( Literacy + value ); 
-            console.log(value);
+            console.log(answer);
         };
     
         return (
             <div>
-                <li className={'ell-comp'} value={value} onClick={onClick} style={{backgroundColor: Answer.State ? '#a6cee3':'#eee'}}>{answer}</li>
+                {/* <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</button> */}
+                <li className={'ell-comp'} value={value} onClick={onClick} style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</li>
             </div>
         );
     }
 
     return (
-        <div>
+        <div className="App">
             {/* {console.log(State)} */}
-            <p>Period: {Period}</p>
+            {/* <p>Period: {Period}</p>
             <p>Purpose: {Purpose}</p>
-            <p>Tolerance: {Tolerance}</p>
+            <p>Tolerance: {Tolerance}</p> */}
 
-            <h3>{ QnA_5.page }</h3> 
-            <h1>{ QnA_5.Question }</h1>
+            <h3 className='page'>{ QnA_5.page }</h3> 
+            <h1 className='question'>{ QnA_5.Question }</h1>
             <div className={'ell-body'}>
                 {QnA_5.Answers.map(answer => (
                     <MulSelection key= {answer.id} Answer={answer} />
                 ))}
             </div>
-            <h4>Answer: { Literacy }</h4>
+            <div style={{paddingTop: '2rem'}}></div>
 
             <Link to={{
                 pathname: "/q6",
