@@ -19,6 +19,7 @@
   text-align: center;
   font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
   padding-top: 3rem;
+  height: 100%;
   /* width: 486px; */
   /* display: inline-block; */
 }
@@ -73,11 +74,43 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin-bottom: 5rem;
 }
 
 .next:hover {
   background-color: coral;
   color: #fefdfe;
+}
+
+.disabled-link {
+  pointer-events: none;
+}
+
+.link {
+  pointer-events: all;
+}
+
+.dis_next {
+  border-radius: 8px;
+  border-width: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 5rem;
+  background-color: #a4a4a4;
+  color: #c6c6c6;
 }
 
 .small-text {
@@ -96,18 +129,18 @@
   font-size: 1rem;
   font-weight: 500;
   line-height: 1;
-  padding: 2rem;
-  max-width: 380px;
+  padding: 1.5rem;
+  max-width: 360px;
   width: 24rem;
   text-align: center;
   text-decoration: none #0d172a solid;
   text-decoration-thickness: auto;
-  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  transition: all .3s cubic-bezier(.4, 0, .2, 1);
   box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-bottom: 24px;
+  margin-bottom: 2rem;
 }
 
 .sel-button:hover {
@@ -144,7 +177,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin: 10px;
+  margin: 1.5rem;
 }
 
 .ell-comp:hover {
@@ -153,28 +186,24 @@
 }
 
 .Quest {
-  /* margin-left: 3rem; */
   display: inline-block;
   width: 40%;
-  /* padding: 0.5rem; */
   padding: 0.5rem 2.5rem;
   padding-bottom: 1rem;
   border-radius: 2rem;
   background-color: #fefdfe;
   border: solid 2px #bdbdbd;
-  margin-bottom: 3rem;
   font-family: 'DungGeunMo';
   text-align: left;
 }
 
 .Column {
-  float: left;
   width: 50%;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .sel-button {
     font-size: 1.125rem;
     padding: 1rem 2rem;
   }
-}
+} */

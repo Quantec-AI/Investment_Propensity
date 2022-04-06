@@ -46,16 +46,18 @@ function Q6(props) {
                 <SelButton key= {answer.id} Answer= {answer}/>
             ))}
 
-            <Link to={{
-                pathname: "/fresult",
-                state: {
-                    Period: {Period},
-                    Purpose: {Purpose},
-                    Tolerance: {Tolerance},
-                    Literacy: {Literacy},
-                    Experience: {Experience}
-                }
-            }}><NextButton/></Link>            
+            <div style={{display:'inline-block'}}>
+                <Link to={{
+                    pathname: "/fresult",
+                    state: {
+                        Period: {Period},
+                        Purpose: {Purpose},
+                        Tolerance: {Tolerance},
+                        Literacy: {Literacy},
+                        Experience: {Experience}
+                    }
+                }}><NextButton/></Link>  
+            </div>
         </div>
     );
 }

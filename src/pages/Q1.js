@@ -9,6 +9,8 @@ const QnA_1 = QNA[0];
 function Q1() {
 
   const [Period, getPeriod] = useState('Not Selected!');
+  const [Bool, setBool] = useState(false);
+  // let Bool = true;
 
   function SelButton({ Answer }) {
     const value = Answer.Value;
@@ -19,6 +21,8 @@ function Q1() {
           answer.State = false
       ));
       Answer.State = !Answer.State;
+      setBool(true);
+      // Bool = true;
       console.log(answer);
       getPeriod(value);
     }
@@ -37,16 +41,18 @@ function Q1() {
         <SelButton key= {answer.id} Answer={answer}/>
       ))}
 
-      <Link to={{
-        pathname: "/q2",
-        state: {
-          Period: {Period},
-          Purpose: 0,
-          Tolerance: 0,
-          Literacy: 0,
-          Experience: 0
-        }
-      }}><NextButton/></Link>
+      <div style={{display:'inline-block'}}>
+        <Link to={{
+          pathname: "/q2",
+          state: {
+            Period: {Period},
+            Purpose: 0,
+            Tolerance: 0,
+            Literacy: 0,
+            Experience: 0
+          }
+        }}><NextButton/></Link>
+      </div>
     </div>
   );
 }

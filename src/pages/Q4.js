@@ -9,7 +9,7 @@ function Q4(props) {
     const Period = props.location.state.Period.Period;
     const Purpose = props.location.state.Purpose.Purpose;
     const Tol = props.location.state.Tolerance.Tolerance;
-    const [Tolerance, getTolerance] = useState(Tol);
+    const [Tolerance, getTolerance] = useState('Not Selected');
     function SelButton({ Answer }) {
 
         const value = Answer.Value;
@@ -26,12 +26,14 @@ function Q4(props) {
         }
         return (
             <div>
-                <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>
+                <button 
+                    className={'sel-button'} 
+                    value={value} onClick={ onClick } 
+                    style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>
                     {answer}
-                    <br/>
-                    <span className={'small-text'} style={{color: Answer.State && '#F2F2F2'}}>
+                    <div className={'small-text'} style={{marginTop: '0.5rem', color: Answer.State && '#F2F2F2'}}>
                         {explain}
-                    </span>
+                    </div>
                 </button>
             </div>
         );
@@ -39,26 +41,24 @@ function Q4(props) {
     
     return (
         <div className="App">
-        {/* <p>Period: {Period}</p>
-        <p>Purpose: {Purpose}</p>
-        <p>Tolerance: {Tol}</p> */}
+            <h3 className='page'>{ QnA_4.page }</h3> 
+            <h1 className='question'>{ QnA_4.Question }</h1>
+            {QnA_4.Answers.map(answer => (
+                <SelButton key= {answer.id} Answer= {answer}/>
+            ))}
 
-        <h3 className='page'>{ QnA_4.page }</h3> 
-        <h1 className='question'>{ QnA_4.Question }</h1>
-        {QnA_4.Answers.map(answer => (
-            <SelButton key= {answer.id} Answer= {answer}/>
-        ))}
-
-        <Link to={{
-            pathname: "/q5",
-            state: {
-                Period: {Period},
-                Purpose: {Purpose},
-                Tolerance: {Tolerance},
-                Literacy: 0,
-                Experience: 0
-            }
-        }}><NextButton/></Link>               
+            <div style={{display:'inline-block'}}>
+                <Link to={{
+                pathname: "/q5",
+                state: {
+                    Period: {Period},
+                    Purpose: {Purpose},
+                    Tolerance: {Tolerance},
+                    Literacy: 0,
+                    Experience: 0
+                }
+            }}><NextButton/></Link> 
+            </div>
         </div>
     );
 }

@@ -27,7 +27,12 @@ function Q3(props) {
         
         return (
             <div>
-                <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</button>
+                <button 
+                    className={'sel-button'} 
+                    value={value} onClick={ onClick } 
+                    style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>
+                    {answer}
+                </button>
             </div>
         );
     }
@@ -43,16 +48,18 @@ function Q3(props) {
                 <SelButton key= {answer.id} Answer={answer}/>
             ))}
 
-            <Link to={{
-                pathname: "/q4",
-                state: {
-                    Period: {Period},
-                    Purpose: {Purpose},
-                    Tolerance: {Tolerance},
-                    Literacy: 0,
-                    Experience: 0
-                }
-            }}><NextButton/></Link>            
+            <div style={{display:'inline-block'}}>
+                <Link to={{
+                    pathname: "/q4",
+                    state: {
+                        Period: {Period},
+                        Purpose: {Purpose},
+                        Tolerance: {Tolerance},
+                        Literacy: 0,
+                        Experience: 0
+                    }
+                }}><NextButton/></Link>    
+            </div>
         </div>
     );
 }

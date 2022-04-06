@@ -47,18 +47,20 @@ function Q5(props) {
             </div>
             <div style={{paddingTop: '2rem'}}></div>
 
-            <Link to={{
-                pathname: "/q6",
-                state: {
-                    Period: {Period},
-                    Purpose: {Purpose},
-                    Tolerance: {Tolerance},
-                    Literacy: {Literacy},
-                    Experience: 0
-                }
-            }}>
-                <NextButton/>
-            </Link>   
+            <div style={{display:'inline-block'}}>
+                <Link to={{
+                    pathname: "/q6",
+                    state: {
+                        Period: {Period},
+                        Purpose: {Purpose},
+                        Tolerance: {Tolerance},
+                        Literacy: {Literacy},
+                        Experience: 0
+                    }
+                }}>
+                    <NextButton/>
+                </Link>  
+            </div>
             
         </div>
     );

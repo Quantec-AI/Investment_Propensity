@@ -40,12 +40,6 @@ function First_Result(props) {
     } else {
       console.log('No result');
     }
-
-    // Quest = Result_1.투자기간[idx].Quest;
-    // Score = Score + Result_1.투자기간[idx].Value;
-    // console.log('Quest is: ', Quest);
-    // console.log('Score is ', Score);
-
     return idx;
   }
   function SetPurpose() { //투자 목적 Index 세팅
@@ -165,12 +159,8 @@ function First_Result(props) {
 
   return (
     <div className="Result">
-      {/* <h1>당신의 캐릭터는 아마도...</h1> */}
-      <div className={'Quest'}>
-        <h2>Quest</h2>
-        <p>{Result.투자기간[a_idx[0]].Quest}</p>
-      </div>
-      <div> 
+      
+      <div style={{display: 'flex'}}> 
         <div className={'Column'}> 
           <h2>Character Info</h2>
           <h3>{Type[TypeIdx].Char}</h3>
@@ -181,13 +171,21 @@ function First_Result(props) {
           <ul>투자 경험: {Result.투자경험[a_idx[4]].Name}, {Result.투자경험[a_idx[4]].Grade}</ul>
         </div>
         <div className={'Column'}> 
+          <div className={'Quest'}>
+            <h2>Quest</h2>
+            <p>{Result.투자기간[a_idx[0]].Quest}</p>
+          </div>
           <h2>What's In My Bag?</h2>
-          <h3>{Result.금융이해도[a_idx[3]].Weapon}</h3>
-          <p>공격력: {Result.금융이해도[a_idx[3]].Power}</p>
-          <h3>{Result.위험감내수준[a_idx[2]].Shield}</h3>
-          <p>방어력: {Result.위험감내수준[a_idx[2]].Power}</p>
+          <h3>{Result.금융이해도[a_idx[3]].Weapon}
+            <span style={{fontSize: '0.8rem', color:'#7f7f7f', fontWeight:'500'}}> (공격력: {Result.금융이해도[a_idx[3]].Power})</span>
+          </h3>
+          <h3>{Result.위험감내수준[a_idx[2]].Shield}
+            <span style={{fontSize: '0.8rem', color:'#7f7f7f', fontWeight:'500'}}> (방어력: {Result.위험감내수준[a_idx[2]].Power})</span>
+          </h3>
         </div>
       </div>
+      {/* <h1>당신의 캐릭터는 아마도...</h1> */}
+
     </div>
   );
 }

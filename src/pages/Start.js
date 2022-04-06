@@ -7,7 +7,7 @@ function Start() {
   return (
     <div className="App">
       <h1>나만의 캐릭터를 만들어보세요 *^^*</h1>
-      <Link to="/q1"><NextButton/></Link>
+      <div style={{display:'inline-block'}}><Link to="/q1"><NextButton/></Link></div>
     </div>
   );
 }
