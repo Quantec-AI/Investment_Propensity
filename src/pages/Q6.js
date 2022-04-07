@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
 const QnA_6 = QNA[5];
 
 function Q6(props) {
-    const Period = props.location.state.Period.Period;
-    const Purpose = props.location.state.Purpose.Purpose;
-    const Tolerance = props.location.state.Tolerance.Tolerance;
-    const Literacy = props.location.state.Literacy.Literacy;
+    const Period = props.location.state.Period;
+    const Purpose = props.location.state.Purpose;
+    const Tolerance = props.location.state.Tolerance;
+    const Literacy = props.location.state.Literacy;
 
     const [Experience, getExperience] = useState('Not Selected!');
 
@@ -46,7 +45,7 @@ function Q6(props) {
                 <SelButton key= {answer.id} Answer= {answer}/>
             ))}
 
-            <div style={{display:'inline-block'}}>
+            {/* <div style={{display:'inline-block'}}>
                 <Link to={{
                     pathname: "/fresult",
                     state: {
@@ -57,7 +56,8 @@ function Q6(props) {
                         Experience: {Experience}
                     }
                 }}><NextButton/></Link>  
-            </div>
+            </div> */}
+            <NextButton Path={"/fresult"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'결과보기'}/>
         </div>
     );
 }

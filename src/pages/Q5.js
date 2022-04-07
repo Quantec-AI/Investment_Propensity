@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
@@ -7,9 +6,9 @@ const QnA_5 = QNA[4];
 
 function Q5(props) {
 
-    const Period = props.location.state.Period.Period;
-    const Purpose = props.location.state.Purpose.Purpose;
-    const Tolerance = props.location.state.Tolerance.Tolerance;
+    const Period = props.location.state.Period;
+    const Purpose = props.location.state.Purpose;
+    const Tolerance = props.location.state.Tolerance;
     const [Literacy, getLiteracy] = useState(0);
 
     function MulSelection({ Answer }) {
@@ -47,7 +46,7 @@ function Q5(props) {
             </div>
             <div style={{paddingTop: '2rem'}}></div>
 
-            <div style={{display:'inline-block'}}>
+            {/* <div style={{display:'inline-block'}}>
                 <Link to={{
                     pathname: "/q6",
                     state: {
@@ -60,8 +59,8 @@ function Q5(props) {
                 }}>
                     <NextButton/>
                 </Link>  
-            </div>
-            
+            </div> */}
+            <NextButton Path={"/q6"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={0} Text={'Next'}/>
         </div>
     );
 }

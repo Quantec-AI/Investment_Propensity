@@ -1,10 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function NextButton({bool}) {
+
+//{Path, Per, Pur, Tol, Lit, Exp, Text}
+function NextButton({Path, Per, Pur, Tol, Lit, Exp, Text}) {
     return (
-        <div>
-            {/* <button className={bool ?'next':'dis_next'} disabled={bool}>Next</button> */}
-            <button className={'next'}>Next</button>
+        <div>        
+            <div style={{display:'inline-block'}}>
+                <Link to={{
+                pathname: Path,
+                state: {
+                    Period: Per,
+                    Purpose: Pur,
+                    Tolerance: Tol,
+                    Literacy: Lit,
+                    Experience: Exp
+                }
+                }}><button className={'next'}>{Text}</button></Link>
+            </div>             
         </div>
     );
 }

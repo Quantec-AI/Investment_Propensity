@@ -8,11 +8,11 @@ const Type = TYPE;
 
 function First_Result(props) {
 
-  const Period = props.location.state.Period.Period;
-  const Purpose = props.location.state.Purpose.Purpose;
-  const Tolerance = props.location.state.Tolerance.Tolerance;
-  const Literacy = props.location.state.Literacy.Literacy;
-  const Experience = props.location.state.Experience.Experience;
+  const Period = props.location.state.Period;
+  const Purpose = props.location.state.Purpose;
+  const Tolerance = props.location.state.Tolerance;
+  const Literacy = props.location.state.Literacy;
+  const Experience = props.location.state.Experience;
 
   const a_idx = [-1, -1, -1, -1, -1]; //투자기간, 투자목적, 위험감내도, 금융이해도, 투자경험
   let TypeIdx = -1; // 투자유형

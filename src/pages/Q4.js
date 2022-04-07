@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
 const QnA_4 = QNA[3];
 
 function Q4(props) {
-    const Period = props.location.state.Period.Period;
-    const Purpose = props.location.state.Purpose.Purpose;
-    const Tol = props.location.state.Tolerance.Tolerance;
+    const Period = props.location.state.Period;
+    const Purpose = props.location.state.Purpose;
+    const Tol = props.location.state.Tolerance;
     const [Tolerance, getTolerance] = useState('Not Selected');
     function SelButton({ Answer }) {
 
@@ -47,7 +46,7 @@ function Q4(props) {
                 <SelButton key= {answer.id} Answer= {answer}/>
             ))}
 
-            <div style={{display:'inline-block'}}>
+            {/* <div style={{display:'inline-block'}}>
                 <Link to={{
                 pathname: "/q5",
                 state: {
@@ -58,7 +57,8 @@ function Q4(props) {
                     Experience: 0
                 }
             }}><NextButton/></Link> 
-            </div>
+            </div> */}
+            <NextButton Path={"/q5"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={0} Exp={0} Text={'Next'}/>
         </div>
     );
 }

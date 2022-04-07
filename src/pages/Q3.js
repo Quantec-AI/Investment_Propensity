@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
 const QnA_3 = QNA[2];
 
 function Q3(props) {
-    const Period = props.location.state.Period.Period;
-    const Purpose = props.location.state.Purpose.Purpose;
+    const Period = props.location.state.Period;
+    const Purpose = props.location.state.Purpose;
 
     const [Tolerance, getTolerance] = useState('Not Selected!');
 
@@ -39,8 +38,8 @@ function Q3(props) {
     
     return (
         <div className="App">
-            {/* <p>Period: {Period}</p>
-            <p>Purpose: {Purpose}</p> */}
+            <p>Period: {Period}</p>
+            <p>Purpose: {Purpose}</p>
 
             <h3 className='page'>{ QnA_3.page }</h3> 
             <h1 className='question'>{ QnA_3.Question }</h1>
@@ -48,7 +47,7 @@ function Q3(props) {
                 <SelButton key= {answer.id} Answer={answer}/>
             ))}
 
-            <div style={{display:'inline-block'}}>
+            {/* <div style={{display:'inline-block'}}>
                 <Link to={{
                     pathname: "/q4",
                     state: {
@@ -59,7 +58,9 @@ function Q3(props) {
                         Experience: 0
                     }
                 }}><NextButton/></Link>    
-            </div>
+            </div> */}
+            <NextButton Path={"/q4"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={0} Exp={0} Text={'Next'}/>
+            
         </div>
     );
 }

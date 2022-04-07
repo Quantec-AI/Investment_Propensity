@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
 const QnA_2 = QNA[1];
 
 function Q2(props) {
-    const Period = props.location.state.Period.Period;
+    const Period = props.location.state.Period;
 
     const [Purpose, getPurpose] = useState('Not Selected!');
 
@@ -33,7 +32,7 @@ function Q2(props) {
 
     return (
         <div className="App">
-            {/* <p>Period: {Period}</p> */}
+            <p>Period: {Period}</p>
 
             <h3 className='page'>{ QnA_2.page }</h3> 
             <h1 className='question'> { QnA_2.Question }</h1>
@@ -41,7 +40,7 @@ function Q2(props) {
                 <SelButton key= {answer.id} Answer= {answer}/>
             ))}
 
-            <div style={{display:'inline-block'}}>
+            {/* <div style={{display:'inline-block'}}>
                 <Link to={{
                     pathname: "/q3",
                     state: {
@@ -52,7 +51,10 @@ function Q2(props) {
                         Experience: 0
                     }
                 }}><NextButton/></Link>
-            </div>
+
+            </div> */}
+            <NextButton Path={"/q3"} Per={Period} Pur={Purpose} Tol={0} Lit={0} Exp={0} Text={'Next'}/>
+            
         </div>
     );
 }
