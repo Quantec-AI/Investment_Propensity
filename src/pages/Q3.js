@@ -38,29 +38,12 @@ function Q3(props) {
     
     return (
         <div className="App">
-            <p>Period: {Period}</p>
-            <p>Purpose: {Purpose}</p>
-
             <h3 className='page'>{ QnA_3.page }</h3> 
             <h1 className='question'>{ QnA_3.Question }</h1>
             {QnA_3.Answers.map(answer => (
                 <SelButton key= {answer.id} Answer={answer}/>
             ))}
-
-            {/* <div style={{display:'inline-block'}}>
-                <Link to={{
-                    pathname: "/q4",
-                    state: {
-                        Period: {Period},
-                        Purpose: {Purpose},
-                        Tolerance: {Tolerance},
-                        Literacy: 0,
-                        Experience: 0
-                    }
-                }}><NextButton/></Link>    
-            </div> */}
             <NextButton Path={"/q4"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={0} Exp={0} Text={'Next'}/>
-            
         </div>
     );
 }

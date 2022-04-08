@@ -40,23 +40,10 @@ function Q6(props) {
             <p>Literacy: {Literacy}</p> */}
 
             <h3 className='page'>{ QnA_6.page }</h3> 
-            <h1 className='Question'>{ QnA_6.Question }</h1>
+            <h1 className='question'>{ QnA_6.Question }</h1>
             {QnA_6.Answers.map(answer => (
                 <SelButton key= {answer.id} Answer= {answer}/>
             ))}
-
-            {/* <div style={{display:'inline-block'}}>
-                <Link to={{
-                    pathname: "/fresult",
-                    state: {
-                        Period: {Period},
-                        Purpose: {Purpose},
-                        Tolerance: {Tolerance},
-                        Literacy: {Literacy},
-                        Experience: {Experience}
-                    }
-                }}><NextButton/></Link>  
-            </div> */}
             <NextButton Path={"/fresult"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'결과보기'}/>
         </div>
     );

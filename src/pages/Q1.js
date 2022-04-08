@@ -39,19 +39,6 @@ function Q1() {
       {QnA_1.Answers.map(answer => (
         <SelButton key= {answer.id} Answer={answer}/>
       ))}
-
-      {/* <div style={{display:'inline-block'}}>
-        <Link to={{
-          pathname: "/q2",
-          state: {
-            Period: {Period},
-            Purpose: 0,
-            Tolerance: 0,
-            Literacy: 0,
-            Experience: 0
-          }
-        }}><NextButton/></Link>
-      </div> */}
       <NextButton Path={"/q2"} Per={Period} Pur={0} Tol={0} Lit={0} Exp={0} Text={'Next'}/>
     </div>
   );

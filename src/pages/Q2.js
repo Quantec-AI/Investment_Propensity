@@ -32,8 +32,6 @@ function Q2(props) {
 
     return (
         <div className="App">
-            <p>Period: {Period}</p>
-
             <h3 className='page'>{ QnA_2.page }</h3> 
             <h1 className='question'> { QnA_2.Question }</h1>
             {QnA_2.Answers.map(answer => (

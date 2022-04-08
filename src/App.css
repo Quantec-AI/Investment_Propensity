@@ -5,39 +5,47 @@
   font-style: normal;
 }
 
-h1 {
-  font-family: 'DungGeunMo';
-  padding: 1.5rem;
+body{
+  width: 540px;
+  /* display: flex; */
+  justify-content: center;
 }
+
+/* h1, h2 {
+  font-family: 'DungGeunMo';
+} */
 
 .App {
   background: #fefdfe;
   text-align: center;
+  box-sizing: border-box;
   font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
-  padding-top: 2rem;
-  /* width: 486px; */
-  /* display: inline-block; */
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  width: 540px;
 }
 
 .Result {
   /* background: #1d1a82; */
   text-align: center;
   font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
-  padding-top: 3rem;
-  height: 100%;
-  /* width: 486px; */
-  /* display: inline-block; */
+  /* padding-top: 5rem; */
+  /* height: 100%; */
 }
 
 .Header {
   background: #fefdfe;
-  width: 100%;
+  /* width: 100%; */
+  width: 540px;
+  box-sizing: border-box;
   display: flex;
   color: #1d1a82;
-  padding: 20px;
+  padding:1.5rem;
   font-family: 'DungGeunMo';
-  -webkit-text-stroke: 0.35px;
-  /* font-weight: 700; */
+  /* -webkit-text-stroke: 0.35px; */
+  font-weight: 700;
   font-size: 20px;
   box-shadow: 0px 0px 4px #DEDEDE;
   position: fixed;
@@ -70,7 +78,7 @@ h1 {
   font-weight: 800;
   line-height: 20px;
   list-style: none;
-  margin: 0;
+  margin: 1rem;
   padding: 10px 12px;
   text-align: center;
   transition: all 200ms;
@@ -79,7 +87,6 @@ h1 {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-bottom: 5rem;
 }
 
 .next:hover {
@@ -144,7 +151,7 @@ h1 {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
 }
 
 .sel-button:hover {
@@ -191,8 +198,8 @@ h1 {
 
 .Quest {
   display: inline-block;
-  width: 40%;
-  padding: 0.5rem 2.5rem;
+  width:60%;
+  padding: 0.3rem 2rem;
   padding-bottom: 1rem;
   border-radius: 2rem;
   background-color: #fefdfe;
@@ -202,7 +209,30 @@ h1 {
 }
 
 .Column {
-  width: 50%;
+  /* width: 80%; */
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 540px){
+  body{
+    width: 100%;
+  }
+  .Header {
+    background: #fefdfe;
+    width: 100%;
+    /* width: 540px; */
+    display: flex;
+    color: #1d1a82;
+    padding: 20px;
+    font-family: 'DungGeunMo';
+    -webkit-text-stroke: 0.35px;
+    /* font-weight: 700; */
+    font-size: 20px;
+    box-shadow: 0px 0px 4px #DEDEDE;
+    position: fixed;
+    top:0;
+  }
+
 }
 
 /* @media (min-width: 768px) {

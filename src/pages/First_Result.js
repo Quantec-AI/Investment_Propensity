@@ -2,6 +2,8 @@ import React from 'react';
 import '../App.css';
 import RESULT from '../content/RESULT';
 import TYPE from '../content/TYPE';
+import NextButton from '../component/NextButton';
+// import QNA from '../content/QNA';
 
 const Result = RESULT;
 const Type = TYPE;
@@ -158,32 +160,35 @@ function First_Result(props) {
   TypeIdx = SetType();
 
   return (
-    <div className="Result">
-      
-      <div style={{display: 'flex'}}> 
+    <div className="App">
+      <div className='Result'>  {/* style={{display: 'flex'}} */}
         <div className={'Column'}> 
           <h2>Character Info</h2>
           <h3>{Type[TypeIdx].Char}</h3>
           <p>{Type[TypeIdx].Content}</p>
-          <ul>투자 목적: {Result.투자목적[a_idx[1]].Name}, {Result.투자목적[a_idx[1]].Grade}</ul>
-          <ul>위험 감내도: {Result.위험감내수준[a_idx[2]].Name}, {Result.위험감내수준[a_idx[2]].Grade}</ul>
-          <ul>금융 이해도: {Result.금융이해도[a_idx[3]].Name}, {Result.금융이해도[a_idx[3]].Grade}</ul>
-          <ul>투자 경험: {Result.투자경험[a_idx[4]].Name}, {Result.투자경험[a_idx[4]].Grade}</ul>
+          <div>
+            <p><b>투자 목적</b>: {Result.투자목적[a_idx[1]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+            <p><b>위험 감내도</b>: {Result.위험감내수준[a_idx[2]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+            <p><b>금융 이해도</b>: {Result.금융이해도[a_idx[3]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+            <p><b>투자 경험</b>: {Result.투자경험[a_idx[4]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+          </div>
         </div>
         <div className={'Column'}> 
+          <h2>What's In My Bag?</h2>
+          <h3>{Result.금융이해도[a_idx[3]].Weapon}
+            <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (공격력: {Result.금융이해도[a_idx[3]].Power})</span>
+          </h3>
+          <h3>{Result.위험감내수준[a_idx[2]].Shield}
+            <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (방어력: {Result.위험감내수준[a_idx[2]].Power})</span>
+          </h3>
           <div className={'Quest'}>
             <h2>Quest</h2>
             <p>{Result.투자기간[a_idx[0]].Quest}</p>
           </div>
-          <h2>What's In My Bag?</h2>
-          <h3>{Result.금융이해도[a_idx[3]].Weapon}
-            <span style={{fontSize: '0.8rem', color:'#7f7f7f', fontWeight:'500'}}> (공격력: {Result.금융이해도[a_idx[3]].Power})</span>
-          </h3>
-          <h3>{Result.위험감내수준[a_idx[2]].Shield}
-            <span style={{fontSize: '0.8rem', color:'#7f7f7f', fontWeight:'500'}}> (방어력: {Result.위험감내수준[a_idx[2]].Power})</span>
-          </h3>
         </div>
       </div>
+      <NextButton Path={"/q7"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'테스트 이어하기'}/>
+      <NextButton Path={"/"} Per={0} Pur={0} Tol={0} Lit={0} Exp={0} Text={'테스트 다시하기'}/>
     </div>
   );
 }
