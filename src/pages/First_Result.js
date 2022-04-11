@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import Header from '../component/Header';
 import RESULT from '../content/RESULT';
 import TYPE from '../content/TYPE';
 import NextButton from '../component/NextButton';
@@ -161,6 +162,7 @@ function First_Result(props) {
 
   return (
     <div className="App">
+      <Header />
       <div className='Result'>  {/* style={{display: 'flex'}} */}
         <div className={'Column'}> 
           <h2>Character Info</h2>
@@ -186,9 +188,9 @@ function First_Result(props) {
             <p>{Result.투자기간[a_idx[0]].Quest}</p>
           </div>
         </div>
+        <NextButton Path={"/q7"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'테스트 이어하기'}/>
+        <NextButton Path={"/"} Per={0} Pur={0} Tol={0} Lit={0} Exp={0} Text={'테스트 다시하기'}/>
       </div>
-      <NextButton Path={"/q7"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'테스트 이어하기'}/>
-      <NextButton Path={"/"} Per={0} Pur={0} Tol={0} Lit={0} Exp={0} Text={'테스트 다시하기'}/>
     </div>
   );
 }

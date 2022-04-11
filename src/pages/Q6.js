@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
@@ -11,6 +12,7 @@ function Q6(props) {
     const Literacy = props.location.state.Literacy;
 
     const [Experience, getExperience] = useState('Not Selected!');
+    const [Sel, setSel] = useState(false);
 
     function SelButton({ Answer }) {
 
@@ -24,6 +26,7 @@ function Q6(props) {
             Answer.State = !Answer.State;
             console.log(answer);
             getExperience(value);
+            setSel(true);
         }
         return (
             <div>
@@ -34,17 +37,15 @@ function Q6(props) {
 
     return (
         <div className="App"> 
-            {/* <p>Period: {Period}</p>
-            <p>Purpose: {Purpose}</p>
-            <p>Tolerance: {Tolerance}</p>
-            <p>Literacy: {Literacy}</p> */}
-
-            <h3 className='page'>{ QnA_6.page }</h3> 
-            <h1 className='question'>{ QnA_6.Question }</h1>
-            {QnA_6.Answers.map(answer => (
-                <SelButton key= {answer.id} Answer= {answer}/>
-            ))}
-            <NextButton Path={"/fresult"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'결과보기'}/>
+            <Header /> 
+            <div className='Content'>
+                <h3 className='page'>{ QnA_6.page }</h3> 
+                <h1 className='question'>{ QnA_6.Question }</h1>
+                {QnA_6.Answers.map(answer => (
+                    <SelButton key= {answer.id} Answer= {answer}/>
+                ))}
+                {Sel ?  <NextButton Path={"/fresult"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+            </div>
         </div>
     );
 }

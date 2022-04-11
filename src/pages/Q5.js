@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
@@ -10,6 +11,7 @@ function Q5(props) {
     const Purpose = props.location.state.Purpose;
     const Tolerance = props.location.state.Tolerance;
     const [Literacy, getLiteracy] = useState(0);
+    const [Sel, setSel] = useState(false);
 
     function MulSelection({ Answer }) {
         const value = Answer.Value;
@@ -20,11 +22,10 @@ function Q5(props) {
             // const state = Answer.State;
             Answer.State === false ? getLiteracy( Literacy - value ):getLiteracy( Literacy + value ); 
             console.log(answer);
+            setSel(true);
         };
-    
         return (
             <div>
-                {/* <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</button> */}
                 <li className={'ell-comp'} value={value} onClick={onClick} style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</li>
             </div>
         );
@@ -32,35 +33,18 @@ function Q5(props) {
 
     return (
         <div className="App">
-            {/* {console.log(State)} */}
-            {/* <p>Period: {Period}</p>
-            <p>Purpose: {Purpose}</p>
-            <p>Tolerance: {Tolerance}</p> */}
-
-            <h3 className='page'>{ QnA_5.page }</h3> 
-            <h1 className='question'>{ QnA_5.Question }</h1>
-            <div className={'ell-body'}>
-                {QnA_5.Answers.map(answer => (
-                    <MulSelection key= {answer.id} Answer={answer} />
-                ))}
+            <Header />
+            <div className='Content'>
+                <h3 className='page'>{ QnA_5.page }</h3> 
+                <h1 className='question'>{ QnA_5.Question }</h1>
+                <div className={'ell-body'}>
+                    {QnA_5.Answers.map(answer => (
+                        <MulSelection key= {answer.id} Answer={answer} />
+                    ))}
+                </div>
+                <div style={{paddingTop: '0.5rem'}}></div>
+                {Sel ?  <NextButton Path={"/q6"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={0} Text={'Next'}/> : <button disabled className='next'>Next</button> }
             </div>
-            <div style={{paddingTop: '2rem'}}></div>
-
-            {/* <div style={{display:'inline-block'}}>
-                <Link to={{
-                    pathname: "/q6",
-                    state: {
-                        Period: {Period},
-                        Purpose: {Purpose},
-                        Tolerance: {Tolerance},
-                        Literacy: {Literacy},
-                        Experience: 0
-                    }
-                }}>
-                    <NextButton/>
-                </Link>  
-            </div> */}
-            <NextButton Path={"/q6"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={0} Text={'Next'}/>
         </div>
     );
 }

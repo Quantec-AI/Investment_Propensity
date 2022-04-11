@@ -15,9 +15,6 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Header">
-        <div>투자 성향 테스트</div>
-      </div>
       <Router>
         <Switch>
           <Route exact path="/" component={Start} />

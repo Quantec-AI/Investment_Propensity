@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
@@ -8,6 +9,7 @@ function Q2(props) {
     const Period = props.location.state.Period;
 
     const [Purpose, getPurpose] = useState('Not Selected!');
+    const [Sel, setSel] = useState(false);
 
     function SelButton({ Answer }) {
 
@@ -21,6 +23,7 @@ function Q2(props) {
             Answer.State = !Answer.State;
             console.log(answer);
             getPurpose(value);
+            setSel(true);
         }
         return (
             <div>
@@ -32,27 +35,15 @@ function Q2(props) {
 
     return (
         <div className="App">
-            <h3 className='page'>{ QnA_2.page }</h3> 
-            <h1 className='question'> { QnA_2.Question }</h1>
-            {QnA_2.Answers.map(answer => (
-                <SelButton key= {answer.id} Answer= {answer}/>
-            ))}
-
-            {/* <div style={{display:'inline-block'}}>
-                <Link to={{
-                    pathname: "/q3",
-                    state: {
-                        Period: {Period},
-                        Purpose: {Purpose},
-                        Tolerance: 0,
-                        Literacy: 0,
-                        Experience: 0
-                    }
-                }}><NextButton/></Link>
-
-            </div> */}
-            <NextButton Path={"/q3"} Per={Period} Pur={Purpose} Tol={0} Lit={0} Exp={0} Text={'Next'}/>
-            
+            <Header />
+            <div className='Content'>
+                <h3 className='page'>{ QnA_2.page }</h3> 
+                <h1 className='question'> { QnA_2.Question }</h1>
+                {QnA_2.Answers.map(answer => (
+                    <SelButton key= {answer.id} Answer= {answer}/>
+                ))}
+                {Sel ? <NextButton Path={"/q3"} Per={Period} Pur={Purpose} Tol={0} Lit={0} Exp={0} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+            </div>            
         </div>
     );
 }

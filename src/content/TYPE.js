@@ -26,7 +26,7 @@ const TYPE = [ //id, Char, Content, Img
     {
     id: 5,
     Char: '안정형 캐릭터',
-    Content: '안정형 캐릭터입니다. ',
+    Content: '원금은 무조건 지킨다! 안정적인 투자를 지향하는 스타일이에요! ',
     Img: ''
     }
 ];

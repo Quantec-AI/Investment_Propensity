@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
@@ -9,6 +10,7 @@ function Q3(props) {
     const Purpose = props.location.state.Purpose;
 
     const [Tolerance, getTolerance] = useState('Not Selected!');
+    const [Sel, setSel] = useState(false);
 
     function SelButton({Answer}) {
 
@@ -22,6 +24,7 @@ function Q3(props) {
             Answer.State = !Answer.State;
             console.log(answer);
             getTolerance(value);
+            setSel(true);
         }
         
         return (
@@ -38,12 +41,15 @@ function Q3(props) {
     
     return (
         <div className="App">
-            <h3 className='page'>{ QnA_3.page }</h3> 
-            <h1 className='question'>{ QnA_3.Question }</h1>
-            {QnA_3.Answers.map(answer => (
-                <SelButton key= {answer.id} Answer={answer}/>
-            ))}
-            <NextButton Path={"/q4"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={0} Exp={0} Text={'Next'}/>
+            <Header />
+            <div className='Content'>
+                <h3 className='page'>{ QnA_3.page }</h3> 
+                <h1 className='question'>{ QnA_3.Question }</h1>
+                {QnA_3.Answers.map(answer => (
+                    <SelButton key= {answer.id} Answer={answer}/>
+                ))}
+                {Sel ?  <NextButton Path={"/q4"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={0} Exp={0} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+            </div>
         </div>
     );
 }

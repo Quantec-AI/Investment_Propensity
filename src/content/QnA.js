@@ -2,7 +2,7 @@ const QNA = [
     { //1번 페이지: id, page, Question, Answers{id, Answer, Value, State}
         id:1, 
         page: 1,
-        Question: "투자를 시작한 이유가 궁금해요!", 
+        Question: "투자를 시작한 이유가\n궁금해요!", 
         Answers: [
             {
             id: 1, 
@@ -39,7 +39,7 @@ const QNA = [
     { //2번 페이지: id, page, Question, Answers{id, Answer, Value, State}
         id:2, 
         page: 2,
-        Question: "1억을 투자, 1년동안 이정도는 땡겨야지!", 
+        Question: "1억을 투자, 1년동안\n이정도는 땡겨야지!", 
         Answers: [
             {
                 id:1,
@@ -76,7 +76,7 @@ const QNA = [
     { //3번 페이지: id, page, Question, Answers{id, Answer, Value, State}
         id:3, 
         page: 3,
-        Question: "투자할 때 '손실'에 대한 나의 의견은?", 
+        Question: "투자할 때 '손실'에 대한\n나의 의견은?", 
         Answers: [
             {
                 id: 1,
@@ -107,7 +107,7 @@ const QNA = [
     { //4번 페이지: id, page, Question, Answers{id, Answer, Explain, Value, State}
         id:4, 
         page:4,
-        Question: "내 자산 10억으로 투자할 상품을 골라주세요!", 
+        Question: "내 자산 10억으로 투자할\n상품을 골라주세요!", 
         Answers: [
             {
                 id:1,
@@ -149,7 +149,7 @@ const QNA = [
     { //5번 페이지: id, page, Question, Answers{id, Answer, Value, State}
         id:5,
         page: 5,
-        Question: "아는 투자 단어들을 모두 골라주세요!", 
+        Question: "아는 투자 단어들을\n모두 골라주세요!", 
         Answers: [
             {
                 id:1, 
@@ -246,7 +246,7 @@ const QNA = [
     { //6번 페이지: id, page, Question, Answers{id, Answer, Value, State}
         id:6,
         page: 6,
-        Question: "내가 주식을 시작한지 어언...", 
+        Question: "내가 주식을 시작한지\n어언...", 
         Answers: [
             {
                 id:1, 

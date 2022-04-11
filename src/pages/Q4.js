@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
@@ -9,6 +10,7 @@ function Q4(props) {
     const Purpose = props.location.state.Purpose;
     const Tol = props.location.state.Tolerance;
     const [Tolerance, getTolerance] = useState('Not Selected');
+    const [Sel, setSel] = useState(false);
     function SelButton({ Answer }) {
 
         const value = Answer.Value;
@@ -22,6 +24,7 @@ function Q4(props) {
             Answer.State = !Answer.State;
             getTolerance((Tol + value)/2);
             console.log(answer);
+            setSel(true);
         }
         return (
             <div>
@@ -40,25 +43,15 @@ function Q4(props) {
     
     return (
         <div className="App">
-            <h3 className='page'>{ QnA_4.page }</h3> 
-            <h1 className='question'>{ QnA_4.Question }</h1>
-            {QnA_4.Answers.map(answer => (
-                <SelButton key= {answer.id} Answer= {answer}/>
-            ))}
-
-            {/* <div style={{display:'inline-block'}}>
-                <Link to={{
-                pathname: "/q5",
-                state: {
-                    Period: {Period},
-                    Purpose: {Purpose},
-                    Tolerance: {Tolerance},
-                    Literacy: 0,
-                    Experience: 0
-                }
-            }}><NextButton/></Link> 
-            </div> */}
-            <NextButton Path={"/q5"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={0} Exp={0} Text={'Next'}/>
+            <Header />
+            <div className='Content'>
+                <h3 className='page'>{ QnA_4.page }</h3> 
+                <h1 className='question'>{ QnA_4.Question }</h1>
+                {QnA_4.Answers.map(answer => (
+                    <SelButton key= {answer.id} Answer= {answer}/>
+                ))}
+                {Sel ?  <NextButton Path={"/q5"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={0} Exp={0} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+            </div>
         </div>
     );
 }
