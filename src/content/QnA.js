@@ -1,5 +1,5 @@
 const QNA = [
-    { //1번 페이지: id, page, Question, Answers{id, Answer, Value, State}
+    { //1번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자기간
         id:1, 
         page: 1,
         Question: "투자를 시작한 이유가\n궁금해요!", 
@@ -7,36 +7,36 @@ const QNA = [
             {
             id: 1, 
             Answer: "단기 목표: 학자금, 여행 등을 위한 자금 마련", 
-            Value: "단기",
+            Value: 1,
             State: false
             },
             {
             id:2, 
             Answer: "중기 목표: 집과 차 구입을 위해서", 
-            Value: "중기_집_차",
+            Value: 2,
             State: false
             },
             {
             id:3,
             Answer: "중기 목표: 결혼 자금을 위해", 
-            Value: "중기_결혼",
+            Value: 3,
             State: false
             },
             {
             id:4, 
             Answer: "중장기 목표: 자녀 교육 자금을 모으기 위해", 
-            Value: "중장기",
+            Value: 4,
             State: false
             },
             {
             id:5, 
             Answer: "장기 목표: 넉넉한 노후를 위한 투자", 
-            Value: "장기",
+            Value: 5,
             State: false
             }
         ]
     },
-    { //2번 페이지: id, page, Question, Answers{id, Answer, Value, State}
+    { //2번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자목적
         id:2, 
         page: 2,
         Question: "1억을 투자, 1년동안\n이정도는 땡겨야지!", 
@@ -73,7 +73,7 @@ const QNA = [
             }
         ]
     },
-    { //3번 페이지: id, page, Question, Answers{id, Answer, Value, State}
+    { //3번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 위험감내도
         id:3, 
         page: 3,
         Question: "투자할 때 '손실'에 대한\n나의 의견은?", 
@@ -104,7 +104,7 @@ const QNA = [
             }
         ]
     },
-    { //4번 페이지: id, page, Question, Answers{id, Answer, Explain, Value, State}
+    { //4번 페이지: id, page, Question, Answers{id, Answer, Explain, Value, State} : 위험감내도
         id:4, 
         page:4,
         Question: "내 자산 10억으로 투자할\n상품을 골라주세요!", 
@@ -146,7 +146,7 @@ const QNA = [
             }
         ]
     },
-    { //5번 페이지: id, page, Question, Answers{id, Answer, Value, State}
+    { //5번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 금융이해도
         id:5,
         page: 5,
         Question: "아는 투자 단어들을\n모두 골라주세요!", 
@@ -243,7 +243,7 @@ const QNA = [
             }
         ]
     },
-    { //6번 페이지: id, page, Question, Answers{id, Answer, Value, State}
+    { //6번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자경험
         id:6,
         page: 6,
         Question: "내가 주식을 시작한지\n어언...", 
@@ -279,7 +279,405 @@ const QNA = [
                 State: false
             }
         ]
-    }
+    },
+    { //7번 페이지: id, page, Question, Answers{id, Answer, Price, Value, Img, State} : 투자목적
+        id:7,
+        page: 7,
+        Question: "선호하는 종목을\n마음껏 골라주세요!", 
+        Answers: [
+            { 
+                id:1, 
+                Answer: "LG화학", //귀족주
+                Price: "514,000원",
+                Value: -2,
+                Img: '',
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "삼성전자", //대형주
+                Price: "70,100원",
+                Value: -4,
+                Img: "",
+                State: false
+            },
+            {
+                id:3, 
+                Answer: "이마트", //경기방어주
+                Price: "131,000원",
+                Value: -4,
+                Img: "",
+                State: false
+            },
+            {
+                id:4, 
+                Answer: "SK하이닉스", //성장주
+                Price: "119,500원",
+                Value: 2,
+                Img: "",
+                State: false
+            },
+            {
+                id:5, 
+                Answer: "쌍방울", //동전주
+                Price: "640원",
+                Value: 4,
+                Img: "",
+                State: false
+            },
+            {
+                id:6, 
+                Answer: "한진", //가치주
+                Price: "28,700원",
+                Value: 2,
+                Img: "",
+                State: false
+            },
+            {
+                id:7, 
+                Answer: "POSCO", //경기민감주
+                Price: "285,500원",
+                Value: 2,
+                Img: "",
+                State: false
+            },
+        ]
+    },
+    { //8번 페이지: id, page, Question, Answers{id, Answer, Sector, Value, Img, State} : 그냥... 선호 섹터
+        id:8,
+        page: 8,
+        Question: "선호하는 섹터를\n마음껏 골라주세요!", 
+        Answers: [
+            { 
+                id:1, 
+                Answer: "엑손모빌", 
+                Sector: "에너지",
+                Value: 1,
+                Img: '',
+                State: false
+            },
+            { 
+                id:2, 
+                Answer: "튜폰", 
+                Sector: "원자재",
+                Value: 2,
+                Img: '',
+                State: false
+            },
+            { 
+                id:3, 
+                Answer: "3M", 
+                Sector: "산업재",
+                Value: 3,
+                Img: '',
+                State: false
+            },
+            { 
+                id:4, 
+                Answer: "스타벅스", 
+                Sector: "경기소비재",
+                Value: 4,
+                Img: '',
+                State: false
+            },
+            { 
+                id:5, 
+                Answer: "코스트코", 
+                Sector: "필수소비재",
+                Value: 5,
+                Img: '',
+                State: false
+            },
+            { 
+                id:6, 
+                Answer: "J&J", 
+                Sector: "건강관리",
+                Value: 6,
+                Img: '',
+                State: false
+            },
+            { 
+                id:7, 
+                Answer: "VISA", 
+                Sector: "금융",
+                Value: 7,
+                Img: '',
+                State: false
+            },
+            { 
+                id:8, 
+                Answer: "마이크로포스트", 
+                Sector: "IT",
+                Value: 8,
+                Img: '',
+                State: false
+            },
+            { 
+                id:9, 
+                Answer: "AT&T", 
+                Sector: "통신재",
+                Value: 9,
+                Img: '',
+                State: false
+            },
+            { 
+                id:10, 
+                Answer: "튜크에너지", 
+                Sector: "유틸리티",
+                Value: 10,
+                Img: '',
+                State: false
+            }
+        ]
+    },
+    { //9번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 위험감내도 
+        id:9,
+        page: 9,
+        Question: "확신을 갖고 산 종목이\n-10%를 찍었다 🥲", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "울분을 토하며 손절한다", 
+                Value: -2,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "혹시 모르니 일부만 매도한다", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "확신을 가지고 장투로 가져간다", 
+                Value: 1,
+                State: false
+            },
+            {
+                id:4,
+                Answer: "오히려 좋아, 추가 매수한다", 
+                Value: 2,
+                State: false
+            }
+        ]
+    },
+    { //10번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 위험감내도 
+        id: 10,
+        page: 10,
+        Question: "나는 이렇게 투자하는 것을\n선호해요!", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "한 종목에 몰빵!", 
+                Value: 2,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "5종목정도 분산해 투자", 
+                Value: 1,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "위험을 줄이기 위해 최대한 분산해 투자", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:4,
+                Answer: "아싸리 ETF에 투자", 
+                Value: -2,
+                State: false
+            }
+        ]
+    },
+    { //11번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자경험
+        id: 11,
+        page: 11,
+        Question: "내가 코인을 시작한지\n어언...", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "코인 안사요", 
+                Value: 0,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "6개월 이하", 
+                Value: 14,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "7개월 ~ 1년", 
+                Value: 24,
+                State: false
+            },
+            {
+                id:4,
+                Answer: "1년 ~ 5년", 
+                Value: 34,
+                State: false
+            },
+            {
+                id:5,
+                Answer: "5년 이상", 
+                Value: 44,
+                State: false
+            }
+        ]
+    },
+    { //12번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 성별 
+        id:12,
+        page: 12,
+        Question: "성별을 알려주세요!", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "남성", 
+                Value: 0,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "여성", 
+                Value: 1,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "어느쪽도 아님", 
+                Value: 2,
+                State: false
+            }
+        ]
+    },
+    { //13번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연령대
+        id:13,
+        page: 13,
+        Question: "나이를 알려주세요!", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "29세 이하", 
+                Value: 5,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "30세 ~ 50세 이하", 
+                Value: 5,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "51세 ~ 60세 이하", 
+                Value: 3,
+                State: false
+            },
+            {
+                id:4,
+                Answer: "61세 ~ 64세 이하", 
+                Value: 2,
+                State: false
+            },
+            {
+                id:5,
+                Answer: "65세 이상", 
+                Value: 1,
+                State: false
+            }
+        ]
+    },
+    { //14번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연평균 소득
+        id:14,
+        page: 14,
+        Question: "나는 연평균 이만큼 벌어요!", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "1천만원 미만", 
+                Value: 1,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "1천만원 ~ 4천만원 미만", 
+                Value: 2,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "4천만원 ~ 7천만원 미만", 
+                Value: 3,
+                State: false
+            },
+            {
+                id:4,
+                Answer: "7천만원 ~ 1억원 미만", 
+                Value: 4,
+                State: false
+            },
+            {
+                id:5,
+                Answer: "1억원 이상", 
+                Value: 5,
+                State: false
+            }
+        ]
+    },
+    { //15번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자 금액 :: 항목 만들어야 함 
+        id:15,
+        page: 15,
+        Question: "현재의 투자 금액은?\n(투자 예정 금액)!", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "1천만원 미만", 
+                Value: 1,
+                State: false
+            }
+        ]
+    },
+    { //16번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자자산 비율
+        id:14,
+        page: 14,
+        Question: "열심히 일해서 모은 10억,\n몇퍼센트를 투자할건가요?", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "40% 이상", 
+                Value: 1,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "30% ~ 40%", 
+                Value: 2,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "20% ~ 30%", 
+                Value: 3,
+                State: false
+            },
+            {
+                id:4,
+                Answer: "10% ~ 20%", 
+                Value: 4,
+                State: false
+            },
+            {
+                id:5,
+                Answer: "10% 미만", 
+                Value: 5,
+                State: false
+            }
+        ]
+    },
 ];
 
 export default QNA;

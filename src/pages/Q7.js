@@ -1,63 +1,61 @@
 import React, { useState } from 'react';
+import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
-const QnA_7 = QNA[5];
+const QnA = QNA[6];
 
 function Q7(props) {
+
     const Period = props.location.state.Period;
-    const Purpose = props.location.state.Purpose;
+    const Pur = props.location.state.Purpose;
     const Tolerance = props.location.state.Tolerance;
     const Literacy = props.location.state.Literacy;
+    const Experience = props.location.state.Experience;
+    const [Purpose, getPurpose] = useState("Not Selected");
+    const [Sel, setSel] = useState(false);
+    console.log('원래 Purpose 값', Pur);
+    getPurpose(Pur);
 
-    const [Experience, getExperience] = useState('Not Selected!');
-
-    function SelButton({ Answer }) {
-
+    function MulSelection({ Answer }) {
         const value = Answer.Value;
         const answer = Answer.Answer;
+        const price = Answer.Price;
+        // console.log(Answer);
+        console.log(Purpose);
+
 
         const onClick = () => {
-            QnA_6.Answers.map(answer => (
-                answer.State = false
-            ));
             Answer.State = !Answer.State;
+            Answer.State === false ? getPurpose( Purpose - value ):getPurpose( Purpose + value ); 
             console.log(answer);
-            getExperience(value);
-        }
+            setSel(true);
+        };
         return (
             <div>
-                <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</button>
+                <div className={'ell-comp'} value={value} onClick={onClick} style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}
+                <div className={'small-text'} style={{marginTop: '0.5rem'}}>
+                        {price}
+                    </div>
+                </div>
             </div>
         );
     }
 
     return (
-        <div className="App"> 
-            {/* <p>Period: {Period}</p>
-            <p>Purpose: {Purpose}</p>
-            <p>Tolerance: {Tolerance}</p>
-            <p>Literacy: {Literacy}</p> */}
-
-            <h3 className='page'>{ QnA_6.page }</h3> 
-            <h1 className='Question'>{ QnA_6.Question }</h1>
-            {QnA_6.Answers.map(answer => (
-                <SelButton key= {answer.id} Answer= {answer}/>
-            ))}
-
-            {/* <div style={{display:'inline-block'}}>
-                <Link to={{
-                    pathname: "/fresult",
-                    state: {
-                        Period: {Period},
-                        Purpose: {Purpose},
-                        Tolerance: {Tolerance},
-                        Literacy: {Literacy},
-                        Experience: {Experience}
-                    }
-                }}><NextButton/></Link>  
-            </div> */}
-            <NextButton Path={"/fresult"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'결과보기'}/>
+        <div className="App">
+            <Header />
+            <div className='Content'>
+                <h3 className='page'>{  QnA.page }</h3> 
+                <h1 className='question'>{  QnA.Question }</h1>
+                <div className={'ell-body'}>
+                    { QnA.Answers.map(answer => (
+                        <MulSelection key= {answer.id} Answer={answer} />
+                    ))}
+                </div>
+                <div style={{paddingTop: '0.5rem'}}></div>
+                {Sel ?  <NextButton Path={"/q8"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+            </div>
         </div>
     );
 }

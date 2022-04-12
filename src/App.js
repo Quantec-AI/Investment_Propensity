@@ -9,6 +9,7 @@ import Q4 from './pages/Q4';
 import Q5 from './pages/Q5';
 import Q6 from './pages/Q6';
 import First_Result from "./pages/First_Result";
+import Q7 from './pages/Q7';
 import Test from "./pages/Test"
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
 	        <Route exact path="/q5" component={Q5} />
 	        <Route exact path="/q6" component={Q6} />
           <Route exact path="/fresult" component={First_Result} />
+          <Route exact path="/q7" component={Q7} />
+
           <Route exact path="/test" component={Test} />
         </Switch>
       </Router>

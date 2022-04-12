@@ -24,20 +24,20 @@ function First_Result(props) {
 
   function SetPeriod() { //투자 기간 Index 세팅
     let idx = -1;
-    console.log('투자 기간 응답: ', Period);
-    if(Period === '장기') {
+    // console.log('투자 기간 응답: ', Period);
+    if(Period === 5) {
       idx = 0;
       console.log('Period Index: ', idx);
-    } else if (Period === '중장기') { 
+    } else if (Period === 4) { 
       idx = 1;
       console.log('Period Index: ', idx);
-    } else if (Period === '중기_결혼') {
+    } else if (Period === 3) {
       idx = 2;
       console.log('Period Index: ', idx);
-    } else if (Period === '중기_집_차') {
+    } else if (Period === 2) {
       idx = 3;
       console.log('Period Index: ', idx);
-    } else if (Period === '단기') {
+    } else if (Period === 1) {
       idx = 4;
       console.log('Period Index: ', idx);
     } else {
@@ -164,28 +164,36 @@ function First_Result(props) {
     <div className="App">
       <Header />
       <div className='Result'>  {/* style={{display: 'flex'}} */}
-        <div className={'Column'}> 
-          <h2>Character Info</h2>
-          <h3>{Type[TypeIdx].Char}</h3>
-          <p>{Type[TypeIdx].Content}</p>
-          <div>
-            <p><b>투자 목적</b>: {Result.투자목적[a_idx[1]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
-            <p><b>위험 감내도</b>: {Result.위험감내수준[a_idx[2]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
-            <p><b>금융 이해도</b>: {Result.금융이해도[a_idx[3]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
-            <p><b>투자 경험</b>: {Result.투자경험[a_idx[4]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+        <div> 
+          <div> 
+            <div className='Quest'> 
+              <div style={{fontSize: '20px', fontWeight: '700'}}>Quest</div>
+              <div>{Result.투자기간[a_idx[0]].Quest}</div>
+            </div>
+            {/* <img className='TypeImage'></img> */}
+            <div className='TypeImage'></div>
+            <div className='Bag'>
+              <div className='Item'>
+                <div>{Result.금융이해도[a_idx[3]].Weapon}
+                  <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (공격력: {Result.금융이해도[a_idx[3]].Power})</span>
+                </div>
+              </div>
+              <div className='Item'>
+                <div>{Result.위험감내수준[a_idx[2]].Shield}
+                  <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (방어력: {Result.위험감내수준[a_idx[2]].Power})</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className={'Column'}> 
-          <h2>What's In My Bag?</h2>
-          <h3>{Result.금융이해도[a_idx[3]].Weapon}
-            <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (공격력: {Result.금융이해도[a_idx[3]].Power})</span>
-          </h3>
-          <h3>{Result.위험감내수준[a_idx[2]].Shield}
-            <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (방어력: {Result.위험감내수준[a_idx[2]].Power})</span>
-          </h3>
-          <div className={'Quest'}>
-            <h2>Quest</h2>
-            <p>{Result.투자기간[a_idx[0]].Quest}</p>
+          <div className='Explain'>
+            <h3>{Type[TypeIdx].Char}</h3>
+            <div className='Table'>
+              <p><b>투자 목적</b>: {Result.투자목적[a_idx[1]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+              <p><b>위험 감내도</b>: {Result.위험감내수준[a_idx[2]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+              <p><b>금융 이해도</b>: {Result.금융이해도[a_idx[3]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+              <p><b>투자 경험</b>: {Result.투자경험[a_idx[4]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+            </div>
+            <p>{Type[TypeIdx].Content}</p>
           </div>
         </div>
         <NextButton Path={"/q7"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'테스트 이어하기'}/>
