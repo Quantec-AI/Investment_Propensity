@@ -3,26 +3,30 @@ import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
-const QnA_4 = QNA[3];
+const QnA = QNA[3];
 
 function Q4(props) {
-    const Period = props.location.state.Period;
-    const Purpose = props.location.state.Purpose;
-    const Tol = props.location.state.Tolerance;
-    const [Tolerance, getTolerance] = useState('Not Selected');
+    // const Period = props.location.state.Period;
+    // const Purpose = props.location.state.Purpose;
+    // const Tol = props.location.state.Tolerance;
+    const Res = props.location.state.Res;
+
+    console.log(Res);
+
+    const [Response, getResponse] = useState('Not Selected');
     const [Sel, setSel] = useState(false);
     function SelButton({ Answer }) {
 
-        const value = Answer.Value;
+        const id = Answer.id;
         const answer = Answer.Answer;
         const explain = Answer.Explain;
 
         const onClick = () => {
-            QnA_4.Answers.map(answer => (
+            QnA.Answers.map(answer => (
                 answer.State = false
             ));
             Answer.State = !Answer.State;
-            getTolerance((Tol + value)/2);
+            getResponse(id);
             console.log(answer);
             setSel(true);
         }
@@ -30,7 +34,7 @@ function Q4(props) {
             <div>
                 <button 
                     className={'sel-button'} 
-                    value={value} onClick={ onClick } 
+                    onClick={ onClick } 
                     style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>
                     {answer}
                     <div className={'small-text'} style={{marginTop: '0.5rem', color: Answer.State && '#F2F2F2'}}>
@@ -40,17 +44,19 @@ function Q4(props) {
             </div>
         );
     }
+
+    Res[QnA.page] = Response;
     
     return (
         <div className="App">
             <Header />
             <div className='Content'>
-                <h3 className='page'>{ QnA_4.page }</h3> 
-                <h1 className='question'>{ QnA_4.Question }</h1>
-                {QnA_4.Answers.map(answer => (
+                <h3 className='page'>{ QnA.page }</h3> 
+                <h1 className='question'>{ QnA.Question }</h1>
+                {QnA.Answers.map(answer => (
                     <SelButton key= {answer.id} Answer= {answer}/>
                 ))}
-                {Sel ?  <NextButton Path={"/q5"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={0} Exp={0} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+                {Sel ?  <NextButton Path={"/q5"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
             </div>
         </div>
     );

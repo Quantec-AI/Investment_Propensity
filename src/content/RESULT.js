@@ -52,14 +52,15 @@ const RESULT = {
         Value: 1
       },
     ],
-    위험감내수준: [ // id, Grade, Name, Img, Shield, Power, Value
+    위험감내수준: [ // id, Grade, Name, Img, Shield, Level, Content, Value
       {
         id: 1,
         Grade: '1등급', 
         Name: 'Maximal',
         Img: '',
         Shield: '장난감 방패',
-        Power: 1,
+        Level: "Lv.1",
+        Content: "",
         Value: 6
       },
       {
@@ -68,7 +69,8 @@ const RESULT = {
         Name: 'Parial',
         Img: '',
         Shield: '노멀 방패',
-        Power: 5,
+        Level: "Lv.2",
+        Content: "",
         Value: 4
       },
       {
@@ -77,7 +79,8 @@ const RESULT = {
         Name: 'Minimum',
         Img: '',
         Shield: '엘리트 방패',
-        Power: 10,
+        Level: "Lv.3",
+        Content: "",
         Value: 2
       },
       {
@@ -86,18 +89,20 @@ const RESULT = {
         Name: 'No',
         Img: '',
         Shield: '전설의 방패',
-        Power: 15,
+        Level: "Lv.4",
+        Content: "",
         Value: -30
       }
     ],
-    금융이해도: [ // id, Grade, Name, Img, Weapon, Power, Value
+    금융이해도: [ // id, Grade, Name, Img, Weapon, Level, Value
       {
         id: 1,
         Grade: "1등급",
         Name: "Advanced",
         Img: '',
         Weapon: "전설의 칼",
-        Power: 15,
+        Level: "Lv.4",
+        Content: "",
         Value: 4
       },
       {
@@ -106,7 +111,8 @@ const RESULT = {
         Name: "High",
         Img: '',
         Weapon: "고급자의 칼",
-        Power: 10,
+        Level: "Lv.3",
+        Content: "",
         Value: 4
       },
       {
@@ -115,7 +121,8 @@ const RESULT = {
         Name: "Low",
         Img: '',
         Weapon: "초급자의 칼",
-        Power: 5,
+        Level: "Lv.2",
+        Content: "",
         Value: 2
       },
       {
@@ -124,7 +131,8 @@ const RESULT = {
         Name: "Rare",
         Img: '',
         Weapon: "장난감 칼",
-        Power: 1,
+        Level: "Lv.1",
+        Content: "",
         Value: 2
       }
     ],

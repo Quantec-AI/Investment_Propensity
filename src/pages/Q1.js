@@ -4,43 +4,49 @@ import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
-const QnA_1 = QNA[0];
+const QnA = QNA[0];
 
-function Q1() {
+function Q1(props) {
+  const Res = props.location.state.Res;
+  console.log(Res);
+  // console.log(props.location.state);
+  // Answers[1] = 3; 
 
-  const [Period, getPeriod] = useState('Not Selected!');
+  const [Response, getResponse] = useState('Not Selected!');
   const [Sel, setSel] = useState(false);
 
   function SelButton({ Answer }) {
-    const value = Answer.Value;
+    const id = Answer.id;
     const answer = Answer.Answer;
 
     const onClick = () => {
-      QnA_1.Answers.map(answer => (
+      QnA.Answers.map(answer => (
           answer.State = false
       ));
       Answer.State = !Answer.State;
       setSel(true);
       console.log(answer);
-      getPeriod(value);
+      getResponse(id);
     }
     return (
       <div>
-        <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</button>
+        <button className={'sel-button'} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</button>
       </div>
     );
   }
+  
+  Res[QnA.page] = Response;
   
   return (
     <div className="App">
       <Header />
       <div className='Content'>
-        <h3 className='page'>{ QnA_1.page }</h3> 
-        <h1 className='question'> { QnA_1.Question }</h1>
-        {QnA_1.Answers.map(answer => (
+        <h3 className='page'>{ QnA.page }</h3> 
+        <h1 className='question'> { QnA.Question }</h1>
+        {QnA.Answers.map(answer => (
           <SelButton key= {answer.id} Answer={answer}/>
         ))}
-        {Sel ? <NextButton Path={"/q2"} Per={Period} Pur={0} Tol={0} Lit={0} Exp={0} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+        {Sel ? <NextButton Path={"/q2"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
       </div>
     </div>
   );

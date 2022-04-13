@@ -12,10 +12,10 @@ function Q7(props) {
     const Tolerance = props.location.state.Tolerance;
     const Literacy = props.location.state.Literacy;
     const Experience = props.location.state.Experience;
-    const [Purpose, getPurpose] = useState("Not Selected");
+    const [Purpose, getPurpose] = useState(Pur);
     const [Sel, setSel] = useState(false);
     console.log('원래 Purpose 값', Pur);
-    getPurpose(Pur);
+    // getPurpose(Pur);
 
     function MulSelection({ Answer }) {
         const value = Answer.Value;

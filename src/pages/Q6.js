@@ -3,48 +3,53 @@ import Header from '../component/Header';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA'
 
-const QnA_6 = QNA[5];
+const QnA = QNA[5];
 
 function Q6(props) {
-    const Period = props.location.state.Period;
-    const Purpose = props.location.state.Purpose;
-    const Tolerance = props.location.state.Tolerance;
-    const Literacy = props.location.state.Literacy;
+    // const Period = props.location.state.Period;
+    // const Purpose = props.location.state.Purpose;
+    // const Tolerance = props.location.state.Tolerance;
+    // const Literacy = props.location.state.Literacy;
+    const Res = props.location.state.Res;
 
-    const [Experience, getExperience] = useState('Not Selected!');
+    console.log(Res);
+
+    const [Response, getResponse] = useState('Not Selected!');
     const [Sel, setSel] = useState(false);
 
     function SelButton({ Answer }) {
 
-        const value = Answer.Value;
+        const id = Answer.id;
         const answer = Answer.Answer;
 
         const onClick = () => {
-            QnA_6.Answers.map(answer => (
+            QnA.Answers.map(answer => (
                 answer.State = false
             ));
             Answer.State = !Answer.State;
             console.log(answer);
-            getExperience(value);
+            getResponse(id);
             setSel(true);
         }
         return (
             <div>
-                <button className={'sel-button'} value={value} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</button>
+                <button className={'sel-button'} onClick={ onClick } style={{backgroundColor: Answer.State ? '#1d1a82':'#F7F7F7', color: Answer.State && 'White'}}>{answer}</button>
             </div>
         );
     }
+
+    Res[QnA.page] = Response;
 
     return (
         <div className="App"> 
             <Header /> 
             <div className='Content'>
-                <h3 className='page'>{ QnA_6.page }</h3> 
-                <h1 className='question'>{ QnA_6.Question }</h1>
-                {QnA_6.Answers.map(answer => (
+                <h3 className='page'>{ QnA.page }</h3> 
+                <h1 className='question'>{ QnA.Question }</h1>
+                {QnA.Answers.map(answer => (
                     <SelButton key= {answer.id} Answer= {answer}/>
                 ))}
-                {Sel ?  <NextButton Path={"/fresult"} Per={Period} Pur={Purpose} Tol={Tolerance} Lit={Literacy} Exp={Experience} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+                {Sel ?  <NextButton Path={"/fresult"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
             </div>
         </div>
     );

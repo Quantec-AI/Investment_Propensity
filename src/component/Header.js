@@ -4,7 +4,7 @@ function Header() {
     return (
         <div>
             <div className="Header">
-                <text>투자 유니버스</text>
+                <div>투자 유니버스</div>
             </div>
         </div>
     );

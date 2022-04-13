@@ -19,19 +19,19 @@ const QNA = [
             {
             id:3,
             Answer: "중기 목표: 결혼 자금을 위해", 
-            Value: 3,
+            Value: 2,
             State: false
             },
             {
             id:4, 
             Answer: "중장기 목표: 자녀 교육 자금을 모으기 위해", 
-            Value: 4,
+            Value: 3,
             State: false
             },
             {
             id:5, 
             Answer: "장기 목표: 넉넉한 노후를 위한 투자", 
-            Value: 5,
+            Value: 4,
             State: false
             }
         ]
