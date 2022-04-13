@@ -12,36 +12,40 @@ const Type = TYPE;
 function First_Result(props) {
   const Res = props.location.state.Res;
 
+  //Set Period Value - Q1
   const Period = Res[1];
+  //Set Purpose Value - Q2
   const Purpose = QNA[1].Answers.find(function(data) {
     return data.id === Res[2]
   });
+  //Set Tolerance Value - Q3, Q4
   const Tol1 = QNA[2].Answers.find(function(data) {
     return data.id === Res[3]
   });
   const Tol2 = QNA[3].Answers.find(function(data) {
     return data.id === Res[4]
   });
-  const Tolerance = Tol1.Value + Tol2.Value;
-  console.log(Tolerance);
-  const Literacy = 0;
-
-  let comp = 0;
-  // Res[5].map((res) => (
-  //   comp = QNA[3].Answers.find(function(data){return data.id === res});
-  //   Literacy = Literacy + comp.Value;
-  // );
-  console.log('모이자시가',Res[5][4], Res[5].length);
-  for(let i = 0; i <Res[5].length-1; i++){
-    comp = QNA[4].Answers.find(function(data){
+  const Tolerance = (Tol1.Value + Tol2.Value)/2; //Sum of Q3, Q4
+  //Set Literacy Value - Q5 (Sum of All Response)
+  let Literacy = 0; //-> Literacy value
+  let tmp = []; //-> 값 보관함 
+  for(let i = 0; i <Res[5].length; i++){
+    tmp[i] = QNA[4].Answers.find(function(data){
       return data.id === Res[5][i]
     });
-    console.log('Literacy: ', Literacy, "Value: ", comp.Value);
-    Literacy = Literacy + comp.Value;
-  };    
+    Literacy = Literacy + tmp[i].Value;
+    // console.log('Literacy: ', Literacy, "Value: ", tmp[i].Value);
+  };
+  //Set Experience Value - Q6
+  const Experience = QNA[5].Answers.find(function(data) {
+    return data.id === Res[6]
+  });
 
-  const Experience = 0;
-  
+  console.log('Period: ', Period);
+  console.log('Purpose: ', Purpose);
+  console.log('Tolerance: ', Tolerance);
+  console.log('Literacy: ', Literacy);
+  console.log('Experience: ', Experience);
 
   const a_idx = [-1, -1, -1, -1, -1]; //투자기간, 투자목적, 위험감내도, 금융이해도, 투자경험
   let TypeIdx = -1; // 투자유형
@@ -133,17 +137,17 @@ function First_Result(props) {
   }
   function SetExperience() { //투자 경험 Index 세팅
     let idx = -1;
-    console.log('투자 경험 응답: ', Experience);
-    if(Experience >= 31) {
+    console.log('투자 경험 응답: ', Experience.Value);
+    if(Experience.Value >= 31) {
       idx = 0;
       console.log('Experience Index: ', idx);
-    } else if (Experience >= 21 && Experience < 31) { 
+    } else if (Experience.Value >= 21 && Experience.Value < 31) { 
       idx = 1;
       console.log('Experience Index: ', idx);
-    } else if (Experience >= 11 && Experience < 21) {
+    } else if (Experience.Value >= 11 && Experience.Value < 21) {
       idx = 2;
       console.log('Experience Index: ', idx);
-    } else if (Experience < 11) {
+    } else if (Experience.Value < 11) {
       idx = 3;
       console.log('Experience Index: ', idx);
     } else {

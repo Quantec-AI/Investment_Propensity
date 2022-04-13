@@ -198,6 +198,7 @@ body{
 }
 
 .Quest {
+  width: 16rem;
   display: inline-block;
   position: relative;
   left: -2.5rem;
@@ -297,6 +298,7 @@ body{
   }
   .Quest {
     left: -2rem;
+    width: 13rem;
   }
   .TypeImage {
     width: 260px;
