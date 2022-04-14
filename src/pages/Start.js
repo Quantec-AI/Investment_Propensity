@@ -21,6 +21,8 @@ function Start() {
     14: false,
     15: false,
     16: false,
+    17: false,
+    18: false
   }
   QNA.map(qna => (
     qna.Answers.map(answer => (

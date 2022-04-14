@@ -358,7 +358,7 @@ const QNA = [
             },
             { 
                 id:2, 
-                Answer: "튜폰", 
+                Answer: "듀폰", 
                 Sector: "원자재",
                 Value: 2,
                 Img: '',
@@ -406,7 +406,7 @@ const QNA = [
             },
             { 
                 id:8, 
-                Answer: "마이크로포스트", 
+                Answer: "마이크로소프트", 
                 Sector: "IT",
                 Value: 8,
                 Img: '',
@@ -492,9 +492,84 @@ const QNA = [
             }
         ]
     },
-    { //11번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자경험
+    { //11번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 금융이해도
         id: 11,
         page: 11,
+        Question: "내 소중한 100만원에 대해\n옳지 않는 것은?", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "1년 물가 상승률이 5%일 때, 1년 뒤에\n내 100만원으로 살 수 있는 물건은 적어져요!", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "내 100만원을 2%의 1년 만기 적금에 넣었을 때,\n1년 후 계좌에는 102만원이...!! ", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "내 소중한 100만원으로 주식 투자를 하면\n원금은 보장되지 않아요!", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:4,
+                Answer: "보통 투자로 1년에 2배 정도는 먹는다던데?", 
+                Value: 1,
+                State: false
+            },
+            {
+                id:5,
+                Answer: "소중한 100만원이 전재산이라면\n100만원 중 일부만 투자하는 것이 바람직해요!", 
+                Value: -1,
+                State: false
+            }
+        ]
+    },
+    { //12번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 금융이해도
+        id: 12,
+        page: 12,
+        Question: "다음 중 틀린 것을 골라라!", 
+        Answers: [
+            {
+                id:1, 
+                Answer: "공매도는 없는 주식을 사고 파는 거래요!", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:2, 
+                Answer: "KOSPI가 오르면 대부분의 종목은 올라요!", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:3,
+                Answer: "내가 산 종목이 따상을 가면,\n기분이 무지막지 좋아요!", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:4,
+                Answer: "AA급의 채권이 주식 투자보다 안전해요!", 
+                Value: -1,
+                State: false
+            },
+            {
+                id:5,
+                Answer: "인터넷에서 추천해준 주식은\n무조건 믿고 매수해요!", 
+                Value: 1,
+                State: false
+            }
+        ]
+    },
+
+    { //13번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자경험
+        id: 13,
+        page: 13,
         Question: "내가 코인을 시작한지\n어언...", 
         Answers: [
             {
@@ -529,9 +604,9 @@ const QNA = [
             }
         ]
     },
-    { //12번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 성별 
-        id:12,
-        page: 12,
+    { //14번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 성별 
+        id:14,
+        page: 14,
         Question: "성별을 알려주세요!", 
         Answers: [
             {
@@ -554,9 +629,9 @@ const QNA = [
             }
         ]
     },
-    { //13번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연령대
-        id:13,
-        page: 13,
+    { //15번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연령대
+        id:15,
+        page: 15,
         Question: "나이를 알려주세요!", 
         Answers: [
             {
@@ -591,9 +666,9 @@ const QNA = [
             }
         ]
     },
-    { //14번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연평균 소득
-        id:14,
-        page: 14,
+    { //16번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연평균 소득
+        id:16,
+        page: 16,
         Question: "나는 연평균 이만큼 벌어요!", 
         Answers: [
             {
@@ -628,9 +703,9 @@ const QNA = [
             }
         ]
     },
-    { //15번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자 금액 :: 항목 만들어야 함 
-        id:15,
-        page: 15,
+    { //17번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자 금액 :: 항목 만들어야 함 
+        id:17,
+        page: 17,
         Question: "현재의 투자 금액은?\n(투자 예정 금액)!", 
         Answers: [
             {
@@ -641,9 +716,9 @@ const QNA = [
             }
         ]
     },
-    { //16번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자자산 비율
-        id:16,
-        page: 16,
+    { //18번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자자산 비율
+        id:18,
+        page: 18,
         Question: "열심히 일해서 모은 10억,\n몇퍼센트를 투자할건가요?", 
         Answers: [
             {

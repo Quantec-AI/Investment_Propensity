@@ -1,0 +1,79 @@
+import React, { useState } from 'react';
+import '../App.css';
+import Header from '../component/Header';
+import NextButton from '../component/NextButton';
+import QNA from '../content/QNA'
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Slider from '@mui/material/Slider';
+
+const QnA = QNA[16];
+
+function Q17(props) {
+  const Res = props.location.state.Res;
+  // console.log(Res);
+
+  const [Resp, getResp] = useState(10);
+  // const [Response, getResponse] = useState('Not Selected');
+  
+  Res[QnA.page] = valueLabelFormat(calculateValue(Resp));
+
+  function valueLabelFormat(Resp) {
+    const units = ['만원', '억원'];
+  
+    let unitIndex = 0;
+    let scaledValue = Resp;
+  
+    while (scaledValue >= 10000 && unitIndex < units.length - 1) {
+      unitIndex += 1;
+      scaledValue /= 10000;
+    }
+    // getResp('${parseInt(scaledValue)} ${units[unitIndex]}');
+    return `${parseInt(scaledValue)} ${units[unitIndex]}`;
+  }
+
+  function calculateValue(Resp) {
+    // return 2 ** Resp;
+    // return Resp;
+    // return Resp * 10;
+    // console.log(Math.log10(Resp));
+    // return 10*(10 ** (Math.log10(Resp)*(2)));
+    return 10 * Math.pow(10, (Resp)/25);
+  }
+
+  const handleChange = (event, newValue) => {
+    if (typeof newValue === 'number') {
+      getResp(newValue);
+    }
+  };
+
+  return (
+    <div className="App">
+      <Header />
+      <div className='Content'>
+        <h3 className='page'>{ QnA.page }</h3> 
+        <h1 className='question'> { QnA.Question }</h1>
+        {/* <div style={{width: '24rem', margin: '3rem', display:'inline-flex'}}> */}
+        <Box sx={{ width: 300, display: 'inline-block' }}>
+          <Typography id="non-linear-slider" gutterBottom>
+            투자 금액: {valueLabelFormat(calculateValue(Resp))}
+          </Typography>
+          <Slider
+            value={Resp}
+            min={0}
+            step={0.1}
+            max={100}
+            scale={calculateValue}
+            getAriaValueText={valueLabelFormat}
+            valueLabelFormat={valueLabelFormat}
+            onChange={handleChange}
+            aria-labelledby="non-linear-slider"
+          />
+        </Box>
+        <NextButton Path={"/q18"} Res={Res} Text={'Next'}/>
+      </div>
+    </div>
+  );
+}
+
+export default Q17;

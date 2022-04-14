@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Investment_Propensity/static/css/main.01f48c09.css",
-    "main.js": "/Investment_Propensity/static/js/main.ae1eed42.js",
-    "static/js/787.3c594a39.chunk.js": "/Investment_Propensity/static/js/787.3c594a39.chunk.js",
+    "main.js": "/Investment_Propensity/static/js/main.eddc0b34.js",
+    "static/js/787.c900cef2.chunk.js": "/Investment_Propensity/static/js/787.c900cef2.chunk.js",
     "index.html": "/Investment_Propensity/index.html",
     "main.01f48c09.css.map": "/Investment_Propensity/static/css/main.01f48c09.css.map",
-    "main.ae1eed42.js.map": "/Investment_Propensity/static/js/main.ae1eed42.js.map",
-    "787.3c594a39.chunk.js.map": "/Investment_Propensity/static/js/787.3c594a39.chunk.js.map"
+    "main.eddc0b34.js.map": "/Investment_Propensity/static/js/main.eddc0b34.js.map",
+    "787.c900cef2.chunk.js.map": "/Investment_Propensity/static/js/787.c900cef2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.01f48c09.css",
-    "static/js/main.ae1eed42.js"
+    "static/js/main.eddc0b34.js"
   ]
 }

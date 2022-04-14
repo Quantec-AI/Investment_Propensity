@@ -33,13 +33,13 @@ function Final_Result(props) {
     return data.id === Res[4]
   });
   //Set Literacy Value - Q5 (Sum of All Response)
-  let Literacy = 0; //-> Literacy value
+  let Lit1 = 0; //-> Literacy value
   let tmp_lit = []; //-> 값 보관함 
   for(let i = 0; i <Res[5].length; i++){
     tmp_lit[i] = QNA[4].Answers.find(function(data){
       return data.id === Res[5][i]
     });
-    Literacy = Literacy + tmp_lit[i].Value;
+    Lit1 = Lit1 + tmp_lit[i].Value;
   };
   //Set Experience Value - Q6
   const Exp1 = QNA[5].Answers.find(function(data) {
@@ -64,35 +64,41 @@ function Final_Result(props) {
   const Tol4 = QNA[9].Answers.find(function(data) {
     return data.id === Res[10]
   });
-  //Set Experience Value - Q11 
-  const Exp2 = QNA[10].Answers.find(function(data) {
+  //Set Literacy Value - Q11
+  const Lit2 = QNA[10].Answers.find(function(data) {
     return data.id === Res[11]
   });
-  //Set Personal Info : Gender - Q12
-  const Gender = QNA[11].Answers.find(function(data) {
+  //Set Literacy Value - Q12
+  const Lit3 = QNA[11].Answers.find(function(data) {
     return data.id === Res[12]
   });
-  //Set Personal Info : Age - Q13 
-  const Age = QNA[12].Answers.find(function(data) {
+  //Set Experience Value - Q13
+  const Exp2 = QNA[12].Answers.find(function(data) {
     return data.id === Res[13]
   });
-  //Set Personal Info : Income - Q14
-  const Income = QNA[13].Answers.find(function(data) {
+  //Set Personal Info : Gender - Q14
+  const Gender = QNA[13].Answers.find(function(data) {
     return data.id === Res[14]
   });
-  //Set Personal Info : Invest Money - Q15
-  const Money = QNA[14].Answers.find(function(data) {
+  //Set Personal Info : Age - Q15
+  const Age = QNA[14].Answers.find(function(data) {
     return data.id === Res[15]
   });
-  //Set Personal Info : Invest Property - Q16
-  const Property = QNA[15].Answers.find(function(data) {
+  //Set Personal Info : Income - Q16
+  const Income = QNA[15].Answers.find(function(data) {
     return data.id === Res[16]
+  });
+  //Set Personal Info : Invest Money - Q17
+  const Money = QNA[16];
+  //Set Personal Info : Invest Property - Q18
+  const Property = QNA[17].Answers.find(function(data) {
+    return data.id === Res[18]
   });
 
   const Period = Per.Value;
   const Purpose = Pur1.Value + Pur2;
   const Tolerance = (Tol1.Value + Tol2.Value)/2 + Tol3.Value + Tol4.Value;
-  //Literacy
+  const Literacy = Lit1 + Lit2.Value + Lit3.Value;
   const Experience = (Exp1.Value + Exp2.Value)/2;
 
 //   console.log('Period: ', Period);

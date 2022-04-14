@@ -19,6 +19,8 @@ import Q13 from './pages/Q13';
 import Q14 from './pages/Q14';
 import Q15 from './pages/Q15';
 import Q16 from './pages/Q16';
+import Q17 from './pages/Q17';
+import Q18 from './pages/Q18';
 import Final_Result from './pages/Final_Result';
 import Test from "./pages/Test";
 
@@ -28,7 +30,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={Start} />
+          <Route exact path="/Investment_propensity" component={Start} />
 	        <Route exact path="/q1" component={Q1} />
           <Route exact path="/q2" component={Q2} />
 	        <Route exact path="/q3" component={Q3} />
@@ -46,6 +48,8 @@ function App() {
           <Route exact path="/q14" component={Q14} />
           <Route exact path="/q15" component={Q15} />
           <Route exact path="/q16" component={Q16} />
+          <Route exact path="/q17" component={Q17} />
+          <Route exact path="/q18" component={Q18} />
           <Route exact path="/result" component={Final_Result} />
 
           <Route exact path="/test" component={Test} />

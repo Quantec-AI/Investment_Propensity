@@ -43,6 +43,10 @@ function Q9(props) {
       <div className='Content'>
         <h3 className='page'>{ QnA.page }</h3> 
         <h1 className='question'> { QnA.Question }</h1>
+        <div className='balance'>
+            <h2>계좌 잔고</h2>
+            <p><b>투자금</b>: 1억<br /><b>수익률</b>: -10%<br /><b>손익</b>: -1,000만원</p>
+        </div>
         {QnA.Answers.map(answer => (
           <SelButton key= {answer.id} Answer={answer}/>
         ))}

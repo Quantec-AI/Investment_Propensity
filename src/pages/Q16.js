@@ -46,7 +46,7 @@ function Q16(props) {
         {QnA.Answers.map(answer => (
           <SelButton key= {answer.id} Answer={answer}/>
         ))}
-        {Sel ? <NextButton Path={"/result"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+        {Sel ? <NextButton Path={"/q17"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
       </div>
     </div>
   );

@@ -85,6 +85,17 @@ body{
   /* text-align: center; */
 }
 
+.balance {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  width: 18rem;
+  padding: 0.5rem 1.5rem;
+  border: solid 2px #FFB950;
+  border-radius: 10px;
+  text-align: left;
+}
+
 .next {
   background-color: #F4F3F4;
   border-radius: 8px;
