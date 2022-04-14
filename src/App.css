@@ -189,7 +189,7 @@ body{
 
 .Result {
   background: #0d172a;
-  height: 100vh;
+  /* height: 100vh; */
   text-align: center;
   font-family:  Arial,sans-serif;
   padding-left: auto;
@@ -198,7 +198,7 @@ body{
 }
 
 .Quest {
-  width: 16rem;
+  width: 20rem;
   display: inline-block;
   position: relative;
   left: -2.5rem;
@@ -214,6 +214,7 @@ body{
   border: solid 2px #d3d3d3;
   /* font-family: 'DungGeunMo'; */
   text-align: left;
+  box-sizing: border-box;
 }
 
 .TypeImage {
@@ -298,7 +299,8 @@ body{
   }
   .Quest {
     left: -2rem;
-    width: 13rem;
+    /* box-sizing: content-box; */
+    width: auto;
   }
   .TypeImage {
     width: 260px;

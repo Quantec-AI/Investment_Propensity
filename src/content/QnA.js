@@ -642,20 +642,20 @@ const QNA = [
         ]
     },
     { //16번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자자산 비율
-        id:14,
-        page: 14,
+        id:16,
+        page: 16,
         Question: "열심히 일해서 모은 10억,\n몇퍼센트를 투자할건가요?", 
         Answers: [
             {
-                id:1, 
-                Answer: "40% 이상", 
-                Value: 1,
+                id:1,
+                Answer: "10% 미만", 
+                Value: 5,
                 State: false
             },
             {
-                id:2, 
-                Answer: "30% ~ 40%", 
-                Value: 2,
+                id:2,
+                Answer: "10% ~ 20%", 
+                Value: 4,
                 State: false
             },
             {
@@ -665,17 +665,17 @@ const QNA = [
                 State: false
             },
             {
-                id:4,
-                Answer: "10% ~ 20%", 
-                Value: 4,
+                id:4, 
+                Answer: "30% ~ 40%", 
+                Value: 2,
                 State: false
             },
             {
-                id:5,
-                Answer: "10% 미만", 
-                Value: 5,
+                id:5, 
+                Answer: "40% 이상", 
+                Value: 1,
                 State: false
-            }
+            },
         ]
     },
 ];

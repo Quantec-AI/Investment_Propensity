@@ -27,7 +27,7 @@ function Q5(props) {
             // Answer.State === false ? getLiteracy( Literacy - value ):getLiteracy( Literacy + value ); 
             // console.log(answer);
             setSel(true);
-            setA(id);
+            Answer.State === false ? setA(-id): setA(id);
         };
         return (
             <div>

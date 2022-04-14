@@ -12,7 +12,7 @@ function Q6(props) {
     // const Literacy = props.location.state.Literacy;
     const Res = props.location.state.Res;
 
-    console.log(Res);
+    // console.log(Res);
 
     const [Response, getResponse] = useState('Not Selected!');
     const [Sel, setSel] = useState(false);

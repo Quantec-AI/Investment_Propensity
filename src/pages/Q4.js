@@ -11,7 +11,7 @@ function Q4(props) {
     // const Tol = props.location.state.Tolerance;
     const Res = props.location.state.Res;
 
-    console.log(Res);
+    // console.log(Res);
 
     const [Response, getResponse] = useState('Not Selected');
     const [Sel, setSel] = useState(false);

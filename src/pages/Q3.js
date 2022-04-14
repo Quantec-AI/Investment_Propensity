@@ -9,7 +9,7 @@ function Q3(props) {
     // const Period = props.location.state.Period;
     // const Purpose = props.location.state.Purpose;
     const Res = props.location.state.Res;
-    console.log(Res);
+    // console.log(Res);
 
     const [Response, getResponse] = useState('Not Selected!');
     const [Sel, setSel] = useState(false);

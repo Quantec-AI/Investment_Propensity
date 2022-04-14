@@ -12,7 +12,7 @@ function Q7(props) {
     // const Literacy = props.location.state.Literacy;
     // const Experience = props.location.state.Experience;
     const Res = props.location.state.Res;
-    let ResponseList = [];
+    const ResponseList = [];
     // console.log(Res);
     // const [Purpose, getPurpose] = useState(Pur);
     const [Sel, setSel] = useState(false);
@@ -26,7 +26,7 @@ function Q7(props) {
         const onClick = () => {
             Answer.State = !Answer.State;
             setSel(true);
-            setA(id);
+            Answer.State === false ? setA(-id): setA(id);
         };
         return (
             <div>
@@ -38,13 +38,13 @@ function Q7(props) {
             </div>
         );
     }
-
+    
     QnA.Answers.map(answer => (
         answer.State && ResponseList.push(answer.id)
     ));
     // console.log(QnA.Answers);
     Res[QnA.page] = ResponseList;
-    console.timeLog(ResponseList);
+    console.log(ResponseList);
 
     return (
         <div className="App">

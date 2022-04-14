@@ -13,9 +13,9 @@ function First_Result(props) {
   const Res = props.location.state.Res;
 
   //Set Period Value - Q1
-  const Period = Res[1];
+  const Per_Quest = Res[1];
   //Set Purpose Value - Q2
-  const Purpose = QNA[1].Answers.find(function(data) {
+  const Pur1 = QNA[1].Answers.find(function(data) {
     return data.id === Res[2]
   });
   //Set Tolerance Value - Q3, Q4
@@ -25,7 +25,6 @@ function First_Result(props) {
   const Tol2 = QNA[3].Answers.find(function(data) {
     return data.id === Res[4]
   });
-  const Tolerance = (Tol1.Value + Tol2.Value)/2; //Sum of Q3, Q4
   //Set Literacy Value - Q5 (Sum of All Response)
   let Literacy = 0; //-> Literacy value
   let tmp = []; //-> 값 보관함 
@@ -37,15 +36,21 @@ function First_Result(props) {
     // console.log('Literacy: ', Literacy, "Value: ", tmp[i].Value);
   };
   //Set Experience Value - Q6
-  const Experience = QNA[5].Answers.find(function(data) {
+  const Exp1 = QNA[5].Answers.find(function(data) {
     return data.id === Res[6]
   });
 
-  console.log('Period: ', Period);
-  console.log('Purpose: ', Purpose);
-  console.log('Tolerance: ', Tolerance);
-  console.log('Literacy: ', Literacy);
-  console.log('Experience: ', Experience);
+  // console.log('Period: ', Period);
+  // console.log('Purpose: ', Purpose);
+  // console.log('Tolerance: ', Tolerance);
+  // console.log('Literacy: ', Literacy);
+  // console.log('Experience: ', Experience);
+
+  // const Period = Per.Value;
+  const Purpose = Pur1.Value;
+  const Tolerance = (Tol1.Value + Tol2.Value)/2;
+  //Literacy
+  const Experience = Exp1.Value;
 
   const a_idx = [-1, -1, -1, -1, -1]; //투자기간, 투자목적, 위험감내도, 금융이해도, 투자경험
   let TypeIdx = -1; // 투자유형
@@ -54,20 +59,20 @@ function First_Result(props) {
 
   function SetPeriod() { //투자 기간 Index 세팅
     let idx = -1;
-    // console.log('투자 기간 응답: ', Period);
-    if(Period === 5) {
+    console.log('투자 기간 응답: ', Per_Quest);
+    if(Per_Quest === 5) {
       idx = 0;
       console.log('Period Index: ', idx);
-    } else if (Period === 4) { 
+    } else if (Per_Quest === 4) { 
       idx = 1;
       console.log('Period Index: ', idx);
-    } else if (Period === 3) {
+    } else if (Per_Quest === 3) {
       idx = 2;
       console.log('Period Index: ', idx);
-    } else if (Period === 2) {
+    } else if (Per_Quest === 2) {
       idx = 3;
       console.log('Period Index: ', idx);
-    } else if (Period === 1) {
+    } else if (Per_Quest === 1) {
       idx = 4;
       console.log('Period Index: ', idx);
     } else {
@@ -77,17 +82,17 @@ function First_Result(props) {
   }
   function SetPurpose() { //투자 목적 Index 세팅
     let idx = -1;
-    console.log('투자 목적 응답: ', Purpose.Value);
-    if(Purpose.Value >= 26) {
+    console.log('투자 목적 응답: ', Purpose);
+    if(Purpose >= 26) {
       idx = 0;
       console.log('Purpose Index: ', idx);
-    } else if (Purpose.Value >= 16 && Purpose.Value < 26) { 
+    } else if (Purpose >= 16 && Purpose < 26) { 
       idx = 1;
       console.log('Purpose Index: ', idx);
-    } else if (Purpose.Value >= 6 && Purpose.Value < 16) {
+    } else if (Purpose >= 6 && Purpose < 16) {
       idx = 2;
       console.log('Purpose Index: ', idx);
-    } else if (Purpose.Value < 6) {
+    } else if (Purpose < 6) {
       idx = 3;
       console.log('Purpose Index: ', idx);
     } else {
@@ -115,7 +120,7 @@ function First_Result(props) {
     }
     return idx;
   }
-  function SetLiteracy() { //위험 감내도 Index 세팅
+  function SetLiteracy() { //금융 이해도 Index 세팅
     let idx = -1;
     console.log('금융이해도 응답: ', Literacy);
     if(Literacy >= 8) {
@@ -137,17 +142,17 @@ function First_Result(props) {
   }
   function SetExperience() { //투자 경험 Index 세팅
     let idx = -1;
-    console.log('투자 경험 응답: ', Experience.Value);
-    if(Experience.Value >= 31) {
+    console.log('투자 경험 응답: ', Experience);
+    if(Experience >= 31) {
       idx = 0;
       console.log('Experience Index: ', idx);
-    } else if (Experience.Value >= 21 && Experience.Value < 31) { 
+    } else if (Experience >= 21 && Experience < 31) { 
       idx = 1;
       console.log('Experience Index: ', idx);
-    } else if (Experience.Value >= 11 && Experience.Value < 21) {
+    } else if (Experience >= 11 && Experience < 21) {
       idx = 2;
       console.log('Experience Index: ', idx);
-    } else if (Experience.Value < 11) {
+    } else if (Experience < 11) {
       idx = 3;
       console.log('Experience Index: ', idx);
     } else {
