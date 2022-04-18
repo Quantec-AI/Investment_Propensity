@@ -11,6 +11,7 @@ const Type = TYPE;
 
 function First_Result(props) {
   const Res = props.location.state.Res;
+  console.log(Res);
 
   //Set Period Value - Q1
   const Per_Quest = Res[1];

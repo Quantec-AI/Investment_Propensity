@@ -65,7 +65,7 @@ const RESULT = {
       },
       {
         id: 2,
-        Grade: '2등급', 
+        Grade: '2등급',
         Name: 'Parial',
         Img: '',
         Shield: '노멀 방패',

@@ -11,11 +11,9 @@ const QnA = QNA[16];
 
 function Q17(props) {
   const Res = props.location.state.Res;
-  // console.log(Res);
 
   const [Resp, getResp] = useState(10);
-  // const [Response, getResponse] = useState('Not Selected');
-  
+  QnA.status = true;
 
   function valueLabelFormat(Resp) {
     const units = ['만원', '억원'];
@@ -37,11 +35,6 @@ function Q17(props) {
   }
 
   function calculateValue(Resp) {
-    // return 2 ** Resp;
-    // return Resp;
-    // return Resp * 10;
-    // console.log(Math.log10(Resp));
-    // return 10*(10 ** (Math.log10(Resp)*(2)));
     return 10 * Math.pow(10, (Resp)/25);
   }
 
@@ -57,7 +50,6 @@ function Q17(props) {
       <div className='Content'>
         <h3 className='page'>{ QnA.page }</h3> 
         <h1 className='question'> { QnA.Question }</h1>
-        {/* <div style={{width: '24rem', margin: '3rem', display:'inline-flex'}}> */}
         <Box sx={{ width: 300, display: 'inline-block' }}>
           <Typography id="non-linear-slider" gutterBottom>
             투자 금액: {valueLabelFormat(calculateValue(Resp))}

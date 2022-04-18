@@ -6,16 +6,9 @@ import QNA from '../content/QNA'
 const QnA = QNA[7];
 
 function Q8(props) {
-    // const Period = props.location.state.Period;
-    // const Pur = props.location.state.Purpose;
-    // const Tolerance = props.location.state.Tolerance;
-    // const Literacy = props.location.state.Literacy;
-    // const Experience = props.location.state.Experience;
     const Res = props.location.state.Res;
     const ResponseList = [];
-    // console.log(Res);
-    // const [Purpose, getPurpose] = useState(Pur);
-    const [Sel, setSel] = useState(false);
+    
     const [a, setA] = useState(false); // 렌더링을 위해.. 임의로 넣음
 
     function MulSelection({ Answer }) {
@@ -25,7 +18,7 @@ function Q8(props) {
 
         const onClick = () => {
             Answer.State = !Answer.State;
-            setSel(true);
+            QnA.status = true;
             Answer.State === false ? setA(-id): setA(id);
         };
         return (
@@ -42,7 +35,6 @@ function Q8(props) {
     QnA.Answers.map(answer => (
         answer.State && ResponseList.push(answer.id)
     ));
-    // console.log(QnA.Answers);
     Res[QnA.page] = ResponseList;
     console.log(ResponseList);
 
@@ -58,7 +50,7 @@ function Q8(props) {
                     ))}
                 </div>
                 <div style={{paddingTop: '0.5rem'}}></div>
-                {Sel ?  <NextButton Path={"/q9"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+                {QnA.status ?  <NextButton Path={"/q9"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
             </div>
         </div>
     );

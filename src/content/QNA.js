@@ -1,8 +1,9 @@
 const QNA = [
-    { //1번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자기간
+    { //1번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 투자기간
         id:1, 
         page: 1,
         Question: "투자를 시작한 이유가\n궁금해요!", 
+        status: false,
         Answers: [
             {
             id: 1, 
@@ -36,10 +37,11 @@ const QNA = [
             }
         ]
     },
-    { //2번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자목적
+    { //2번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 투자목적
         id:2, 
         page: 2,
         Question: "1억을 투자, 1년동안\n이정도는 땡겨야지!", 
+        status: false,
         Answers: [
             {
                 id:1,
@@ -73,10 +75,11 @@ const QNA = [
             }
         ]
     },
-    { //3번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 위험감내도
+    { //3번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 위험감내도
         id:3, 
         page: 3,
         Question: "투자할 때 '손실'에 대한\n나의 의견은?", 
+        status: false,
         Answers: [
             {
                 id: 1,
@@ -104,10 +107,11 @@ const QNA = [
             }
         ]
     },
-    { //4번 페이지: id, page, Question, Answers{id, Answer, Explain, Value, State} : 위험감내도
+    { //4번 페이지: id, page, Question, status, Answers{id, Answer, Explain, Value, State} : 위험감내도
         id:4, 
         page:4,
         Question: "내 자산 10억으로 투자할\n상품을 골라주세요!", 
+        status: false,
         Answers: [
             {
                 id:1,
@@ -146,10 +150,11 @@ const QNA = [
             }
         ]
     },
-    { //5번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 금융이해도
+    { //5번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 금융이해도
         id:5,
         page: 5,
         Question: "아는 투자 단어들을\n모두 골라주세요!", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -243,10 +248,11 @@ const QNA = [
             }
         ]
     },
-    { //6번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자경험
+    { //6번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 투자경험
         id:6,
         page: 6,
         Question: "내가 주식을 시작한지\n어언...", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -280,10 +286,11 @@ const QNA = [
             }
         ]
     },
-    { //7번 페이지: id, page, Question, Answers{id, Answer, Price, Value, Img, State} : 투자목적
+    { //7번 페이지: id, page, Question, status, Answers{id, Answer, Price, Value, Img, State} : 투자목적
         id:7,
         page: 7,
         Question: "선호하는 종목을\n마음껏 골라주세요!", 
+        status: false,
         Answers: [
             { 
                 id:1, 
@@ -343,10 +350,11 @@ const QNA = [
             },
         ]
     },
-    { //8번 페이지: id, page, Question, Answers{id, Answer, Sector, Value, Img, State} : 그냥... 선호 섹터
+    { //8번 페이지: id, page, Question, status, Answers{id, Answer, Sector, Value, Img, State} : 그냥... 선호 섹터
         id:8,
         page: 8,
         Question: "선호하는 섹터를\n마음껏 골라주세요!", 
+        status: false,
         Answers: [
             { 
                 id:1, 
@@ -430,10 +438,11 @@ const QNA = [
             }
         ]
     },
-    { //9번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 위험감내도 
+    { //9번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 위험감내도 
         id:9,
         page: 9,
         Question: "확신을 갖고 산 종목이\n-10%를 찍었다 🥲", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -461,10 +470,11 @@ const QNA = [
             }
         ]
     },
-    { //10번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 위험감내도 
+    { //10번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 위험감내도 
         id: 10,
         page: 10,
         Question: "나는 이렇게 투자하는 것을\n선호해요!", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -492,10 +502,11 @@ const QNA = [
             }
         ]
     },
-    { //11번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 금융이해도
+    { //11번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 금융이해도
         id: 11,
         page: 11,
         Question: "내 소중한 100만원에 대해\n옳지 않는 것은?", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -529,10 +540,11 @@ const QNA = [
             }
         ]
     },
-    { //12번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 금융이해도
+    { //12번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 금융이해도
         id: 12,
         page: 12,
         Question: "다음 중 틀린 것을 골라라!", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -567,10 +579,11 @@ const QNA = [
         ]
     },
 
-    { //13번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 투자경험
+    { //13번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 투자경험
         id: 13,
         page: 13,
         Question: "내가 코인을 시작한지\n어언...", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -604,10 +617,11 @@ const QNA = [
             }
         ]
     },
-    { //14번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 성별 
+    { //14번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 응답자 개인정보 / 성별 
         id:14,
         page: 14,
         Question: "성별을 알려주세요!", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -629,10 +643,11 @@ const QNA = [
             }
         ]
     },
-    { //15번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연령대
+    { //15번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연령대
         id:15,
         page: 15,
         Question: "나이를 알려주세요!", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -666,10 +681,11 @@ const QNA = [
             }
         ]
     },
-    { //16번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연평균 소득
+    { //16번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 응답자 개인정보 / 연평균 소득
         id:16,
         page: 16,
         Question: "나는 연평균 이만큼 벌어요!", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -703,10 +719,11 @@ const QNA = [
             }
         ]
     },
-    { //17번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자 금액 :: 항목 만들어야 함 
+    { //17번 페이지: id, page, Question, status : 응답자 개인정보 / 투자 금액
         id:17,
         page: 17,
         Question: "현재의 투자 금액은?\n(투자 예정 금액)!", 
+        status: false,
         Answers: [
             {
                 id:1, 
@@ -716,10 +733,11 @@ const QNA = [
             }
         ]
     },
-    { //18번 페이지: id, page, Question, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자자산 비율
+    { //18번 페이지: id, page, Question, status, Answers{id, Answer, Value, State} : 응답자 개인정보 / 투자자산 비율
         id:18,
         page: 18,
         Question: "열심히 일해서 모은 10억,\n몇퍼센트를 투자할건가요?", 
+        status: false,
         Answers: [
             {
                 id:1,

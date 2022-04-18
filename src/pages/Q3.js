@@ -6,13 +6,9 @@ import QNA from '../content/QNA'
 const QnA = QNA[2];
 
 function Q3(props) {
-    // const Period = props.location.state.Period;
-    // const Purpose = props.location.state.Purpose;
     const Res = props.location.state.Res;
-    // console.log(Res);
 
     const [Response, getResponse] = useState('Not Selected!');
-    const [Sel, setSel] = useState(false);
 
     function SelButton({Answer}) {
 
@@ -26,7 +22,7 @@ function Q3(props) {
             Answer.State = !Answer.State;
             console.log(answer);
             getResponse(id);
-            setSel(true);
+            QnA.status = true;
         }
         
         return (
@@ -50,7 +46,7 @@ function Q3(props) {
                 {QnA.Answers.map(answer => (
                     <SelButton key= {answer.id} Answer={answer}/>
                 ))}
-                {Sel ?  <NextButton Path={"/q4"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+                {QnA.status ?  <NextButton Path={"/q4"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
             </div>
         </div>
     );

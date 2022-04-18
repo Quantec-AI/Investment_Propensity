@@ -23,7 +23,6 @@ import Q16 from './pages/Q16';
 import Q17 from './pages/Q17';
 import Q18 from './pages/Q18';
 import Final_Result from './pages/Final_Result';
-import Test from "./pages/Test";
 
 function App() {
 
@@ -53,8 +52,6 @@ function App() {
             <Route exact path="/q17" component={Q17} />
             <Route exact path="/q18" component={Q18} />
             <Route exact path="/result" component={Final_Result} />
-
-            <Route exact path="/test" component={Test} />
           </ScrollToTop>
         </Switch>
       </Router>

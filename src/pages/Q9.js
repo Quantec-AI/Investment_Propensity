@@ -8,12 +8,8 @@ const QnA = QNA[8];
 
 function Q9(props) {
   const Res = props.location.state.Res;
-  console.log(Res);
-  // console.log(props.location.state);
-  // Answers[1] = 3; 
 
   const [Response, getResponse] = useState('Not Selected!');
-  const [Sel, setSel] = useState(false);
 
   function SelButton({ Answer }) {
     const id = Answer.id;
@@ -24,7 +20,7 @@ function Q9(props) {
           answer.State = false
       ));
       Answer.State = !Answer.State;
-      setSel(true);
+      QnA.status = true;
       console.log(answer);
       getResponse(id);
     }
@@ -50,7 +46,7 @@ function Q9(props) {
         {QnA.Answers.map(answer => (
           <SelButton key= {answer.id} Answer={answer}/>
         ))}
-        {Sel ? <NextButton Path={"/q10"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+        {QnA.status ? <NextButton Path={"/q10"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
       </div>
     </div>
   );

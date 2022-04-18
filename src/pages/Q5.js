@@ -6,15 +6,8 @@ import QNA from '../content/QNA'
 const QnA = QNA[4];
 
 function Q5(props) {
-    // const Period = props.location.state.Period;
-    // const Purpose = props.location.state.Purpose;
-    // const Tolerance = props.location.state.Tolerance;
     const Res = props.location.state.Res;
     const ResponseList = [];
-
-    // console.log(Answers);
-    // const [Response, getResponse] = useState("Not Selected");
-    const [Sel, setSel] = useState(false);
     const [a, setA] = useState(false); // 렌더링을 위해.. 임의로 넣음
 
     function MulSelection({ Answer }) {
@@ -23,10 +16,7 @@ function Q5(props) {
 
         const onClick = () => {
             Answer.State = !Answer.State;
-            // const state = Answer.State;
-            // Answer.State === false ? getLiteracy( Literacy - value ):getLiteracy( Literacy + value ); 
-            // console.log(answer);
-            setSel(true);
+            QnA.status = true;
             Answer.State === false ? setA(-id): setA(id);
         };
         return (
@@ -36,11 +26,9 @@ function Q5(props) {
         );
     }
     
-    // QnA.Answers.map(answer => );
     QnA.Answers.map(answer => (
         answer.State && ResponseList.push(answer.id)
     ));
-    // console.log(QnA.Answers);
     Res[QnA.page] = ResponseList;
 
 
@@ -56,7 +44,7 @@ function Q5(props) {
                     ))}
                 </div>
                 <div style={{paddingTop: '0.5rem'}}></div>
-                {Sel ?  <NextButton Path={"/q6"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
+                {QnA.status ?  <NextButton Path={"/q6"} Res={Res} Text={'Next'}/> : <button disabled className='next'>Next</button> }
             </div>
         </div>
     );
