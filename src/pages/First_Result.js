@@ -63,8 +63,8 @@ function First_Result(props) {
   }
   function SetPurpose() { //투자 목적 Index 세팅
     const idx = (Purpose >= 26) ? 0 :
-      (Purpose >= 16 && Purpose < 26) ? 1 :
-      (Purpose >= 6 && Purpose < 16) ? 2 : 
+      (16 <= Purpose < 26) ? 1 :
+      (6 <= Purpose < 16) ? 2 : 
       (Purpose < 6) ? 3 : 
       console.log('No Result');
     console.log('투자 목적 응답: ', Purpose, '\n투자 목적 Index: ', idx);
@@ -72,8 +72,8 @@ function First_Result(props) {
   }
   function SetTolerance() { //위험 감내도 Index 세팅
     const idx = (Tolerance >= 26) ? 0 :
-      (Tolerance >= 16 && Tolerance < 26) ? 1 :
-      (Tolerance >= 6 && Tolerance <= 16) ? 2 : 
+      (16 <= Tolerance < 26) ? 1 :
+      (6 <= Tolerance < 16) ? 2 : 
       (Tolerance < 6) ? 3 : 
       console.log('No Result');
     console.log('위험 감내도 응답: ', Tolerance, '\n위험 감내도 Index: ', idx);
@@ -81,8 +81,8 @@ function First_Result(props) {
   }
   function SetLiteracy() { //금융 이해도 Index 세팅
     const idx = (Literacy >= 8) ? 0 :
-      (Literacy >= 6 && Literacy < 8) ? 1 :
-      (Literacy >= 3 && Literacy < 6) ? 2 : 
+      (6 <= Literacy < 8) ? 1 :
+      (3 <= Literacy < 6) ? 2 : 
       (Literacy < 3) ? 3 : 
       console.log('No Result');
     console.log('금융 이해도 응답: ', Literacy, '\n금융 이해도 Index: ', idx);
@@ -90,8 +90,8 @@ function First_Result(props) {
   }
   function SetExperience() { //투자 경험 Index 세팅
     const idx = (Experience >= 31) ? 0 :
-      (Experience >= 21 && Experience < 31) ? 1 :
-      (Experience >= 11 && Experience < 21) ? 2 : 
+      (21 <= Experience < 31) ? 1 :
+      (11 <= Experience < 21) ? 2 : 
       (Experience < 11) ? 3 : 
       console.log('No Result');
     
@@ -110,9 +110,9 @@ function First_Result(props) {
 
   function SetType() { //투자 성향 캐릭터 Index 세팅
     const idx = (Score >= 15) ? 0 :
-      (Score >= 13 && Score < 15)  ? 1 :
-      (Score >= 11 && Score < 13) ? 2 : 
-      (Score >= 7 && Score < 11) ? 3 : 
+      (13 <= Score < 15)  ? 1 :
+      (11 <= Score < 13) ? 2 : 
+      (7 <= Score < 11) ? 3 : 
       (Score < 7) ? 4 :
       console.log('No Result');
     console.log('투자 성향 점수: ', Score, '\n투자 성향 Index: ', idx);
@@ -145,15 +145,19 @@ function First_Result(props) {
               </div>
               <div className='Bag'>
                 <div className='Item'>
-                  <div>{Result.금융이해도[a_idx[3]].Weapon}
-                    {/* <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (공격력: {Result.금융이해도[a_idx[3]].Level})</span> */}
-                    <span> {Result.금융이해도[a_idx[3]].Level}</span>
+                  <div style={{width: '64px', height: '64px', backgroundColor:'gray', textAlign:'center'}}>
+                  {Result.금융이해도[a_idx[3]].Level}
+                  </div>
+                  <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}>
+                    <b>{Result.금융이해도[a_idx[3]].Weapon}</b>
                   </div>
                 </div>
                 <div className='Item'>
-                  <div>{Result.위험감내수준[a_idx[2]].Shield}
-                    {/* <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (방어력: {Result.위험감내수준[a_idx[2]].Level})</span> */}
-                    <span> {Result.위험감내수준[a_idx[2]].Level}</span>
+                  <div style={{width: '64px', height: '64px', backgroundColor:'gray', textAlign:'center'}}>
+                    {Result.위험감내수준[a_idx[2]].Level}
+                  </div>
+                  <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}>
+                    <b>{Result.위험감내수준[a_idx[2]].Shield}</b>
                   </div>
                 </div>
               </div>
