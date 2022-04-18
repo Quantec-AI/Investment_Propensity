@@ -29,12 +29,11 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <ScrollToTop>
             <Route exact path="/" component={Start} />
-            {/* <Route basename={process.env.RUBLIC_URL} component={Start} /> */}
-            <Route exact path="investment_propensity/q1" component={Q1} />
+            <Route exact path="/q1" component={Q1} />
             <Route exact path="/q2" component={Q2} />
             <Route exact path="/q3" component={Q3} />
             <Route exact path="/q4" component={Q4} />
