@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/Investment_propensity" component={Start} />
+          <Route exact path="/" component={Start} />
 	        <Route exact path="/q1" component={Q1} />
           <Route exact path="/q2" component={Q2} />
 	        <Route exact path="/q3" component={Q3} />

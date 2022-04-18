@@ -16,19 +16,23 @@ function Q17(props) {
   const [Resp, getResp] = useState(10);
   // const [Response, getResponse] = useState('Not Selected');
   
-  Res[QnA.page] = valueLabelFormat(calculateValue(Resp));
 
   function valueLabelFormat(Resp) {
     const units = ['만원', '억원'];
   
     let unitIndex = 0;
     let scaledValue = Resp;
+
+    Res[QnA.page] = parseInt(scaledValue);
   
+    if(scaledValue < 10000) {
+      scaledValue = Math.round(scaledValue/10)*10;
+    }
+
     while (scaledValue >= 10000 && unitIndex < units.length - 1) {
       unitIndex += 1;
       scaledValue /= 10000;
     }
-    // getResp('${parseInt(scaledValue)} ${units[unitIndex]}');
     return `${parseInt(scaledValue)} ${units[unitIndex]}`;
   }
 
@@ -61,7 +65,7 @@ function Q17(props) {
           <Slider
             value={Resp}
             min={0}
-            step={0.1}
+            step={0.02}
             max={100}
             scale={calculateValue}
             getAriaValueText={valueLabelFormat}

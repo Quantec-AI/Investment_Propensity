@@ -406,7 +406,7 @@ const QNA = [
             },
             { 
                 id:8, 
-                Answer: "마이크로소프트", 
+                Answer: "마이크로\n소프트", 
                 Sector: "IT",
                 Value: 8,
                 Img: '',

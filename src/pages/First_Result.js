@@ -40,12 +40,6 @@ function First_Result(props) {
     return data.id === Res[6]
   });
 
-  // console.log('Period: ', Period);
-  // console.log('Purpose: ', Purpose);
-  // console.log('Tolerance: ', Tolerance);
-  // console.log('Literacy: ', Literacy);
-  // console.log('Experience: ', Experience);
-
   // const Period = Per.Value;
   const Purpose = Pur1.Value;
   const Tolerance = (Tol1.Value + Tol2.Value)/2;
@@ -58,106 +52,50 @@ function First_Result(props) {
   let Score = 0;
 
   function SetPeriod() { //투자 기간 Index 세팅
-    let idx = -1;
-    console.log('투자 기간 응답: ', Per_Quest);
-    if(Per_Quest === 5) {
-      idx = 0;
-      console.log('Period Index: ', idx);
-    } else if (Per_Quest === 4) { 
-      idx = 1;
-      console.log('Period Index: ', idx);
-    } else if (Per_Quest === 3) {
-      idx = 2;
-      console.log('Period Index: ', idx);
-    } else if (Per_Quest === 2) {
-      idx = 3;
-      console.log('Period Index: ', idx);
-    } else if (Per_Quest === 1) {
-      idx = 4;
-      console.log('Period Index: ', idx);
-    } else {
-      console.log('No result');
-    }
+    const idx = (Per_Quest === 5) ? 0 :
+      (Per_Quest === 4) ? 1 :
+      (Per_Quest === 3) ? 2 : 
+      (Per_Quest === 2) ? 3 : 
+      (Per_Quest === 1) ? 4 :
+      console.log('No Result');
+    console.log('투자 기간 응답: ', Per_Quest, '\n투자 기간 Index: ', idx);
     return idx;
   }
   function SetPurpose() { //투자 목적 Index 세팅
-    let idx = -1;
-    console.log('투자 목적 응답: ', Purpose);
-    if(Purpose >= 26) {
-      idx = 0;
-      console.log('Purpose Index: ', idx);
-    } else if (Purpose >= 16 && Purpose < 26) { 
-      idx = 1;
-      console.log('Purpose Index: ', idx);
-    } else if (Purpose >= 6 && Purpose < 16) {
-      idx = 2;
-      console.log('Purpose Index: ', idx);
-    } else if (Purpose < 6) {
-      idx = 3;
-      console.log('Purpose Index: ', idx);
-    } else {
-      console.log('No result');
-    }
+    const idx = (Purpose >= 26) ? 0 :
+      (Purpose >= 16 && Purpose < 26) ? 1 :
+      (Purpose >= 6 && Purpose < 16) ? 2 : 
+      (Purpose < 6) ? 3 : 
+      console.log('No Result');
+    console.log('투자 목적 응답: ', Purpose, '\n투자 목적 Index: ', idx);
     return idx;
   }
   function SetTolerance() { //위험 감내도 Index 세팅
-    let idx = -1;
-    console.log('위험 감내도 응답: ', Tolerance);
-    if(Tolerance >= 26) {
-      idx = 0;
-      console.log('Tolerance Index: ', idx);
-    } else if (Tolerance >= 16 && Tolerance < 26) { 
-      idx = 1;
-      console.log('Tolerance Index: ', idx);
-    } else if (Tolerance >= 6 && Tolerance <= 16) {
-      idx = 2;
-      console.log('Tolerance Index: ', idx);
-    } else if (Tolerance < 6) {
-      idx = 3;
-      console.log('Tolerance Index: ', idx);
-    } else {
-      console.log('No result');
-    }
+    const idx = (Tolerance >= 26) ? 0 :
+      (Tolerance >= 16 && Tolerance < 26) ? 1 :
+      (Tolerance >= 6 && Tolerance <= 16) ? 2 : 
+      (Tolerance < 6) ? 3 : 
+      console.log('No Result');
+    console.log('위험 감내도 응답: ', Tolerance, '\n위험 감내도 Index: ', idx);
     return idx;
   }
   function SetLiteracy() { //금융 이해도 Index 세팅
-    let idx = -1;
-    console.log('금융이해도 응답: ', Literacy);
-    if(Literacy >= 8) {
-      idx = 0;
-      console.log('Literacy Index: ', idx);
-    } else if (Literacy >= 6 && Literacy < 8) { 
-      idx = 1;
-      console.log('Literacy Index: ', idx);
-    } else if (Literacy >= 3 && Literacy < 6) {
-      idx = 2;
-      console.log('Literacy Index: ', idx);
-    } else if (Literacy < 3) {
-      idx = 3;
-      console.log('Literacy Index: ', idx);
-    } else {
-      console.log('No result');
-    }
+    const idx = (Literacy >= 8) ? 0 :
+      (Literacy >= 6 && Literacy < 8) ? 1 :
+      (Literacy >= 3 && Literacy < 6) ? 2 : 
+      (Literacy < 3) ? 3 : 
+      console.log('No Result');
+    console.log('금융 이해도 응답: ', Literacy, '\n금융 이해도 Index: ', idx);
     return idx;
   }
   function SetExperience() { //투자 경험 Index 세팅
-    let idx = -1;
-    console.log('투자 경험 응답: ', Experience);
-    if(Experience >= 31) {
-      idx = 0;
-      console.log('Experience Index: ', idx);
-    } else if (Experience >= 21 && Experience < 31) { 
-      idx = 1;
-      console.log('Experience Index: ', idx);
-    } else if (Experience >= 11 && Experience < 21) {
-      idx = 2;
-      console.log('Experience Index: ', idx);
-    } else if (Experience < 11) {
-      idx = 3;
-      console.log('Experience Index: ', idx);
-    } else {
-      console.log('No result');
-    }
+    const idx = (Experience >= 31) ? 0 :
+      (Experience >= 21 && Experience < 31) ? 1 :
+      (Experience >= 11 && Experience < 21) ? 2 : 
+      (Experience < 11) ? 3 : 
+      console.log('No Result');
+    
+    console.log('투자 경험 응답: ', Experience, '\n투자 경험 Index: ', idx);
     return idx;
   }
 
@@ -171,26 +109,13 @@ function First_Result(props) {
   Score = (Result.투자목적[a_idx[1]].Value + Result.위험감내수준[a_idx[2]].Value + Result.금융이해도[a_idx[3]].Value + Result.투자경험[a_idx[4]].Value);
 
   function SetType() { //투자 성향 캐릭터 Index 세팅
-    let idx=-1;
-    console.log('투자 성향 점수: ', Score);
-    if(Score >= 15) {
-      idx=0;
-      console.log('캐릭터 Index: ', idx);
-    } else if (Score >= 13 && Score < 15) { 
-      idx=1;
-      console.log('캐릭터 Index: ', idx);
-    } else if (Score >= 11 && Score < 13) {
-      idx=2;
-      console.log('캐릭터 Index: ', idx);
-    } else if (Score >= 7 && Score < 11) {
-      idx=3;
-      console.log('캐릭터 Index: ', idx);
-    } else if (Score < 7) {
-      idx = 4;
-      console.log('Experience Index: ', idx);
-    } else {
-      console.log('No result');
-    }
+    const idx = (Score >= 15) ? 0 :
+      (Score >= 13 && Score < 15)  ? 1 :
+      (Score >= 11 && Score < 13) ? 2 : 
+      (Score >= 7 && Score < 11) ? 3 : 
+      (Score < 7) ? 4 :
+      console.log('No Result');
+    console.log('투자 성향 점수: ', Score, '\n투자 성향 Index: ', idx);
     return idx;
   }
   TypeIdx = SetType();
