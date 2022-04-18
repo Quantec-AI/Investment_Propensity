@@ -422,7 +422,7 @@ const QNA = [
             },
             { 
                 id:10, 
-                Answer: "튜크에너지", 
+                Answer: "듀크에너지", 
                 Sector: "유틸리티",
                 Value: 10,
                 Img: '',

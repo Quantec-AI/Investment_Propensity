@@ -5,7 +5,7 @@ import RESULT from '../content/RESULT';
 import Final_TYPE from '../content/FinalTYPE';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA';
-import { ComposedChart, XAxis, YAxis, Tooltip, Legend, CartesianGrid, Area, Bar, Line } from 'recharts';
+import { ComposedChart, XAxis, YAxis, Tooltip, Legend, CartesianGrid, Area, Line } from 'recharts';
 
 const Result = RESULT;
 const Final_Type = Final_TYPE;
@@ -270,26 +270,28 @@ function Final_Result(props) {
             </div>
             <div className='Explain'>
                 <div className='CharInfo'>
-                <div className='Table'>
-                    <p><b>투자 목적</b>: {Result.투자목적[a_idx[1]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
-                    <p><b>위험 감내도</b>: {Result.위험감내수준[a_idx[2]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
-                    <p><b>금융 이해도</b>: {Result.금융이해도[a_idx[3]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
-                    <p><b>투자 경험</b>: {Result.투자경험[a_idx[4]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
-                </div>
-                <div className='Bag'>
-                    <div className='Item'>
-                    <div>{Result.금융이해도[a_idx[3]].Weapon}
-                        {/* <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (공격력: {Result.금융이해도[a_idx[3]].Level})</span> */}
-                        <span> {Result.금융이해도[a_idx[3]].Level}</span>
+                    <div className='Table'>
+                        <p><b>투자 목적</b>: {Result.투자목적[a_idx[1]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+                        <p><b>위험 감내도</b>: {Result.위험감내수준[a_idx[2]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+                        <p><b>금융 이해도</b>: {Result.금융이해도[a_idx[3]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+                        <p><b>투자 경험</b>: {Result.투자경험[a_idx[4]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
                     </div>
+                    <div className='Bag'>
+                        <div className='Item'>
+                            <div style={{width: '64px', height: '64px', backgroundColor:'gray', textAlign:'center'}}>
+                                {Result.금융이해도[a_idx[3]].Level}
+                            </div>
+                            <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}>
+                                <b>{Result.금융이해도[a_idx[3]].Weapon}</b>
+                            </div>
+                        </div>
+                        <div className='Item'>
+                            <div style={{width: '64px', height: '64px', backgroundColor:'gray', textAlign:'center'}}>
+                                {Result.위험감내수준[a_idx[2]].Level}
+                            </div>
+                            <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}><b>{Result.위험감내수준[a_idx[2]].Shield}</b></div>
+                        </div>
                     </div>
-                    <div className='Item'>
-                    <div>{Result.위험감내수준[a_idx[2]].Shield}
-                        {/* <span style={{fontSize: '0.8rem', color:'#A7A8A3', fontWeight:'600'}}> (방어력: {Result.위험감내수준[a_idx[2]].Level})</span> */}
-                        <span> {Result.위험감내수준[a_idx[2]].Level}</span>
-                    </div>
-                    </div>
-                </div>
                 </div>
                 <ComposedChart width={400} height={250} margin={{top: 20, bottom: 20}} data={data}>
                     <XAxis dataKey="year" />
@@ -298,8 +300,8 @@ function Final_Result(props) {
                     <Tooltip />
                     {/* <Legend /> */}
                     <CartesianGrid stroke="#fefefe" />
-                    <Area type="monotone" dataKey="예상수익범위" fill="#1D1A82" stroke="#8884d8" />
-                    <Line type="monotone" dataKey="예상수익" stroke="#FFB950" />
+                    <Area type="monotone" dataKey="예상수익범위" fill="#FFB950" stroke="#FFB950" />
+                    <Line type="monotone" dataKey="예상수익" stroke="#1D1A82" />
                 </ComposedChart>
                 {/* 캐릭터 설명 +  */}
                 <div>

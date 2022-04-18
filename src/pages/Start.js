@@ -24,6 +24,26 @@ function Start() {
     17: false,
     18: false
   }
+  const dummy_Res = {
+    1: 4,
+    2: 3,
+    3: 3,
+    4: 4,
+    5: [1, 12, 13],
+    6: 3,
+    7: [1, 6],
+    8: [2],
+    9: 3,
+    10: 2,
+    11: 3,
+    12: 4,
+    13: 4,
+    14: 2,
+    15: 1,
+    16: 2,
+    17: 2290,
+    18: 4
+  }
   QNA.map(qna => (
     qna.Answers.map(answer => (
       answer.State = false
@@ -37,6 +57,7 @@ function Start() {
         {/* <h1>투자 성향에 맞는 캐릭터를 만들어드려요 ^^*</h1> */}
         <h5 style={{marginBottom: '0'}}>Press button to start</h5>
         <NextButton Path={"/q1"} Res={Res} Text={'테스트 시작하기'}/>
+        <NextButton Path={"/result"} Res={dummy_Res} Text={'결과로 바로 이동'}/> 
       </div>
     </div>
   );
