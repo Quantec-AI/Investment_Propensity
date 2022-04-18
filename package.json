@@ -1,6 +1,6 @@
 {
   "name": "investment_propensity",
-  "homepage": "https://Hyunmin99.github.io/investment_propensity",
+  "homepage": "https://quantec-ai.github.io/investment_propensity",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "node node_modules/gh-pages/bin/gh-pages-clean.js && gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
