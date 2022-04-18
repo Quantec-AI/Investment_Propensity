@@ -33,6 +33,7 @@ function App() {
         <Switch>
           <ScrollToTop>
             <Route exact path="/" component={Start} />
+            {/* <Route basename={process.env.RUBLIC_URL} component={Start} /> */}
             <Route exact path="/q1" component={Q1} />
             <Route exact path="/q2" component={Q2} />
             <Route exact path="/q3" component={Q3} />
