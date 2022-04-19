@@ -11,6 +11,7 @@
 :root {
   --yellow000: #FFB950;
   --navy000: #1D1A82;
+  --navy100: #0d172a;
   --white000: #FEFDFE;
   --gray000: #f4f3f4;
   --gray100: #e0e0e0;
@@ -26,10 +27,6 @@ body{
   white-space: pre-line;
 }
 
-/* h1, h2 {
-  font-family: 'DungGeunMo';
-} */
-
 .App {
   background: var(--white000);
   width: 540px;
@@ -37,8 +34,8 @@ body{
 }
 
 .Start{
-  background-color: #0d172a;
-  color: #fefdfe;
+  background-color: var(--navy100);
+  color: var(--white000);
   text-align: center;
   box-sizing: border-box;
   font-family: Arial,sans-serif;
@@ -72,7 +69,8 @@ body{
   height: 100vh;
   box-sizing: border-box;
   font-family: Arial,sans-serif;
-  margin: 4rem auto;
+  /* margin: 4rem auto; */
+  padding-top: 3rem;
 }
 
 .Header {
