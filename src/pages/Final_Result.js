@@ -317,7 +317,10 @@ function Final_Result(props) {
         }
     ]
 
-    //parseFloat(.toFixed(2))
+    console.log(typeof(Result.금융이해도[a_idx[3]].Img))
+    console.log(typeof('../assets/weapon/weapon-lv2.svg'))
+
+    const a = 2;
 
     return (
         <div className="App">
@@ -341,20 +344,28 @@ function Final_Result(props) {
                         <p><b>금융 이해도</b>: {Result.금융이해도[a_idx[3]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
                         <p><b>투자 경험</b>: {Result.투자경험[a_idx[4]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
                     </div>
+
                     <div className='Bag'>
                         <div className='Item'>
-                            <div style={{width: '64px', height: '64px', backgroundColor:'gray', textAlign:'center'}}>
-                                {Result.금융이해도[a_idx[3]].Level}
+                            <div style={{width: '64px', height: '64px', textAlign:'center'}}>
+                                <img width={64} height={64} src={require(`../assets/weapon/weapon-lv${a}.svg`).default}/>  
+                                {/* <img width={64} height={64} src={require(Result.금융이해도[a_idx[3]].Img).default}/>   */}
                             </div>
                             <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}>
-                                <b>{Result.금융이해도[a_idx[3]].Weapon}</b>
+                                <b>{Result.금융이해도[a_idx[3]].Weapon}</b> <br/>
+                                {Result.금융이해도[a_idx[3]].Level}
                             </div>
                         </div>
                         <div className='Item'>
-                            <div style={{width: '64px', height: '64px', backgroundColor:'gray', textAlign:'center'}}>
+                            <div style={{width: '64px', height: '64px', backgroundColor:'gray', padding: 'auto'}}>
+                                <img width={50} height={50} src={require(`../assets/shield/shield-lv2.svg`).default}/>  
+                                {/* <img width={50} height={50} src={`../assets/shield/shield-lv2.svg`}/> */}
+                                {/* <img width={50} height={50} src={require(Result.위험감내수준[a_idx[2]].Level.Img).default}/>  */}
+                            </div>
+                            <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}>
+                                <b>{Result.위험감내수준[a_idx[2]].Shield}</b> <br/>
                                 {Result.위험감내수준[a_idx[2]].Level}
                             </div>
-                            <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}><b>{Result.위험감내수준[a_idx[2]].Shield}</b></div>
                         </div>
                     </div>
                 </div>
