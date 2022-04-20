@@ -101,9 +101,6 @@ function Final_Result(props) {
     const Literacy = Lit1 + Lit2.Value + Lit3.Value;
     const Experience = (Exp1.Value + Exp2.Value)/2;
 
-    const a_idx = [-1, -1, -1, -1, -1]; //투자기간, 투자목적, 위험감내도, 금융이해도, 투자경험
-    let TypeIdx = -1; // 투자유형
-
     function SetPeriod() { //투자 기간 Index 세팅
         const idx = (Per_Quest === 5) ? 0 :
             (Per_Quest === 4) ? 1 :
@@ -116,8 +113,8 @@ function Final_Result(props) {
     }
     function SetPurpose() { //투자 목적 Index 세팅
         const idx = (Purpose >= 26) ? 0 :
-            (16 <= Purpose < 26) ? 1 :
-            (6 <= Purpose < 16) ? 2 : 
+            (16 <= Purpose && Purpose < 26) ? 1 :
+            (6 <= Purpose && Purpose < 16) ? 2 : 
             (Purpose < 6) ? 3 : 
             console.log('No Result');
         console.log('투자 목적 응답: ', Purpose, '\n투자 목적 Index: ', idx);
@@ -125,8 +122,8 @@ function Final_Result(props) {
     }
     function SetTolerance() { //위험 감내도 Index 세팅
         const idx = (Tolerance >= 26) ? 0 :
-            (16 <= Tolerance < 26) ? 1 :
-            (6 <= Tolerance < 16) ? 2 : 
+            (16 <= Tolerance && Tolerance < 26) ? 1 :
+            (6 <= Tolerance && Tolerance < 16) ? 2 : 
             (Tolerance < 6) ? 3 : 
             console.log('No Result');
         console.log('위험 감내도 응답: ', Tolerance, '\n위험 감내도 Index: ', idx);
@@ -134,8 +131,8 @@ function Final_Result(props) {
     }
     function SetLiteracy() { //금융 이해도 Index 세팅
         const idx = (Literacy >= 8) ? 0 :
-            (6 <= Literacy < 8) ? 1 :
-            (3 <= Literacy < 6) ? 2 : 
+            (6 <= Literacy && Literacy < 8) ? 1 :
+            (3 <= Literacy && Literacy < 6) ? 2 : 
             (Literacy < 3) ? 3 : 
             console.log('No Result');
         console.log('금융 이해도 응답: ', Literacy, '\n금융 이해도 Index: ', idx);
@@ -143,8 +140,8 @@ function Final_Result(props) {
     }
     function SetExperience() { //투자 경험 Index 세팅
         const idx = (Experience >= 31) ? 0 :
-            (21 <= Experience < 31) ? 1 :
-            (11 <= Experience < 21) ? 2 : 
+            (21 <= Experience && Experience < 31) ? 1 :
+            (11 <= Experience && Experience < 21) ? 2 : 
             (Experience < 11) ? 3 : 
             console.log('No Result');
 
@@ -152,45 +149,43 @@ function Final_Result(props) {
         return idx;
     }
 
-    a_idx[0] = SetPeriod();
-    a_idx[1] = SetPurpose();
-    a_idx[2] = SetTolerance();
-    a_idx[3] = SetLiteracy();
-    a_idx[4] = SetExperience();
+    const Res_Period = Result.투자기간[SetPeriod()];
+    const Res_Purpose = Result.투자목적[SetPurpose()];
+    const Res_Tolerance = Result.위험감내수준[SetTolerance()];
+    const Res_Literacy = Result.금융이해도[SetLiteracy()];
+    const Res_Experience = Result.투자경험[SetExperience()];
 
     //토탈 점수 계산
-    const Total_Score = (Result.투자목적[a_idx[1]].Value + Result.위험감내수준[a_idx[2]].Value + Result.금융이해도[a_idx[3]].Value + Result.투자경험[a_idx[4]].Value + Period + Age.Value + Income.Value + Property.Value);
+    const Total_Score = (Res_Purpose.Value + Res_Tolerance.Value + Res_Literacy.Value + Res_Experience.Value + Period + Age.Value + Income.Value + Property.Value);
+
     //투자 성향 점수 계산
-    const Score = (Result.투자목적[a_idx[1]].Value + Result.위험감내수준[a_idx[2]].Value + Result.금융이해도[a_idx[3]].Value + Result.투자경험[a_idx[4]].Value);
+    const Score = (Res_Purpose.Value + Res_Tolerance.Value + Res_Literacy.Value + Res_Experience.Value);
 
     //투자 성향 캐릭터 Index 세팅
     function SetType() { 
         console.log('Total Score is... ', Total_Score, '\nScore is... ',Score);
         const idx = ((Total_Score >=31) &&(16 <= Score <= 18)) ? 0 :
-            ((Total_Score >=31) && (14 <= Score <= 15)) ? 1 :
-            ((Total_Score >=31) && (12 <= Score <= 13)) ? 2 :
-            ((23<= Total_Score <=30) && (14 <= Score <= 18)) ? 3 :
-            ((23<= Total_Score <=30) && (12 <= Score <= 13)) ? 4 :
-            ((23<= Total_Score <=30) && (7 <= Score <= 11)) ? 5 :
-            ((18<= Total_Score <=22) && (14 <= Score <= 18)) ? 6 :
-            ((18<= Total_Score <=22) && (12 <= Score <= 13)) ? 7 :
-            ((18<= Total_Score <=22) && (7 <= Score <= 11)) ? 8 :
-            ((6<= Total_Score <=17) && (Score === 13)) ? 9 :
-            ((6<= Total_Score <=17) && (11 <= Score <= 12)) ? 10 :
-            ((6<= Total_Score <=17) && (17 <= Score <= 10)) ? 11 :
+            ((Total_Score >=31) && (14 <= Score && Score <= 15)) ? 1 :
+            ((Total_Score >=31) && (12 <= Score && Score <= 13)) ? 2 :
+            ((23<= Total_Score && Total_Score <=30) && (14 <= Score && Score <= 18)) ? 3 :
+            ((23<= Total_Score && Total_Score <=30) && (12 <= Score && Score <= 13)) ? 4 :
+            ((23<= Total_Score && Total_Score <=30) && (7 <= Score && Score <= 11)) ? 5 :
+            ((18<= Total_Score && Total_Score <=22) && (14 <= Score && Score <= 18)) ? 6 :
+            ((18<= Total_Score && Total_Score <=22) && (12 <= Score && Score <= 13)) ? 7 :
+            ((18<= Total_Score && Total_Score <=22) && (7 <= Score && Score <= 11)) ? 8 :
+            ((6<= Total_Score && Total_Score <=17) && (Score === 13)) ? 9 :
+            ((6<= Total_Score && Total_Score <=17) && (11 <= Score && Score <= 12)) ? 10 :
+            ((6<= Total_Score && Total_Score <=17) && (17 <= Score && Score <= 10)) ? 11 :
             (Total_Score <=5) ? 12 : 
             console.log('Error Type');
         return idx;
     }
 
-    TypeIdx = SetType();
+    const Type = Final_Type[SetType()];
 
-    const MIN = Final_Type[TypeIdx].Min;
-    const MAX = Final_Type[TypeIdx].Max;
-    const REV = Final_Type[TypeIdx].Revenuse;
-
-    // let covMoney = 0;
-    // let covUnits = '';
+    const MIN = Type.Min;
+    const MAX = Type.Max;
+    const REV = Type.Revenuse;
 
     function valueLabelFormat(Money) {
       
@@ -217,58 +212,9 @@ function Final_Result(props) {
         return units[unitIndex];
     }
 
-    // const a = valueLabelFormat(Money);
-    // console.log(a);
     const covMoney = valueLabelFormat(Money);
     const covUnits = valueFormat(Money);
 
-    const data2 = [
-        {
-          "year": "현재",
-          "예상수익범위": [covMoney, covMoney],
-          "예상수익": covMoney
-        },
-        {
-          "year": "5년",
-          "예상수익범위": [((MIN/8*covMoney)*(1)+covMoney), ((MAX/8*covMoney)*(1)+covMoney)],
-          "예상수익": ((REV/8*covMoney)*(1)+covMoney)
-        },
-        {
-          "year": "10년",
-          "예상수익범위": [((MIN/8*covMoney)*(2)+covMoney), ((MAX/8*covMoney)*(2)+covMoney)],
-          "예상수익": ((REV/8*covMoney)*(2)+covMoney)
-        },
-        {
-          "year": "15년",
-          "예상수익범위": [((MIN/8*covMoney)*(3)+covMoney), ((MAX/8*covMoney)*(3)+covMoney)],
-          "예상수익": ((REV/8*covMoney)*(3)+covMoney)
-        },
-        {
-          "year": "20년",
-          "예상수익범위": [((MIN/8*covMoney)*(4)+covMoney), ((MAX/8*covMoney)*(4)+covMoney)],
-          "예상수익": ((REV/8*covMoney)*(4)+covMoney)
-        },
-        {
-          "year": "25년",
-          "예상수익범위": [((MIN/8*Money)*(5)+covMoney), ((MAX/8*covMoney)*(5)+covMoney)],
-          "예상수익": ((REV/8*covMoney)*(5)+covMoney)
-        },
-        {
-          "year": "30년",
-          "예상수익범위": [((MIN/8*covMoney)*(6)+covMoney), ((MAX/8*covMoney)*(6)+covMoney)],
-          "예상수익": ((REV/8*covMoney)*(6)+covMoney)
-        },
-        {
-          "year": "35년",
-          "예상수익범위": [((MIN/8*covMoney)*(7)+covMoney), ((MAX/8*covMoney)*(7)+covMoney)],
-          "예상수익": ((REV/8*covMoney)*(7)+covMoney)
-        },
-        {
-          "year": "40년",
-          "예상수익범위": [((MIN/8*covMoney)*(8)+covMoney), ((MAX/8*covMoney)*(8)+covMoney)],
-          "예상수익": ((REV/8*covMoney)*(8)+covMoney)
-        }
-    ]
     const data = [
         {
           "year": "현재",
@@ -317,54 +263,46 @@ function Final_Result(props) {
         }
     ]
 
-    console.log(typeof(Result.금융이해도[a_idx[3]].Img))
-    console.log(typeof('../assets/weapon/weapon-lv2.svg'))
-
-    const a = 2;
-
     return (
         <div className="App">
         <Header />
         <div className='Result'>  {/* style={{display: 'flex'}} */}
             <div> 
             <div> 
-                <div className='Quest'> 
+                <div className='Quest'>
                 <div style={{fontSize: '20px', fontWeight: '700', fontFamily: 'DungGeunMo'}}>Quest</div>
-                <div>{Result.투자기간[a_idx[0]].Quest}</div>
+                <div>{Res_Period.Quest}</div>
                 </div>
                 {/* <img className='TypeImage'></img> */}
                 <div className='TypeImage'></div>
-                <h1 style={{color: '#fefefe', fontFamily: 'DungGeunMo', padding: '0.5rem'}}>{Final_Type[TypeIdx].Char}</h1>
+                <h1 style={{color: '#fefefe', fontFamily: 'DungGeunMo', padding: '0.5rem'}}>{Type.Char}</h1>
             </div>
             <div className='Explain'>
                 <div className='CharInfo'>
                     <div className='Table'>
-                        <p><b>투자 목적</b>: {Result.투자목적[a_idx[1]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
-                        <p><b>위험 감내도</b>: {Result.위험감내수준[a_idx[2]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
-                        <p><b>금융 이해도</b>: {Result.금융이해도[a_idx[3]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
-                        <p><b>투자 경험</b>: {Result.투자경험[a_idx[4]].Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+                        <p><b>투자 목적</b>: {Res_Purpose.Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+                        <p><b>위험 감내도</b>: {Res_Tolerance.Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+                        <p><b>금융 이해도</b>: {Res_Literacy.Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+                        <p><b>투자 경험</b>: {Res_Experience.Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
                     </div>
 
                     <div className='Bag'>
-                        <div className='Item'>
-                            <div style={{width: '64px', height: '64px', textAlign:'center'}}>
-                                <img width={64} height={64} src={require(`../assets/weapon/weapon-lv${a}.svg`).default}/>  
-                                {/* <img width={64} height={64} src={require(Result.금융이해도[a_idx[3]].Img).default}/>   */}
+                        <div className='Items'>
+                            <div className='ItemImg'>                                
+                                <img width={42} height={42} src={Res_Literacy.Img} alt='무기 이미지'/> 
                             </div>
                             <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}>
-                                <b>{Result.금융이해도[a_idx[3]].Weapon}</b> <br/>
-                                {Result.금융이해도[a_idx[3]].Level}
+                                <b>{Res_Literacy.Weapon}</b> <br/>
+                                {Res_Literacy.Level}
                             </div>
                         </div>
-                        <div className='Item'>
-                            <div style={{width: '64px', height: '64px', backgroundColor:'gray', padding: 'auto'}}>
-                                <img width={50} height={50} src={require(`../assets/shield/shield-lv2.svg`).default}/>  
-                                {/* <img width={50} height={50} src={`../assets/shield/shield-lv2.svg`}/> */}
-                                {/* <img width={50} height={50} src={require(Result.위험감내수준[a_idx[2]].Level.Img).default}/>  */}
+                        <div className='Items'>
+                            <div className='ItemImg'>
+                                <img width={42} height={42} src={Res_Tolerance.Img} alt='방패 이미지'/>  
                             </div>
                             <div style={{marginTop: 'auto', marginBottom:'auto', marginLeft:'0.5rem'}}>
-                                <b>{Result.위험감내수준[a_idx[2]].Shield}</b> <br/>
-                                {Result.위험감내수준[a_idx[2]].Level}
+                                <b>{Res_Tolerance.Shield}</b> <br/>
+                                {Res_Tolerance.Level}
                             </div>
                         </div>
                     </div>
@@ -380,7 +318,7 @@ function Final_Result(props) {
                 </ComposedChart>
                 {/* 캐릭터 설명 +  */}
                 <div>
-                <p>{Final_Type[TypeIdx].Content}</p>
+                <p>{Type.Content}</p>
                 </div>
             </div>
             </div>
