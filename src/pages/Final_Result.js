@@ -186,7 +186,7 @@ function Final_Result(props) {
 
     const MIN = Type.Min;
     const MAX = Type.Max;
-    const REV = Type.Revenuse;
+    const REV = Type.Revenue;
 
     // function valueLabelFormat(Money) {
       
