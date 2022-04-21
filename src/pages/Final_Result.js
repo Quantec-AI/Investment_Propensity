@@ -5,7 +5,8 @@ import RESULT from '../content/RESULT';
 import Final_TYPE from '../content/FinalTYPE';
 import NextButton from '../component/NextButton';
 import QNA from '../content/QNA';
-import { ComposedChart, XAxis, YAxis, Tooltip, Legend, CartesianGrid, Area, Line } from 'recharts';
+// import { ComposedChart, XAxis, YAxis, Tooltip, Legend, CartesianGrid, Area, Line } from 'recharts';
+import Graph from '../component/Graph';
 
 const Result = RESULT;
 const Final_Type = Final_TYPE;
@@ -77,9 +78,9 @@ function Final_Result(props) {
         return data.id === Res[13]
     });
     //Set Personal Info : Gender - Q14
-    const Gender = QNA[13].Answers.find(function(data) {
-        return data.id === Res[14]
-    });
+    // const Gender = QNA[13].Answers.find(function(data) {
+    //     return data.id === Res[14]
+    // });
     //Set Personal Info : Age - Q15
     const Age = QNA[14].Answers.find(function(data) {
         return data.id === Res[15]
@@ -175,7 +176,7 @@ function Final_Result(props) {
             ((18<= Total_Score && Total_Score <=22) && (7 <= Score && Score <= 11)) ? 8 :
             ((6<= Total_Score && Total_Score <=17) && (Score === 13)) ? 9 :
             ((6<= Total_Score && Total_Score <=17) && (11 <= Score && Score <= 12)) ? 10 :
-            ((6<= Total_Score && Total_Score <=17) && (17 <= Score && Score <= 10)) ? 11 :
+            ((6<= Total_Score && Total_Score <=17) && (7 <= Score && Score <= 10)) ? 11 :
             (Total_Score <=5) ? 12 : 
             console.log('Error Type');
         return idx;
@@ -187,81 +188,81 @@ function Final_Result(props) {
     const MAX = Type.Max;
     const REV = Type.Revenuse;
 
-    function valueLabelFormat(Money) {
+    // function valueLabelFormat(Money) {
       
-        let scaledValue = Money;
+    //     let scaledValue = Money;
           
-        if(scaledValue < 10000) {
-          scaledValue = Math.round(scaledValue/10)*10;
-        }
+    //     if(scaledValue < 10000) {
+    //       scaledValue = Math.round(scaledValue/10)*10;
+    //     }
 
-        while (scaledValue >= 10000) {
-            scaledValue /= 10000;
-        }
-        return parseInt(scaledValue);
-    }
+    //     while (scaledValue >= 10000) {
+    //         scaledValue /= 10000;
+    //     }
+    //     return parseInt(scaledValue);
+    // }
 
-    function valueFormat(Money) {
-        const units = ['만원', '억원'];
-        let unitIndex = 0;
+    // function valueFormat(Money) {
+    //     const units = ['만원', '억원'];
+    //     let unitIndex = 0;
 
-        while (Money >= 10000 && unitIndex < units.length - 1) {
-            unitIndex += 1;
-            Money /= 10000;
-        }
-        return units[unitIndex];
-    }
+    //     while (Money >= 10000 && unitIndex < units.length - 1) {
+    //         unitIndex += 1;
+    //         Money /= 10000;
+    //     }
+    //     return units[unitIndex];
+    // }
 
-    const covMoney = valueLabelFormat(Money);
-    const covUnits = valueFormat(Money);
+    // const covMoney = valueLabelFormat(Money);
+    // const covUnits = valueFormat(Money);
 
-    const data = [
-        {
-          "year": "현재",
-          "예상수익범위": [covMoney, covMoney],
-          "예상수익": covMoney
-        },
-        {
-          "year": "5년",
-          "예상수익범위": [((MIN/100*covMoney)*(5)+covMoney), ((MAX/100*covMoney)*(5)+covMoney)],
-          "예상수익": ((REV/100*covMoney)*(5)+covMoney)
-        },
-        {
-          "year": "10년",
-          "예상수익범위": [((MIN/100*covMoney)*(10)+covMoney), ((MAX/100*covMoney)*(10)+covMoney)],
-          "예상수익": ((REV/100*covMoney)*(10)+covMoney)
-        },
-        {
-          "year": "15년",
-          "예상수익범위": [((MIN/100*covMoney)*(15)+covMoney), ((MAX/100*covMoney)*(15)+covMoney)],
-          "예상수익": ((REV/100*covMoney)*(15)+covMoney)
-        },
-        {
-          "year": "20년",
-          "예상수익범위": [((MIN/100*covMoney)*(20)+covMoney), ((MAX/100*covMoney)*(20)+covMoney)],
-          "예상수익": ((REV/100*covMoney)*(20)+covMoney)
-        },
-        {
-          "year": "25년",
-          "예상수익범위": [((MIN/100*covMoney)*(25)+covMoney), ((MAX/100*covMoney)*(25)+covMoney)],
-          "예상수익": parseFloat(((REV/100*covMoney)*(25)+covMoney).toFixed(2))
-        },
-        {
-          "year": "30년",
-          "예상수익범위": [parseFloat(((MIN/100*covMoney)*(30)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(30)+covMoney).toFixed(2))],
-          "예상수익": parseFloat(((REV/100*covMoney)*(30)+covMoney).toFixed(2))
-        },
-        {
-          "year": "35년",
-          "예상수익범위": [parseFloat(((MIN/100*covMoney)*(35)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(35)+covMoney).toFixed(2))],
-          "예상수익": parseFloat(((REV/100*covMoney)*(35)+covMoney).toFixed(2))
-        },
-        {
-          "year": "40년",
-          "예상수익범위": [parseFloat(((MIN/100*covMoney)*(40)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(40)+covMoney).toFixed(2))],
-          "예상수익": parseFloat(((REV/100*covMoney)*(40)+covMoney).toFixed(2))
-        }
-    ]
+    // const data = [
+    //     {
+    //       "year": "현재",
+    //       "예상수익범위": [covMoney, covMoney],
+    //       "예상수익": covMoney
+    //     },
+    //     {
+    //       "year": "5년",
+    //       "예상수익범위": [parseFloat(((MIN/100*covMoney)*(5)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(5)+covMoney).toFixed(2))],
+    //       "예상수익": parseFloat(((REV/100*covMoney)*(5)+covMoney).toFixed(2))
+    //     },
+    //     {
+    //       "year": "10년",
+    //       "예상수익범위": [parseFloat(((MIN/100*covMoney)*(10)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(10)+covMoney).toFixed(2))],
+    //       "예상수익": parseFloat(((REV/100*covMoney)*(10)+covMoney).toFixed(2))
+    //     },
+    //     {
+    //       "year": "15년",
+    //       "예상수익범위": [parseFloat(((MIN/100*covMoney)*(15)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(15)+covMoney).toFixed(2))],
+    //       "예상수익": parseFloat(((REV/100*covMoney)*(15)+covMoney).toFixed(2))
+    //     },
+    //     {
+    //       "year": "20년",
+    //       "예상수익범위": [parseFloat(((MIN/100*covMoney)*(20)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(20)+covMoney).toFixed(2))],
+    //       "예상수익": parseFloat(((REV/100*covMoney)*(20)+covMoney).toFixed(2))
+    //     },
+    //     {
+    //       "year": "25년",
+    //       "예상수익범위": [parseFloat(((MIN/100*covMoney)*(25)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(25)+covMoney).toFixed(2))],
+    //       "예상수익": parseFloat(((REV/100*covMoney)*(25)+covMoney).toFixed(2))
+    //     },
+    //     {
+    //       "year": "30년",
+    //       "예상수익범위": [parseFloat(((MIN/100*covMoney)*(30)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(30)+covMoney).toFixed(2))],
+    //       "예상수익": parseFloat(((REV/100*covMoney)*(30)+covMoney).toFixed(2))
+    //     },
+    //     {
+    //       "year": "35년",
+    //       "예상수익범위": [parseFloat(((MIN/100*covMoney)*(35)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(35)+covMoney).toFixed(2))],
+    //       "예상수익": parseFloat(((REV/100*covMoney)*(35)+covMoney).toFixed(2))
+    //     },
+    //     {
+    //       "year": "40년",
+    //       "예상수익범위": [parseFloat(((MIN/100*covMoney)*(40)+covMoney).toFixed(2)), parseFloat(((MAX/100*covMoney)*(40)+covMoney).toFixed(2))],
+    //       "예상수익": parseFloat(((REV/100*covMoney)*(40)+covMoney).toFixed(2))
+    //     }
+    // ]
 
     return (
         <div className="App">
@@ -280,10 +281,14 @@ function Final_Result(props) {
             <div className='Explain'>
                 <div className='CharInfo'>
                     <div className='Table'>
-                        <p><b>투자 목적</b>: {Res_Purpose.Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
-                        <p><b>위험 감내도</b>: {Res_Tolerance.Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
-                        <p><b>금융 이해도</b>: {Res_Literacy.Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
-                        <p><b>투자 경험</b>: {Res_Experience.Grade}<span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+                        <p><b>투자 목적</b>: {Res_Purpose.Grade}
+                        <span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+                        <p><b>위험 감내도</b>: {Res_Tolerance.Grade}
+                        <span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 4등급</span></p>
+                        <p><b>금융 이해도</b>: {Res_Literacy.Grade}
+                        <span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
+                        <p><b>투자 경험</b>: {Res_Experience.Grade}
+                        <span style={{color: '#A7A8A3', fontSize: '0.8rem', fontWeight:'800'}}> / 2등급</span></p>
                     </div>
 
                     <div className='Bag'>
@@ -307,7 +312,7 @@ function Final_Result(props) {
                         </div>
                     </div>
                 </div>
-                <ComposedChart width={400} height={250} margin={{top: 20, bottom: 20}} data={data}>
+                {/* <ComposedChart width={400} height={250} margin={{top: 20, bottom: 20}} data={data}>
                     <XAxis dataKey="year" tick={{fontSize: 10}} padding={{right: 20}}/>
                     <YAxis unit={covUnits} tick={{fontSize: 10}} padding={{bottom: 10}} />
                     <Tooltip />
@@ -315,7 +320,8 @@ function Final_Result(props) {
                     <CartesianGrid stroke="#f4f4f4" />
                     <Area type="monotone" dataKey="예상수익범위" fill="#FFB950" stroke="#FFB950" />
                     <Line type="monotone" dataKey="예상수익" stroke="#1D1A82" />
-                </ComposedChart>
+                </ComposedChart> */}
+                <Graph P={Money} A={0} Min={MIN} Max={MAX} Rev={REV}  />
                 {/* 캐릭터 설명 +  */}
                 <div>
                 <p>{Type.Content}</p>
